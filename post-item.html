@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="form-container">
+            <form class="form-horizontal">
+                <fieldset>
+                
+                <!-- Form Name -->
+                <legend>Post an item </legend>
+                
+                <!-- Text input-->
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="itemName">Item</label>  
+                <div class="col-md-4">
+                <input id="itemName" name="itemName" type="text" placeholder="Item name..." class="form-control input-md" required="">
+                <span class="help-block">Type in the name of the item here (eg: toilet paper)</span>  
+                </div>
+                </div>
+                
+                <!-- Text input-->
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Quantity</label>  
+                <div class="col-md-4">
+                <input id="textinput" name="textinput" type="text" placeholder="Quantity..." class="form-control input-md" required="">
+                <span class="help-block">Quantity of the item you want to post (eg: 3)</span>  
+                </div>
+                </div>
+                
+                <!-- Text input-->
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="itemDescription">Description</label>  
+                <div class="col-md-4">
+                <input id="itemDescription" name="itemDescription" type="text" placeholder="Item" class="form-control input-md" required="">
+                <span class="help-block">Description of the item (eg: brand new, full box)</span>  
+                </div>
+                </div>
+                
+                <!-- Button -->
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="btnSubmit"></label>
+                <div class="col-md-4">
+                    <button id="btnSubmit" name="btnSubmit" class="btn btn-success">Submit</button>
+                </div>
+                </div>
+                
+                </fieldset>
+            </form>  
+        </div>          
+    </body>
+</html>
