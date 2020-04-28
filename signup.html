@@ -67,19 +67,22 @@
                 signInSuccessWithAuthResult: function (authResult, redirectUrl) {
                   console.log(authResult);
                   var user = authResult.user;
-                  var useremail, userid;
+                  var useremail, userid, username;
                   if(user != null){
                     useremail = user.email;
-                    userid = user.uid; db.collection("Users").doc(userid).set({
+                    userid = user.uid;
+                    username = user.displayName;
+                    console.log(useremail) ;
+                    console.log(userid); db.collection("Users").doc(userid).set({
                     addr: "",
                     email: useremail,
-                    fName: "",
-                    lName: "",
+                    name: username,
                     postalCode: "",
                     userID: userid 
                  })
+                  return true;
                   }
-                    return true;
+
                 },
                 uiShown: function () {
                     // The widget is rendered.
