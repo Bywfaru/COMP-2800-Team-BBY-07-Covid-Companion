@@ -110,16 +110,26 @@
     <main>
         <!--SIDEBAR-->
         <aside>
+<<<<<<< HEAD
             SORT BY:<br>
             <button>OLDEST</button><br>
+=======
+>>>>>>> dd73783b312ff029bc83eaa2a5d01975fc593a25
             <button>OFFERING</button><br>
             <button>REQUESTING</button>
         </aside>
 
         <!--Feed-->
         <section>
+<<<<<<< HEAD
             <div class="jumbotron" id="cards" style="background-color: white;">
                 <!--Cards go here-->
+=======
+            <div class="jumbotron" id="" style="background-color: white;">
+                <div id="cards" class="row">
+                    Jumbotron cards go here
+                </div>
+>>>>>>> dd73783b312ff029bc83eaa2a5d01975fc593a25
             </div>
         </section>
 
@@ -137,6 +147,29 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
 
+<<<<<<< HEAD
+=======
+    
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBaZHm6ZVMik8nQSd9By8swddN_23rsAhU",
+            authDomain: "comp2800-covid-companion.firebaseapp.com",
+            databaseURL: "https://comp2800-covid-companion.firebaseio.com",
+            projectId: "comp2800-covid-companion",
+            storageBucket: "comp2800-covid-companion.appspot.com",
+            messagingSenderId: "1049614650890",
+            appId: "1:1049614650890:web:1c78ffca70f68c90ead9f3",
+            measurementId: "G-XLKW7NCXFD"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var db = firebase.firestore();
+    </script>
+
+
+>>>>>>> dd73783b312ff029bc83eaa2a5d01975fc593a25
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -147,12 +180,104 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
+<<<<<<< HEAD
     <script src="js/firebaseConfig.js"></script>
 
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
     <script src="js/main.js"></script>
+=======
+    <!----------------------------------------------->
+    <!-- JS files: Your own JavaScripts go here    -->
+    <!----------------------------------------------->
+    <script src=""></script>
+    <script>
+        let dbRef = db.collection("Posts");
+
+        // get posts from db based on date
+        function getPosts() {
+            dbRef.orderBy("submissionDate")
+                .get()
+                .then(function (snap) {
+                    displayCards(snap);
+                });
+        }
+
+        /**
+         * Displays the post cards.
+         * 
+         * @param CardObjects the collection of posts
+         */
+        function displayCards(CardObjects) { //takes in collection
+            CardObjects.forEach(function (doc) { //cycle thru collection
+                createOneCard(doc); //create card for one recipe/gym
+            })
+        };
+
+        /**
+         * Creates a post card.
+         * 
+         * @param c the post document
+         */
+        function createOneCard(c) {
+            var coldiv = document.createElement("div");
+            coldiv.setAttribute("class", "col-md-3");
+
+            var carddiv = document.createElement("div");
+            carddiv.setAttribute("class", "card");
+
+            var cardbodydiv = document.createElement("div");
+            cardbodydiv.setAttribute("class", "card-body");
+
+            // Post type
+            var type = document.createElement("h4");
+            type.setAttribute("class", "card-title");
+            var text = document.createTextNode(c.data().title);
+            type.appendChild(text);
+
+            // Post title
+            var title = document.createElement("h4");
+            title.setAttribute("class", "card-title");
+            var text = document.createTextNode(c.data().title);
+            title.appendChild(text);
+
+            // Post description
+            var desc = document.createElement("p");
+            desc.setAttribute("class", "card-text");
+            var text = document.createTextNode(c.data().postDesc);
+            desc.appendChild(text);
+
+            // Posted date
+            var date = document.createElement("p");
+            date.setAttribute("class", "card-text");
+            var text = document.createTextNode(c.data().submissionDate);
+            date.appendChild(text);
+
+
+            // View Post button
+            var a = document.createElement("input");
+            a.type = "button"
+            a.setAttribute("value", "View");
+            a.addEventListener('click', function () {
+                loadPage(c.id);
+            });
+            a.setAttribute("class", "btn btn-outline-secondary");
+            var text = document.createTextNode("View Gym");
+            a.appendChild(text);
+
+            // Stitch it all together 
+            cardbodydiv.appendChild(type);
+            cardbodydiv.appendChild(title);
+            cardbodydiv.appendChild(desc);
+            cardbodydiv.appendChild(date);
+            cardbodydiv.appendChild(a);
+            carddiv.appendChild(cardbodydiv);
+            coldiv.appendChild(carddiv);
+            document.getElementById("cards").appendChild(coldiv); //stick it in the div
+        }
+    </script>
+>>>>>>> dd73783b312ff029bc83eaa2a5d01975fc593a25
 
 </body>
 
