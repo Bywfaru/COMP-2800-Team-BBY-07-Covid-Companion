@@ -12,6 +12,9 @@
     <!----------------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
     <!----------------------------------------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 
 
     <!------------------------>
@@ -19,7 +22,41 @@
     <!------------------------>
     <link rel="stylesheet" href="style/index.css">
     <style>
-        
+        main {
+            display: grid;
+            grid-template-areas:
+                "aside"
+                "section"
+                "footer";
+        }
+
+        section {
+            grid-area: section;
+            border: 1px solid;
+        }
+
+        aside {
+            grid-area: aside;
+            border: 1px solid;
+        }
+
+        footer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            grid-area: footer;
+            border: 1px solid;
+        }
+
+        @media (min-width: 1025px) {
+            main {
+                grid-template-columns: 20%;
+                grid-template-areas:
+                    "aside section"
+                    "footer footer";
+            }
+        }
     </style>
 </head>
 
@@ -27,63 +64,198 @@
     <!------------------->
     <!--  HTML Section -->
     <!------------------->
-
     <!--NavBar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">COVID COMPANION</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="#">
+            <h1>COVID COMPANION</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-      
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Alerts</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">DMs</a>
-              </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Profile
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <button class="nav-link" onclick="">Post</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Alerts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">DMs</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">My Posts</a>
+                        <a class="dropdown-item" href="#">My Profile</a>
+                        <a class="dropdown-item" href="#">Account Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Log Out</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" onclick="">Post</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
-      </nav>
+    </nav>
 
-    <!--Feed-->
-    <div class="jumbotron" id="results">
-        <div id = "cards" class="row">
-            <!--- this is where new cards will be inserted-->
-        </div>
-    </div>
+    <main>
+        <!--SIDEBAR-->
+        <aside>
+            <button>OFFERING</button><br>
+            <button>REQUESTING</button>
+        </aside>
 
+        <!--Feed-->
+        <section>
+            <div class="jumbotron" id="" style="background-color: white;">
+                <div id="cards" class="row">
+                    Jumbotron cards go here
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <h4>Please note that all face-to-face interactions are at your own risk.</h4>
+            <h4>Be safe and help #FlattenTheCurve !</h4>
+        </footer>
+    </main>
 
 
     <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, other API's    -->
+    <!-- JS: Boostrap, Firebase, other API's       -->
     <!----------------------------------------------->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+    
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBaZHm6ZVMik8nQSd9By8swddN_23rsAhU",
+            authDomain: "comp2800-covid-companion.firebaseapp.com",
+            databaseURL: "https://comp2800-covid-companion.firebaseio.com",
+            projectId: "comp2800-covid-companion",
+            storageBucket: "comp2800-covid-companion.appspot.com",
+            messagingSenderId: "1049614650890",
+            appId: "1:1049614650890:web:1c78ffca70f68c90ead9f3",
+            measurementId: "G-XLKW7NCXFD"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var db = firebase.firestore();
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
-    <script src="scripts/index.js"></script>
+    <script src=""></script>
+    <script>
+        let dbRef = db.collection("Posts");
+
+        // get posts from db based on date
+        function getPosts() {
+            dbRef.orderBy("submissionDate")
+                .get()
+                .then(function (snap) {
+                    displayCards(snap);
+                });
+        }
+
+        /**
+         * Displays the post cards.
+         * 
+         * @param CardObjects the collection of posts
+         */
+        function displayCards(CardObjects) { //takes in collection
+            CardObjects.forEach(function (doc) { //cycle thru collection
+                createOneCard(doc); //create card for one recipe/gym
+            })
+        };
+
+        /**
+         * Creates a post card.
+         * 
+         * @param c the post document
+         */
+        function createOneCard(c) {
+            var coldiv = document.createElement("div");
+            coldiv.setAttribute("class", "col-md-3");
+
+            var carddiv = document.createElement("div");
+            carddiv.setAttribute("class", "card");
+
+            var cardbodydiv = document.createElement("div");
+            cardbodydiv.setAttribute("class", "card-body");
+
+            // Post type
+            var type = document.createElement("h4");
+            type.setAttribute("class", "card-title");
+            var text = document.createTextNode(c.data().title);
+            type.appendChild(text);
+
+            // Post title
+            var title = document.createElement("h4");
+            title.setAttribute("class", "card-title");
+            var text = document.createTextNode(c.data().title);
+            title.appendChild(text);
+
+            // Post description
+            var desc = document.createElement("p");
+            desc.setAttribute("class", "card-text");
+            var text = document.createTextNode(c.data().postDesc);
+            desc.appendChild(text);
+
+            // Posted date
+            var date = document.createElement("p");
+            date.setAttribute("class", "card-text");
+            var text = document.createTextNode(c.data().submissionDate);
+            date.appendChild(text);
+
+
+            // View Post button
+            var a = document.createElement("input");
+            a.type = "button"
+            a.setAttribute("value", "View");
+            a.addEventListener('click', function () {
+                loadPage(c.id);
+            });
+            a.setAttribute("class", "btn btn-outline-secondary");
+            var text = document.createTextNode("View Gym");
+            a.appendChild(text);
+
+            // Stitch it all together 
+            cardbodydiv.appendChild(type);
+            cardbodydiv.appendChild(title);
+            cardbodydiv.appendChild(desc);
+            cardbodydiv.appendChild(date);
+            cardbodydiv.appendChild(a);
+            carddiv.appendChild(cardbodydiv);
+            coldiv.appendChild(carddiv);
+            document.getElementById("cards").appendChild(coldiv); //stick it in the div
+        }
+    </script>
+
 </body>
 
 </html>
