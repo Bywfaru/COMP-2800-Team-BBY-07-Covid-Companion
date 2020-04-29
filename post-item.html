@@ -4,6 +4,7 @@
     <head>
         <title>Create a post</title>
         <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/styles.css" type="text/css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
 
@@ -15,7 +16,7 @@
                     <!-- Form Name -->
                     <legend>Create a post</legend>
 
-                    <!-- Multiple Radios -->
+                    <!-- Post Type Multiple Radios -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="postType">Post type</label>
                         <div class="col-md-4">
@@ -33,8 +34,27 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Donation Type Multiple Radios -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="donationType">Donation type</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label for="donationType-0">
+                                    <input type="radio" name="donationType" id="donationType-0" value="1" onchange="updateQtyDisplay(); updateCategoryOptions()" checked="checked">
+                                    Item
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="donationType-1">
+                                    <input type="radio" name="donationType" id="donationType-1" value="2" onchange="updateQtyDisplay(); updateCategoryOptions()">
+                                    Service
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <!-- Text input-->
+                    <!-- Item Name Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="itemName">Item</label>  
                         <div class="col-md-4">
@@ -43,34 +63,61 @@
                         </div>
                     </div>
                     
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="textinput">Quantity</label>  
-                        <div class="col-md-4">
-                            <input id="itemQty" name="textinput" type="text" placeholder="Quantity..." class="form-control input-md" required="">
-                            <span class="help-block">Quantity of the item you want to post (eg: 3)</span>  
-                        </div>
-                    </div>
-                    
-                    <!-- Text input-->
+                    <!-- Item Description Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="itemDescription">Description</label>  
                         <div class="col-md-4">
-                            <input id="itemDescription" name="itemDescription" type="text" placeholder="Item" class="form-control input-md" required="">
+                            <input id="itemDescription" name="textItemDescription" type="text" placeholder="Item description..." class="form-control input-md" required="">
                             <span class="help-block">Description of the item (eg: brand new, full box)</span>  
                         </div>
                     </div>
 
-                    <!-- Textarea -->
+                    <!-- Item Quantity Select Basic -->
+                    <div class="form-group" id="selectQty-container">
+                        <label class="col-md-4 control-label" for="selectQty">Quantity</label>
+                        <div class="col-md-4">
+                            <select id="selectQty" name="selectQty" class="form-control" onchange="updateTextQtyDisplay()">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="more">More...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Item Quantity Text input-->
+                    <div class="form-group" id="textQty-container">
+                        <label class="col-md-4 control-label" for="textQty">Quantity</label>  
+                        <div class="col-md-4">
+                            <input id="textQty" name="textQty" type="text" placeholder="Item quantity..." class="form-control input-md" required="">
+                            <span class="help-block">Quantity of the item</span>  
+                        </div>
+                    </div>
+
+                    <!-- Comments Textarea -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="textarea">Comments</label>
+                        <label class="col-md-4 control-label" for="postComments">Comments</label>
                         <div class="col-md-4">                     
-                            <textarea class="form-control" id="postComments" name="textarea" placeholder="Additional comments..."></textarea>
+                            <textarea class="form-control" id="taComments" name="textarea" placeholder="Additional comments..."></textarea>
                             <span class="help-block">Additional comments for your post</span> 
                         </div>
                     </div>
 
-                    <!-- File Button --> 
+                    <!-- Category Select Basic -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="selectbasic">Category</label>
+                        <div class="col-md-4">
+                            <select id="selectCategory" name="selectbasic" class="form-control">
+                                <option value="" disabled selected>Select a category...</option>
+                                <option value="2">Toiletries</option>
+                                <option value="3">Feminine hygeine</option>
+                                <option value="4">Cleaning supplies</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Post Image File Button --> 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="postImage">Post Image</label>
                         <div class="col-md-4">
@@ -78,7 +125,7 @@
                         </div>
                     </div>
                     
-                    <!-- Button -->
+                    <!-- Submit Button -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="btnSubmit"></label>
                         <div class="col-md-4">
