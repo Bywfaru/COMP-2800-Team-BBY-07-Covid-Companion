@@ -24,18 +24,28 @@ function updateTextQtyDisplay() {
 }
 
 function updateCategoryOptions() {
+<<<<<<< HEAD
     let postTypeItem = document.getElementById("postType-0");
+=======
+    let donationType = document.getElementById("donationType-0");
+>>>>>>> post-item_branch
     let selectCategory = document.getElementById("selectCategory");
     let option;
 
     selectCategory.innerHTML = "";
+<<<<<<< HEAD
     
     if (postTypeItem.checked) {
+=======
+
+    if (donationType.checked) {
+>>>>>>> post-item_branch
         for (let i = 0; i < itemCategories.length; i++) {
             option = document.createElement("option");
 
             if (i == 0) {
                 option.value = "";
+<<<<<<< HEAD
                 option.disabled = true;
                 option.selected = true; 
             } else {
@@ -43,6 +53,16 @@ function updateCategoryOptions() {
                 option.text = itemCategories[i];
             }
 
+=======
+                option.disabled = "";
+                option.selected = ""; 
+            } else {
+                option.value = itemCategories[i];
+            }
+
+            option.text = itemCategories[i];
+
+>>>>>>> post-item_branch
             selectCategory.appendChild(option);
         }
     } else {
@@ -51,8 +71,13 @@ function updateCategoryOptions() {
 
             if (i == 0) {
                 option.value = "";
+<<<<<<< HEAD
                 option.disabled = true;
                 option.selected = true; 
+=======
+                option.disabled = "";
+                option.selected = ""; 
+>>>>>>> post-item_branch
             } else {
                 option.value = serviceCategories[i];
             }
@@ -62,4 +87,8 @@ function updateCategoryOptions() {
             selectCategory.appendChild(option);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> post-item_branch
