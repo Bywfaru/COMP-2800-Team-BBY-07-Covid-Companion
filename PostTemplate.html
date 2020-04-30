@@ -256,6 +256,18 @@
         senderID: "hOH2MQ9jZ2TvAuxEgDkN",
         mesDesc: messageCont,
         sentDate: date
+      }).then(function (){
+              if(mes == 1){
+        
+            $(".Messenger").show();
+            mes = 0;
+         
+         } else{
+           
+            $(".Messenger").hide();
+            mes = 1;
+           
+         }
       });
     };
      
