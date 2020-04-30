@@ -91,7 +91,7 @@ function createOneCard(c) {
     a.type = "button"
     a.setAttribute("value", "View");
     a.addEventListener('click', function () {
-        loadPage(c.id);
+        window.location.href = "posttemplate.html";
     });
     a.setAttribute("class", "btn btn-outline-secondary");
     var text = document.createTextNode("View Gym");
