@@ -63,4 +63,8 @@ function updateCategoryOptions() {
             selectCategory.appendChild(option);
         }
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
