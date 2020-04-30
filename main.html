@@ -16,12 +16,50 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </link>
 
+
+
     <!------------------------>
     <!-- Your own CSS files -->
     <!------------------------>
     <link rel="stylesheet" href="style/index.css">
     <style>
 
+        main {
+            display: grid;
+            grid-template-areas:
+                "aside"
+                "section"
+                "footer";
+        }
+
+        section {
+            grid-area: section;
+            border: 1px solid;
+        }
+
+        aside {
+            grid-area: aside;
+            border: 1px solid;
+        }
+
+        footer {
+            position: relative;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            grid-area: footer;
+            border: 1px solid;
+            z-index: 1;
+        }
+
+        @media (min-width: 1025px) {
+            main {
+                grid-template-columns: 20%;
+                grid-template-areas:
+                    "aside section"
+                    "footer footer";
+            }
+        }
     </style>
 </head>
 
@@ -44,7 +82,7 @@
                     <a class="nav-link" href="#">Alerts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">DMs (lol you aint getting any)</a>
+                    <a class="nav-link" href="#">DMs</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -52,10 +90,11 @@
                         Profile
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">My Posts</a>
+                        <a class="dropdown-item" href="#">My Profile</a>
+                        <a class="dropdown-item" href="#">Account Settings</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Log Out</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -64,31 +103,41 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">TACOS!</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
 
-    <!--Feed-->
-    <section>
-        <div class="jumbotron" id="results">
-            <div id="cards" class="row">
-                <!--- this is where new cards will be inserted-->
-                Cards go here
+    <main>
+        <!--SIDEBAR-->
+        <aside>
+            SORT BY:<br>
+            <button>OLDEST</button><br>
+            <button>OFFERING</button><br>
+            <button>REQUESTING</button>
+        </aside>
+
+        <!--Feed-->
+        <section>
+            <div class="jumbotron" id="cards" style="background-color: white;">
+                <!--Cards go here-->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-
-    </footer>
-
-
+        <footer>
+            <h4>Please note that all face-to-face interactions are at your own risk.</h4>
+            <h4>Be safe and help #FlattenTheCurve !</h4>
+        </footer>
+    </main>
 
 
     <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, other API's    -->
+    <!-- JS: Boostrap, Firebase, other API's       -->
     <!----------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -99,10 +148,13 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
+    <script src="js/firebaseConfig.js"></script>
+
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
-    <script src="scripts/index.js"></script>
+    <script src="js/main.js"></script>
+
 </body>
 
 </html>
