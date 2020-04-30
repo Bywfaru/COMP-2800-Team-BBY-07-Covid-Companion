@@ -58,17 +58,24 @@
   
   <style>
     
+    #prefPage{
+      float:right;
+      padding-right: 20%;
+    }
     
     #userName{
      text-align: center;
     }
     
+    body {
+      background-color: lightgray;
+    }
+    
     .artic{
-     
       padding-top: 5%;
-      padding-left: 30%;
-      padding-right: 30%;
-      
+      padding-left: 10%;
+      padding-right: 10%;
+      background-color:lightgray;
     }
   
     #img1{
@@ -76,14 +83,8 @@
       height: 150%;
     }
     
-    #butt{
-      float:right;
-      padding-right: 37%;
-    }
-    
     #userSaves{
-      padding-left: 30%;
-      padding-right: 30%;
+      background-color:azure;
     }
   
   </style>
@@ -130,21 +131,17 @@
     <section>
         <!--Blurb-->
         <div class="artic">
-            <h3 id="userName"></h3>
-            <span id="imageSection">
-            </span>
-            <h5><u><b>Description:</b></u></h5>
-            <p id="userDesc">
-            </p>
-          <p><b>Email</b>: <span id="useremail"></span></p>
-          <p><b>Address</b>: <span id="userAd"></span> </p>
-            <p><b>PostalCode</b>: <span id="userPost"></span></p>
-        </div>
-      <div class="Messenger">
+                <div class="feed">
+            <h1><u><b> My Feed </b></u></h1>
+            <div id="userSaves">
+            <p><u><b>Currently Saved Posts</b></u></p>
+            <ul id ="savePosts"></ul>
       </div>
-      <section id="butt">
-      <button id="butt2">User Feed</button>
-      <button id="prefPage">User Preferences</button>
+            
+        </div>
+        </div>
+    <section id="prefPage">
+    <button id="butt">User Profile</button>
       </section>
     </section>
 
@@ -170,23 +167,23 @@
     
     $(document).ready(function(){
       
-      db.collection("Users").doc("1j77JwtPUW4p8aBCQZV1").onSnapshot(
-      function (c){
-        document.getElementById("userName").innerHTML = c.data().name;
-        document.getElementById("useremail").innerHTML = c.data().email;
-        document.getElementById("userAd").innerHTML = c.data().addr;
-        document.getElementById("userPost").innerHTML = c.data().postalCode;
-        $("#imageSection").append('<img id="img1" src='
-           + c.data().profImage + '>');
-      });
-      
-      document.getElementById("prefPage").onclick = function () {
-        window.location.replace("UserPref.html");
-      }
-      document.getElementById("butt2").onclick = function () {
-        window.location.replace("UserFeed.html");
+      document.getElementById("butt").onclick = function () {
+        window.location.replace("UserProf.html");
       }
 
+      function loadSaves(){
+        db.collection('SavedPosts').get().then(function(querySnapshot){
+          querySnapshot.forEach(function(doc){
+              if(doc.data().saverID == "1j77JwtPUW4p8aBCQZV1"){
+                var value = '<li><a>' + doc.data().postNo + '</a></li>';
+                $("#savePosts").append(value);
+            }
+          });
+        });
+      }
+      
+      loadSaves();
+      
     });
 
   </script>
