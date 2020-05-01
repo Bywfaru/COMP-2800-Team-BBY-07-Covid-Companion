@@ -35,56 +35,12 @@
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, other API's    -->
     <!----------------------------------------------->
-    <script>    // Your web app's Firebase configuration
-        var firebaseConfig = {
-        apiKey: "AIzaSyDCpamZM81mioA4Cnim1sEdVFJ4a_iJF8g",
-        authDomain: "oct31-a3f3b.firebaseapp.com",
-        databaseURL: "https://oct31-a3f3b.firebaseio.com",
-        projectId: "oct31-a3f3b",
-        storageBucket: "oct31-a3f3b.appspot.com",
-        messagingSenderId: "812700493452",
-        appId: "1:812700493452:web:d88d58d98d8f1bf6e67da9"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
+    <script src="js/firebaseConfig.js"></script>
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
     <div id="firebaseui-auth-container"> </div>
     <div id="loader"> Loading... </div>
-    <script>
-        // Initialize the FirebaseUI Widget using Firebase.
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-        var uiConfig = {
-            callbacks: {
-                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                    // User successfully signed in.
-                    // Return type determines whether we continue the redirect automatically
-                    // or whether we leave that to developer to handle.
-                    return true;
-                },
-                uiShown: function () {
-                    // The widget is rendered.
-                    // Hide the loader.
-                    document.getElementById('loader').style.display = 'none';
-                }
-            },
-            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-            signInFlow: 'popup',
-            signInSuccessUrl: 'main.html',
-            signInOptions: [ 
-                firebase.auth.EmailAuthProvider.PROVIDER_ID,
-            ],
-            // Terms of service url.
-            tosUrl: 'main.html',
-            // Privacy policy url.
-            privacyPolicyUrl: 'main.html'
-        };
-
-        // The start method will wait until the DOM is loaded.
-        ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
+    <script src="js/signup_js.js"></script>
 </body>
 </html>
