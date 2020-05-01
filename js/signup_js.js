@@ -19,13 +19,17 @@ var uiConfig = {
             // or whether we leave that to developer to handle.
 
             // Executes if the user is a new user.
-            if (authResult.additionalUserInfo.isNewUser) {     
-                return firebase.firestore().collection("Users").doc(user.uid).set({
-                    name: user.displayName,
-                    email: user.email
-                });
-            }
-            return true;
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    // If the user is signed in.
+                    firebase.firestore().collection("Users").doc(user.uid).set({
+                        name: user.displayName,
+                        email: user.email
+                    }).then(function() {
+                        return window.location.replace("/main.html");
+                    });
+                }
+            });
         },
         uiShown: function() {
             // The widget is rendered.
@@ -35,7 +39,7 @@ var uiConfig = {
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
-    signInSuccessUrl: '/main.html',
+    //signInSuccessUrl: '/main.html',
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
