@@ -1,46 +1,26 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>COVID Companion</title>
+    <head>
+        <title>Covid Companion</title>
 
-    <!----------------------------------------------->
-    <!--  Meta tag for rendering on mobile devices -->
-    <!----------------------------------------------->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- FirebaseUI CDN -->
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    </head>
 
-    <!----------------------------------------------->
-    <!-- CSS: Bootstrap, Firebase, other API -->
-    <!----------------------------------------------->
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <body>
+        <!-- HTML element where the FirebaseUI sign-in widget will be rendered. -->
+        <h1>Welcome to Covid Companion</h1>
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
 
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <!------------------------> 
-    <!-- Your own CSS files -->
-    <!------------------------>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-
-</head>
-
-<body>
-    <!------------------->
-    <!--  HTML Section -->
-    <!------------------->
-
-    <!--BANNER-->
-    <h1>COVID COMPANION :)</h1>
-
-    <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, other API's    -->
-    <!----------------------------------------------->
-    <script src="js/firebaseConfig.js"></script>
-    <!----------------------------------------------->
-    <!-- JS files: Your own JavaScripts go here    -->
-    <!----------------------------------------------->
-    <div id="firebaseui-auth-container"> </div>
-    <div id="loader"> Loading... </div>
-    <script src="js/signup_script.js"></script>
-</body>
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <!-- Firebase products -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+        <!-- Firebase config JS file -->
+        <script src="js/firebaseConfig.js"></script>
+        <!-- Page JS file -->
+        <script src="js/signup_js.js"></script>
+    </body>
 </html>
