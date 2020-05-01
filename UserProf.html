@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>COVID Companion</title>
+
+    <!----------------------------------------------->
+    <!--  Meta tag for rendering on mobile devices -->
+    <!----------------------------------------------->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!----------------------------------------------->
+    <!-- CSS: Bootstrap, Firebase, other API -->
+    <!----------------------------------------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+      <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
+  
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBaZHm6ZVMik8nQSd9By8swddN_23rsAhU",
+    authDomain: "comp2800-covid-companion.firebaseapp.com",
+    databaseURL: "https://comp2800-covid-companion.firebaseio.com",
+    projectId: "comp2800-covid-companion",
+    storageBucket: "comp2800-covid-companion.appspot.com",
+    messagingSenderId: "1049614650890",
+    appId: "1:1049614650890:web:1c78ffca70f68c90ead9f3",
+    measurementId: "G-XLKW7NCXFD"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+</script>
+
+    <!------------------------>
+    <!-- Your own CSS files -->
+    <!------------------------>
+  
+  <style>
+    
+    
+    #userName{
+     text-align: center;
+    }
+    
+    .artic{
+     
+      padding-top: 5%;
+      padding-left: 30%;
+      padding-right: 30%;
+      
+    }
+  
+    #img1{
+      width: 80%;
+      height: 150%;
+    }
+    
+    #butt{
+      float:right;
+      padding-right: 37%;
+    }
+    
+    #userSaves{
+      padding-left: 30%;
+      padding-right: 30%;
+    }
+  
+  </style>
+  
+</head>
+
+<body>
+    <!------------------->
+    <!--  HTML Section -->
+    <!------------------->
+
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="index.html">
+            <h1>COVID COMPANION</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Get Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Offer Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Guidelines</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <section>
+        <!--Blurb-->
+        <div class="artic">
+            <h3 id="userName"></h3>
+            <span id="imageSection">
+            </span>
+            <h5><u><b>Description:</b></u></h5>
+            <p id="userDesc">
+            </p>
+          <p><b>Email</b>: <span id="useremail"></span></p>
+          <p><b>Address</b>: <span id="userAd"></span> </p>
+            <p><b>PostalCode</b>: <span id="userPost"></span></p>
+        </div>
+      <div class="Messenger">
+      </div>
+      <section id="butt">
+      <button id="butt2">User Feed</button>
+      <button id="prefPage">User Preferences</button>
+      </section>
+    </section>
+
+    <!----------------------------------------------->
+    <!-- JS: Boostrap, Firebase, other API's    -->
+    <!----------------------------------------------->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <!----------------------------------------------->
+    <!-- JS files: Your own JavaScripts go here    -->
+    <!----------------------------------------------->
+  
+  <script>
+    
+    $(document).ready(function(){
+      
+      db.collection("Users").doc("1j77JwtPUW4p8aBCQZV1").onSnapshot(
+      function (c){
+        document.getElementById("userName").innerHTML = c.data().name;
+        document.getElementById("useremail").innerHTML = c.data().email;
+        document.getElementById("userAd").innerHTML = c.data().addr;
+        document.getElementById("userPost").innerHTML = c.data().postalCode;
+        $("#imageSection").append('<img id="img1" src='
+           + c.data().profImage + '>');
+      });
+      
+      document.getElementById("prefPage").onclick = function () {
+        window.location.replace("UserPref.html");
+      }
+      document.getElementById("butt2").onclick = function () {
+        window.location.replace("UserFeed.html");
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>
