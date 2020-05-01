@@ -17,11 +17,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-<<<<<<< HEAD
-    <!------------------------>
-=======
     <!------------------------> 
->>>>>>> 6d2fc7ab534fc4b32bdeaffb5da9912b39a7da48
     <!-- Your own CSS files -->
     <!------------------------>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
@@ -39,92 +35,12 @@
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, other API's    -->
     <!----------------------------------------------->
-<<<<<<< HEAD
-    <script>    // Your web app's Firebase configuration
-        var firebaseConfig = {
-        apiKey: "AIzaSyDCpamZM81mioA4Cnim1sEdVFJ4a_iJF8g",
-        authDomain: "oct31-a3f3b.firebaseapp.com",
-        databaseURL: "https://oct31-a3f3b.firebaseio.com",
-        projectId: "oct31-a3f3b",
-        storageBucket: "oct31-a3f3b.appspot.com",
-        messagingSenderId: "812700493452",
-        appId: "1:812700493452:web:d88d58d98d8f1bf6e67da9"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-=======
-    <script>    
-        // Your web app's Firebase configuration
-    var firebaseConfig = {
-    apiKey: "AIzaSyBaZHm6ZVMik8nQSd9By8swddN_23rsAhU",
-    authDomain: "comp2800-covid-companion.firebaseapp.com",
-    databaseURL: "https://comp2800-covid-companion.firebaseio.com",
-    projectId: "comp2800-covid-companion",
-    storageBucket: "comp2800-covid-companion.appspot.com",
-    messagingSenderId: "1049614650890",
-    appId: "1:1049614650890:web:8fbe9699d6983c19ead9f3",
-    measurementId: "G-VBXPKGMTVJ"
-    };
-    // Initialize Firebase
-     firebase.initializeApp(firebaseConfig);
-     var db = firebase.firestore();
->>>>>>> 6d2fc7ab534fc4b32bdeaffb5da9912b39a7da48
-    </script>
+    <script src="js/firebaseConfig.js"></script>
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
     <div id="firebaseui-auth-container"> </div>
     <div id="loader"> Loading... </div>
-    <script>
-        // Initialize the FirebaseUI Widget using Firebase.
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-        var uiConfig = {
-            callbacks: {
-                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-<<<<<<< HEAD
-                    // User successfully signed in.
-                    // Return type determines whether we continue the redirect automatically
-                    // or whether we leave that to developer to handle.
-                    return true;
-=======
-                  console.log(authResult);
-                  var user = authResult.user;
-                  var name, email, uid;
-                  if(user != null){
-                    name = user.displayName;
-                    email = user.email;
-                    uid = user.uid;
-                    db.collection("Users").doc(uid).set({
-                    username:name,
-                    useremail:email,
-                    useruid:uid
-                      
-                })
-                  }
-                return true;
->>>>>>> 6d2fc7ab534fc4b32bdeaffb5da9912b39a7da48
-                },
-                uiShown: function () {
-                    // The widget is rendered.
-                    // Hide the loader.
-                    document.getElementById('loader').style.display = 'none';
-                }
-            },
-            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-            signInFlow: 'popup',
-            signInSuccessUrl: 'main.html',
-            signInOptions: [ 
-                firebase.auth.EmailAuthProvider.PROVIDER_ID,
-            ],
-            // Terms of service url.
-            tosUrl: 'main.html',
-            // Privacy policy url.
-            privacyPolicyUrl: 'main.html'
-        };
-
-        // The start method will wait until the DOM is loaded.
-        ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
+    <script src="js/signup_script.js"></script>
 </body>
 </html>
