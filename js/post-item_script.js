@@ -1,3 +1,10 @@
+let postsRef = db.collection("Posts");
+
+//======================//
+// Functions            //
+//======================//
+
+// Returns vaule of selected radio button
 function getRadioValue() {
     let radios = document.getElementsByName('postType');
 
@@ -8,22 +15,22 @@ function getRadioValue() {
     }
 }
 
-
 function handleClick() {
     let postType = getRadioValue();
     let title = document.getElementById("title").value;
     let description = document.getElementById("itemDescription").value;
+    let imageString = document.getElementById("postImage").value;
 
-    firebase.firestore().collection("Posts").add({
-            type: postType,
-            title: title,
-            postDesc: description
-        })
-        .then(function (docRef) {
+    let obj = {};
+    obj["type"] = postType;
+    obj["title"] = title;
+    obj["postDesc"] = description;
+    obj["image"] = imageString;
+    postsRef.add(obj).then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);
         })
         .catch(function (error) {
             console.error("Error adding document: ", error);
         });
-    alert("Your post has been successfuly posted! (Maybe we should have a confirmation check here)");
+
 }
