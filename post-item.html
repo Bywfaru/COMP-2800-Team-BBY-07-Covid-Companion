@@ -21,14 +21,14 @@
                         <div class="col-md-4">
                             <div class="radio">
                                 <label for="postType-0">
-                                    <input type="radio" name="postType" id="postType-0" value="1" checked="checked">
-                                    Donate
+                                    <input type="radio" name="postType" id="postType-0" value="OFFERING" checked="checked">
+                                    OFFERING
                                 </label>
                             </div>
                             <div class="radio">
                                 <label for="postType-1">
-                                    <input type="radio" name="postType" id="postType-1" value="2">
-                                    Receive
+                                    <input type="radio" name="postType" id="postType-1" value="REQUESTING">
+                                    REQUESTING
                                 </label>
                             </div>
                         </div>
@@ -36,28 +36,10 @@
                     
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="itemName">Item</label>  
+                        <label class="col-md-4 control-label" for="itemName">Post Title</label>  
                         <div class="col-md-4">
-                            <input id="itemName" name="itemName" type="text" placeholder="Item name..." class="form-control input-md" required="">
-                            <span class="help-block">Type in the name of the item here (eg: toilet paper)</span>  
-                        </div>
-                    </div>
-                    
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="textinput">Quantity</label>  
-                        <div class="col-md-4">
-                            <input id="itemQty" name="textinput" type="text" placeholder="Quantity..." class="form-control input-md" required="">
-                            <span class="help-block">Quantity of the item you want to post (eg: 3)</span>  
-                        </div>
-                    </div>
-                    
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="itemDescription">Description</label>  
-                        <div class="col-md-4">
-                            <input id="itemDescription" name="itemDescription" type="text" placeholder="Item" class="form-control input-md" required="">
-                            <span class="help-block">Description of the item (eg: brand new, full box)</span>  
+                            <input id="title" name="titleName" type="text" placeholder="Title..." class="form-control input-md" required="">
+                            <span class="help-block">Type in the name of the item or service here (eg: toilet paper)</span>  
                         </div>
                     </div>
 
@@ -65,7 +47,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="textarea">Comments</label>
                         <div class="col-md-4">                     
-                            <textarea class="form-control" id="postComments" name="textarea" placeholder="Additional comments..."></textarea>
+                            <textarea class="form-control" id="itemDescription" name="textarea" placeholder="Description..."></textarea>
                             <span class="help-block">Additional comments for your post</span> 
                         </div>
                     </div>
@@ -82,14 +64,35 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="btnSubmit"></label>
                         <div class="col-md-4">
-                            <button id="btnSubmit" name="btnSubmit" class="btn btn-success">Submit</button>
+                            <button id="btnSubmit" name="btnSubmit" class="btn btn-success" onclick="handleClick()">Submit</button>
                         </div>
                     </div>
                 </fieldset>
             </form>  
         </div>    
         
-        <!-- Firebase Config -->
-        <script src="js/firebaseConfig.js"></script>
+        <!----------------------------------------------->
+    <!-- JS: Boostrap, Firebase, other API's       -->
+    <!----------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <script src="js/firebaseConfig.js"></script>
+
+    <!----------------------------------------------->
+    <!-- JS files: Your own JavaScripts go here    -->
+    <!----------------------------------------------->
+    <script src="js/post-item_script.js"></script>
     </body>
 </html>
