@@ -146,11 +146,16 @@ function getValues() {
     // Post description
     postDesc = postDescDOM.value;
 
+    // Date posted
+    let today = new Date();
+    submissionDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();    
+
     // Item image
     itemImg = "imageFile";
-    //itemImg = itemImgDOM.files;
+    // itemImg = itemImgDOM.files;
+    // TODO: convert image to base64 string
 
-    return {thisUser, postType, donationType, postTitle, postDesc, itemImg};
+    return {thisUser, postType, donationType, postTitle, postDesc, submissionDate, itemImg};
 }
 
 /**
