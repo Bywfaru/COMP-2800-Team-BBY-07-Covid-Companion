@@ -11,7 +11,7 @@
     <body>
         <!-- https://bootsnipp.com/forms -->
         <div class="form-container">
-            <form class="form-horizontal">
+            <form class="form-horizontal" onsubmit="return submitPost()">
                 <fieldset>
                     <!-- Form Name -->
                     <legend>Create a post</legend>
@@ -84,7 +84,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="btnSubmit"></label>
                         <div class="col-md-4">
-                            <button id="btnSubmit" name="btnSubmit" class="btn btn-success" onclick="submitPost()">Submit</button>
+                            <button id="btnSubmit" name="btnSubmit" class="btn btn-success">Submit</button>
                         </div>
                     </div>
                 </fieldset>

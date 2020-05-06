@@ -102,9 +102,12 @@ function updateCategoryOptions() {
  */
 function submitPost() {
     let post = getValues();
-
-    db.collection("Posts").add(post);
     console.log(post);
+    db.collection("Posts").add(post).then(function() {
+        alert();
+        return true;
+    });
+    return false;
 }
 
 /**
@@ -116,7 +119,7 @@ function getValues() {
     let donationTypeDOM = document.getElementById("donationType-0");
     let postTitleDOM = document.getElementById("postTitle");
     let postDescDOM = document.getElementById("postDesc");
-    let itemImgDOM = document.getElementById("postImage");
+    //let itemImgDOM = document.getElementById("postImage");
 
     // Values
     let postType;
