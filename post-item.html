@@ -23,13 +23,13 @@
                             <div class="radio">
                                 <label for="postType-0">
                                     <input type="radio" name="postType" id="postType-0" value="1" checked="checked">
-                                    Donate
+                                    OFFERING
                                 </label>
                             </div>
                             <div class="radio">
                                 <label for="postType-1">
                                     <input type="radio" name="postType" id="postType-1" value="2">
-                                    Receive
+                                    REQUESTING
                                 </label>
                             </div>
                         </div>
@@ -56,32 +56,19 @@
                     
                     <!-- Item Name Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="itemName">Item</label>  
+                        <label class="col-md-4 control-label" for="postTitle">Title</label>  
                         <div class="col-md-4">
-                            <input id="itemName" name="itemName" type="text" placeholder="Item name..." class="form-control input-md" required="">
-                            <span class="help-block">Type in the name of the item here (eg: toilet paper)</span>  
+                            <input id="postTitle" name="postTitle" type="text" placeholder="Post title..." class="form-control input-md" required="">
+                            <span class="help-block">Type in the title of your post here</span>  
                         </div>
                     </div>
 
                     <!-- Comments Textarea -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="postComments">Comments</label>
+                        <label class="col-md-4 control-label" for="postDesc">Description</label>
                         <div class="col-md-4">                     
-                            <textarea class="form-control" id="taComments" name="textarea" placeholder="Additional comments..."></textarea>
-                            <span class="help-block">Additional comments for your post</span> 
-                        </div>
-                    </div>
-
-                    <!-- Category Select Basic -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="selectbasic">Category</label>
-                        <div class="col-md-4">
-                            <select id="selectCategory" name="selectbasic" class="form-control">
-                                <option value="" disabled selected>Select a category...</option>
-                                <option value="toiletries">Toiletries</option>
-                                <option value="feminine hygeine">Feminine hygeine</option>
-                                <option value="cleaning supplies">Cleaning supplies</option>
-                            </select>
+                            <textarea class="form-control" id="postDesc" name="textarea" placeholder="Description..."></textarea>
+                            <span class="help-block">Description and any additional comments for your post</span> 
                         </div>
                     </div>
 

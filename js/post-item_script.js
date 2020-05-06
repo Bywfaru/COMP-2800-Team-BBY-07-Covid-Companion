@@ -103,7 +103,8 @@ function updateCategoryOptions() {
 function submitPost() {
     let post = getValues();
 
-    let itemRef = db.collection("Items").add(post);
+    db.collection("Posts").add(post);
+    console.log(post);
 }
 
 /**
@@ -113,27 +114,22 @@ function getValues() {
     // DOM elements
     let postTypeDOM = document.getElementById("postType-0");
     let donationTypeDOM = document.getElementById("donationType-0");
-    let itemNameDOM = document.getElementById("itemName");
-    let itemDescDOM = document.getElementById("itemDescription");
-    let itemQtyDOM = document.getElementById("selectQty");
-    let commentsDOM = document.getElementById("taComments");
-    let itemCatDOM = document.getElementById("selectCategory");;
+    let postTitleDOM = document.getElementById("postTitle");
+    let postDescDOM = document.getElementById("postDesc");
     let itemImgDOM = document.getElementById("postImage");
+
     // Values
     let postType;
     let donationType;
-    let itemName;
-    let itemDesc;
-    let itemQty;
-    let comments;
-    let itemCat;
+    let postTitle;
+    let postDesc;
     let itemImg;
 
     // Post type
     if (postTypeDOM.checked) {
-        postType = "donate";
+        postType = "OFFERING";
     } else {
-        postType = "receive";
+        postType = "REQEUSTING";
     }
     // Donation type
     if (donationTypeDOM.checked) {
@@ -141,26 +137,17 @@ function getValues() {
     } else {
         donationType = "service";
     }
-    // Item name
-    itemName = itemNameDOM.value;
-    // Item description
-    itemDesc = itemDescDOM.value;
-    // Item quantity
-    if (itemQtyDOM.value != "more") {
-        itemQty = itemQtyDOM.value;
-    } else {
-        itemQtyDOM = document.getElementById("textQty");
-        itemQty = itemQtyDOM.value;
-    }
-    // Comments
-    comments = commentsDOM.value;
-    // Item category
-    itemCat = itemCatDOM.value;
+    // Post title
+    postTitle = postTitleDOM.value;
+
+    // Post description
+    postDesc = postDescDOM.value;
+
     // Item image
     itemImg = "imageFile";
     //itemImg = itemImgDOM.files;
 
-    return {thisUser, postType, donationType, itemName, comments, itemCat, itemImg};
+    return {thisUser, postType, donationType, postTitle, postDesc, itemImg};
 }
 
 /**
