@@ -80,6 +80,11 @@
       float:right;
       padding-right: 37%;
     }
+    
+    #userSaves{
+      padding-left: 30%;
+      padding-right: 30%;
+    }
   
   </style>
   
@@ -138,6 +143,7 @@
       <div class="Messenger">
       </div>
       <section id="butt">
+      <button id="butt2">User Feed</button>
       <button id="prefPage">User Preferences</button>
       </section>
     </section>
@@ -174,10 +180,13 @@
            + c.data().profImage + '>');
       });
       
-      document.getElementById("butt").onclick = function () {
+      document.getElementById("prefPage").onclick = function () {
         window.location.replace("UserPref.html");
       }
-      
+      document.getElementById("butt2").onclick = function () {
+        window.location.replace("UserFeed.html");
+      }
+
     });
 
   </script>
