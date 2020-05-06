@@ -44,7 +44,7 @@ function updateQtyDisplay() {
 function updateTextQtyDisplay() {
     let selectQty = document.getElementById("selectQty");
     let textQty = document.getElementById("textQty-container");
-    
+
     if (selectQty.value == "more") {
         textQty.style.display = "block";
     } else {
@@ -69,7 +69,7 @@ function updateCategoryOptions() {
             if (i == 0) {
                 option.value = "";
                 option.disabled = "";
-                option.selected = ""; 
+                option.selected = "";
             } else {
                 option.value = itemCategories[i];
             }
@@ -85,7 +85,7 @@ function updateCategoryOptions() {
             if (i == 0) {
                 option.value = "";
                 option.disabled = "";
-                option.selected = ""; 
+                option.selected = "";
             } else {
                 option.value = serviceCategories[i];
             }
@@ -103,7 +103,7 @@ function updateCategoryOptions() {
 function submitPost() {
     let post = getValues();
     console.log(post);
-    db.collection("Posts").add(post).then(function() {
+    db.collection("Posts").add(post).then(function () {
         alert();
         return true;
     });
@@ -119,7 +119,7 @@ function getValues() {
     let donationTypeDOM = document.getElementById("donationType-0");
     let postTitleDOM = document.getElementById("postTitle");
     let postDescDOM = document.getElementById("postDesc");
-    //let itemImgDOM = document.getElementById("postImage");
+    let itemImgDOM = document.getElementById("postImage");
 
     // Values
     let postType;
@@ -148,21 +148,28 @@ function getValues() {
 
     // Date posted
     let today = new Date();
-    submissionDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();    
+    submissionDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
     // Item image
-    itemImg = "imageFile";
-    // itemImg = itemImgDOM.files;
+    itemImg; "image string"
     // TODO: convert image to base64 string
 
-    return {thisUser, postType, donationType, postTitle, postDesc, submissionDate, itemImg};
+    return {
+        thisUser,
+        postType,
+        donationType,
+        postTitle,
+        postDesc,
+        submissionDate,
+        itemImg
+    };
 }
 
 /**
  * Retrieves and sets the current user.
  */
 function getUser() {
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             thisUser = user;
         } else {
