@@ -1,12 +1,14 @@
 //======================//
 // Constants            //
 //======================//
-let dbRef = db.collection("Posts");
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 
 //======================//
 // Global Variables     //
 //======================//
-
+let dbRef = db.collection("Posts");
 
 //======================//
 // HTML DOM Elements    //
@@ -21,7 +23,8 @@ let dbRef = db.collection("Posts");
 //======================//
 // Functions            //
 //======================//
-// get posts from db based on date
+
+// gets OLDEST posts from DB (default)
 function getPosts() {
     dbRef.orderBy("submissionDate")
         .get()
@@ -29,6 +32,22 @@ function getPosts() {
             displayCards(snap);
         });
 }
+
+// get NEWEST posts from DB
+function getNew() {
+    // TODO
+}
+
+// get OFFERING posts from DB
+function getOffers() {
+    // TODO
+}
+
+// get REQUESTING posts from DB
+function getRequests() {
+    // TODO
+}
+
 
 /**
  * Displays the post cards.
@@ -59,7 +78,7 @@ function createOneCard(c) {
     // Post TYPE
     var type = document.createElement("h4");
     type.setAttribute("class", "card-title");
-    var text = document.createTextNode(c.data().type);
+    var text = document.createTextNode(c.data().type + ":");
     type.appendChild(text);
 
     // Post TITLE
@@ -82,7 +101,16 @@ function createOneCard(c) {
     // Posted DATE
     var date = document.createElement("p");
     date.setAttribute("class", "card-text");
-    var text = document.createTextNode(c.data().submissionDate);
+    let subDate = c.data().submissionDate; // STRING
+    // TODO: display date in the form of "April, 20, 2020"
+
+    let d = new Date(subDate);
+
+    let year = d.getFullYear();
+    let month = monthNames[d.getMonth()];
+    let day = d.getDay();
+
+    var text = document.createTextNode(month + " " + day + ", " + year);
     date.appendChild(text);
 
 
@@ -107,6 +135,11 @@ function createOneCard(c) {
     carddiv.appendChild(cardbodydiv);
     coldiv.appendChild(carddiv);
     document.getElementById("cards").appendChild(coldiv); //stick it in the div
+}
+
+
+function getDate() {
+
 }
 
 //======================//
