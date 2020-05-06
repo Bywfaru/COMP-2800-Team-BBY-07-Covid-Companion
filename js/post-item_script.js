@@ -160,7 +160,7 @@ function getValues() {
     itemImg = "imageFile";
     //itemImg = itemImgDOM.files;
 
-    return {thisUser, postType, donationType, itemName, itemDesc, itemQty, comments, itemCat, itemImg};
+    return {thisUser, postType, donationType, itemName, comments, itemCat, itemImg};
 }
 
 /**
