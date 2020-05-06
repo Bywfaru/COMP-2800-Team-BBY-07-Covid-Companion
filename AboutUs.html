@@ -7,18 +7,61 @@
     <!--  Meta tag for rendering on mobile devices -->
     <!----------------------------------------------->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!----------------------------------------------->
+    <!--  Bootstrap files --------------------------->
+    <!----------------------------------------------->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!------------------------> 
+    <!-- Adding Favicon ------>
+    <!------------------------>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+
     <!------------------------> 
     <!-- Your own CSS files -->
     <!------------------------>
     <style>
         body{
-        /* background-image: url("./images/background.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;  
-        background-size: cover; */
-        background-color: lemonchiffon;
+        overflow-x: hidden;
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "header"
+        "section"
+        "article"
+        "aside"
+        "footer";
         }
-
+        #aboutus{
+            width: 100px;
+        }
+        header{
+            grid-area: header;
+        }
+        h2{
+            text-align: center;
+        }
+        section{
+            grid-area: section;
+            text-align: center;
+            background-color: lightgrey;
+        }
+        article{
+            grid-area: article;
+        }
+        aside{
+            grid-area: aside;
+            background-color: lavender;
+        }
+        footer{
+            grid-area: footer;
+            background-color: black;
+            color: white;
+        }
     </style>
 </head>
 
@@ -26,31 +69,111 @@
     <!------------------->
     <!--  HTML Section -->
     <!------------------->
+    <header>
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="index.html">
+            <h1>COVID COMPANION</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!--BANNER-->
-    <h1>About Us</h1>
-    <p>
-        Covid Companion allows people to come together and help during this time of crisis when people are living away from their families due to safety and travel restrictions.
-        Many people are not able to buy/receive some supplies due to various reasons such as shortage of supplies, money, etc. Our website gives an opportunity for people 
-        <ul>
-            <li>To voluntarily donate items and provide services to help others in an organized manner</li>
-            <li>To receive any kind of help possible as soon as possible</li>
-            <li>To find information regarding COVID-19 such as health guidelines, regulations and news updates</li>
-        </ul>
-    </p>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="GetHelp.html">Get Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="OfferHelp.html">Offer Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Guidelines.html">Guidelines</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        <img class = "aboutus" src="./images/AboutUs.png" alt="About Us" width = "100%">
+    </header>
 
-    <p>
-        We help people in getting everday necessities for free just by posting a request of the itme they need. It is a good way of connecting people together through the act of 
-        kindness and generosity in these times of hardship. We help people to donate stuff so that the items can be used wisely. We try to help elderly, students, people with disabilities,
-        people who are financially struggling as they have lost their jobs due to the shutdown of every business, people who are in isolation/quarantine, people who have lost someone due to
-        COVID-19. Providing any type of help to the people is our goal.
-    </p>
+    <section>
+        <br><br><br>
+        <h2><b>Bringing communities together. No privacy <br>issues. Easy helping process.</b></h2>
+        <p>
+            Covid Companion allows people to come together and help during this time of crisis when people are living away from their <br>
+            families due to safety and travel restrictions.Many people are not able to buy/receive some supplies due to various reasons such as <br>
+            shortage of supplies, money, etc. We help people in getting everday necessities for free just by posting a request of the itme they need.<br>
+            We help people to donate stuff so that the items can be used wisely. We try to help elderly, students, people with disabilities, people<br>
+            who are financially struggling as they have lost their jobs due to the shutdown of every business, people who are in isolation/quarantine,<br> 
+            people who have lost someone due to COVID-19. Providing any type of help to the people is our goal. We also take care of charity groups and <br>
+            hence, the items which will be unclaimed after a specific period of time will go directly to charity groups. In this way, we can hellp them as well <br>
+            as the items will not be wasted.<br><br><br>
+        </p>
+    </section>
+    
+    <article>
+        <br><br><br>
+        <h2>Meet Our Creative Team</h2>
+        <br><br>
+    </article>
 
-    <p>
-        We also take care of charity groups and hence, the items which will be unclaimed after a specific period of time will go directly to charity groups. In this way, we can hellp them as well 
-        as the items will not be wasted.
-    </p>
+    <aside>
+        <br><br>
+    <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top" src="./images/Kashish.png" alt="Member1">
+            <div class="card-body">
+                <h4 class="card-title">Kashish Bansal</h4>
+                <p class="card-text">Warm welcome from Covid Companion! We know that this is a time of hardship and hence we want to make sure
+                    that people who have been affected or who are suffering/struggling gets help as soon as possible. Shutdown of everything 
+                    resulted in different types of crisis. I request to everyone who is capable of helping others to come forward and participate 
+                    in this initiative started by us. Let's fight this together!
+                </p>
+            </div>
+          </div>
+        <div class="card">
+            <img class="card-img-top" src="/images/pathToYourImage.png" alt="Member2">
+            <div class="card-body">
+                <h4 class="card-title">Ricky Sun</h4>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        <div class="card">
+            <img class="card-img-top" src="/images/pathToYourImage.png" alt="Member3">
+            <div class="card-body">
+                <h4 class="card-title">Amber Ma</h4>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="/images/pathToYourImage.png" alt="Member4">
+            <div class="card-body">
+                <h4 class="card-title">William He</h4>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+      </div>
+      <br><br>
+    </aside>
 
-    <img src="./images/letshelp.png" alt="lets help">
+    <footer>
+        <br>
+        <h4>Covid Companion</h4>
+        <p>
+            Covid Companion is helping thousands of people <br>
+            during this time of crisis by making the essential<br>
+            items available to them as soon as possible.
+        </p>
+        <img class="img-thumbnail"  src="./images/socialmedia.png" alt="connect us">
+        <br><br>
+        
+    </footer>
 </body>
 </html>
