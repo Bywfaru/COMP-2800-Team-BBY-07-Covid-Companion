@@ -150,10 +150,19 @@ function getValues() {
     let today = new Date();
     submissionDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
+    // TODO: save image and reference in firebase storage
     // Item image
-    itemImg; "image string"
-    // TODO: convert image to base64 string
-
+    itemImgDOM.addEventListener('change', function(e) {
+    // get file
+    var file = e.target.files[0];
+    // create storage ref
+    var storageRef = firebase.storage().ref('images'/ + file.name);
+    // upload file
+    var task = storageRef.put(file);
+})
+    
+    itemImg = storageRef;
+    
     return {
         thisUser,
         postType,
