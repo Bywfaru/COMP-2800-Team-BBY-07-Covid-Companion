@@ -126,9 +126,15 @@ function updateChats(user) {
 
         updateUser(user, chatId);
     } else {
-        chatRef.doc(chatId).update({
-            numMessages: firebase.firestore.FieldValue.increment(1)
-        });
+        if (chatRef.doc(chatId).numMessages == null) {
+            chatRef.doc(chatId).set({
+                numMessages: 1
+            });
+        } else {
+            chatRef.doc(chatId).update({
+                numMessages: firebase.firestore.FieldValue.increment(1)
+            });
+        }
 
         chatRef.doc(chatId).collection("Messages").add({
             from: user.uid,
@@ -146,9 +152,10 @@ function updateChats(user) {
  * @param chatId the chatId for this message.
  */
 function updateUser(user, chatId) {
-    let chatIdRef = db.collection("Users").doc(user.userID).collection("Chats").doc("chatId");
-
+    console.log(user.uid);
+    let chatIdRef = db.collection("Users").doc(user.uid).collection("Chats").doc("chatId");
     chatIdRef.get().then(function(doc) {
+        
         if (doc.exists) {
             chatIdRef.update({
                 id: firebase.firestore.FieldValue.arrayUnion(chatId.toString())
