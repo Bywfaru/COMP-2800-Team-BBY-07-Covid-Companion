@@ -117,32 +117,59 @@ function updateChats(user) {
 
         chatIdRef.set({
             numMessages: 1
-        });
-        chatIdRef.collection("Messages").add({
-            from: user.uid,
-            message: elements[2].innerHTML,
-            time: firebase.firestore.FieldValue.serverTimestamp()
-        });
-
-        updateUser(user, chatId);
+        })
+        .then(chatIdRef.collection("Messages").add({
+                from: user.uid,
+                message: elements[2].innerHTML,
+                time: firebase.firestore.FieldValue.serverTimestamp(),
+                messageNum: chatIdRef.numMessages
+            })
+        )
+        .then(function() {
+            updateUser(user, chatId);
+        }); 
     } else {
-        if (chatRef.doc(chatId).numMessages == null) {
-            chatRef.doc(chatId).set({
-                numMessages: 1
-            });
-        } else {
-            chatRef.doc(chatId).update({
-                numMessages: firebase.firestore.FieldValue.increment(1)
-            });
-        }
+        let chatDocRef = chatRef.doc(chatId);
 
-        chatRef.doc(chatId).collection("Messages").add({
-            from: user.uid,
-            message: elements[2].innerHTML,
-            time: firebase.firestore.FieldValue.serverTimestamp()
-        });
-
-        updateUser(user, chatId);
+        chatDocRef.get()
+        .then(function(doc) {
+            if (doc.data() == undefined) {
+                chatDocRef.set({
+                    numMessages: 1
+                })
+                .then(function() {
+                    chatDocRef.get()
+                    .then(function(doc) {
+                        console.log(doc.data() + " " + 1);
+                            chatDocRef.collection("Messages").add({
+                            from: user.uid,
+                            message: elements[2].innerHTML,
+                            time: firebase.firestore.FieldValue.serverTimestamp(),
+                            messageNum: doc.data().numMessages
+                        })
+                    });
+                });
+            } else {
+                chatDocRef.update({
+                    numMessages: firebase.firestore.FieldValue.increment(1)
+                })
+                .then(function() {
+                    chatDocRef.get()
+                    .then(function(doc) {
+                        console.log(doc.data() + " " + 1);
+                            chatDocRef.collection("Messages").add({
+                            from: user.uid,
+                            message: elements[2].innerHTML,
+                            time: firebase.firestore.FieldValue.serverTimestamp(),
+                            messageNum: doc.data().numMessages
+                        })
+                    });
+                });
+            }
+        })
+        .then(function() {
+            updateUser(user, chatId);
+        }); 
     }
 }
 
@@ -152,7 +179,6 @@ function updateChats(user) {
  * @param chatId the chatId for this message.
  */
 function updateUser(user, chatId) {
-    console.log(user.uid);
     let chatIdRef = db.collection("Users").doc(user.uid).collection("Chats").doc("chatId");
     chatIdRef.get().then(function(doc) {
         
