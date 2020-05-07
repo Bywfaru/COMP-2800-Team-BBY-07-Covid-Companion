@@ -41,13 +41,13 @@
                         <div class="col-md-4">
                             <div class="radio">
                                 <label for="donationType-0">
-                                    <input type="radio" name="donationType" id="donationType-0" value="1" onchange="updateQtyDisplay(); updateCategoryOptions()" checked="checked">
+                                    <input type="radio" name="donationType" id="donationType-0" value="1" onchange="updateCategoryOptions()" checked="checked">
                                     Item
                                 </label>
                             </div>
                             <div class="radio">
                                 <label for="donationType-1">
-                                    <input type="radio" name="donationType" id="donationType-1" value="2" onchange="updateQtyDisplay(); updateCategoryOptions()">
+                                    <input type="radio" name="donationType" id="donationType-1" value="2" onchange="updateCategoryOptions()">
                                     Service
                                 </label>
                             </div>
@@ -60,38 +60,6 @@
                         <div class="col-md-4">
                             <input id="itemName" name="itemName" type="text" placeholder="Item name..." class="form-control input-md" required="">
                             <span class="help-block">Type in the name of the item here (eg: toilet paper)</span>  
-                        </div>
-                    </div>
-                    
-                    <!-- Item Description Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="itemDescription">Description</label>  
-                        <div class="col-md-4">
-                            <input id="itemDescription" name="textItemDescription" type="text" placeholder="Item description..." class="form-control input-md" required="">
-                            <span class="help-block">Description of the item (eg: brand new, full box)</span>  
-                        </div>
-                    </div>
-
-                    <!-- Item Quantity Select Basic -->
-                    <div class="form-group" id="selectQty-container">
-                        <label class="col-md-4 control-label" for="selectQty">Quantity</label>
-                        <div class="col-md-4">
-                            <select id="selectQty" name="selectQty" class="form-control" onchange="updateTextQtyDisplay()">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="more">More...</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Item Quantity Text input-->
-                    <div class="form-group" id="textQty-container">
-                        <label class="col-md-4 control-label" for="textQty">Quantity</label>  
-                        <div class="col-md-4">
-                            <input id="textQty" name="textQty" type="text" placeholder="Item quantity..." class="form-control input-md" required="">
-                            <span class="help-block">Quantity of the item</span>  
                         </div>
                     </div>
 

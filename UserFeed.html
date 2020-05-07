@@ -34,6 +34,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  
+    <script src="js/savedPostGenerate.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -123,6 +125,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="UserProf.html"> Go to my Page </a>
+              </li>
             </ul>
         </div>
     </nav>
@@ -203,27 +208,6 @@
     loadSaves();
     
     */
-
-    $(document).ready(function(){
-      
-      document.getElementById("butt").onclick = function () {
-        window.location.replace("UserProf.html");
-      }
-
-      function loadSaves(){
-        db.collection('SavedPosts').get().then(function(querySnapshot){
-          querySnapshot.forEach(function(doc){
-              if(doc.data().saverID == "1j77JwtPUW4p8aBCQZV1"){
-                var value = '<li><a>' + doc.data().postNo + '</a></li>';
-                $("#savePosts").append(value);
-            }
-          });
-        });
-      }
-      
-    loadSaves();
-      
-    });
 
   </script>
 
