@@ -37,6 +37,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  
+  <script src="js/saving.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -114,6 +116,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="UserProf.html"> Go to my Page </a>
+              </li>
             </ul>
         </div>
     </nav>
@@ -274,21 +279,8 @@
       });
     };
      
-    document.getElementById("but3").onclick = function(){
-      
-     db.collection("SavedPosts").add({
-     }).then (function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
-       db.collection("SavedPosts").doc(docRef.id).set({
-      savedPostNo: docRef.id,
-       postNo: "Ok2Bb5O8dW4bs9LwENUg",
-       saverID: "hOH2MQ9jZ2TvAuxEgDkN"
-       })
-     }).catch(function(error) {
-    console.error("Error adding document: ", error);
-     });
-    
-    };
+    document.getElementById("but3").onclick(savePost());
+     
  });
   </script>
 
