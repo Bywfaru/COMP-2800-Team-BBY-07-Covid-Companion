@@ -10,9 +10,6 @@
     <!--  Meta tag for rendering on mobile devices -->
     <!----------------------------------------------->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!--      Adding Favicon ------------>
-    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
 
     <!----------------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
@@ -38,7 +35,7 @@
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   
-  <script src="js/saving.js"></script>
+  <script src="js/prefAuth.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -63,21 +60,15 @@
   
   <style>
     
-    #userName{
-     text-align: center;
-    }
-    
     .artic{
      
-      padding-top: 5%;
-      padding-left: 30%;
-      padding-right: 30%;
+      align-content:center;
       
     }
-  
-    #img1{
-      width: 80%;
-      height: 150%;
+    
+    #butt{
+      float:right;
+      padding-right: 37%;
     }
   
   </style>
@@ -116,37 +107,29 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="UserProf.html"> Go to my Page </a>
-              </li>
             </ul>
         </div>
     </nav>
-
+  
+  <div class="artic">
+  <form>
+  <span id="nameField">
+    <h1>Name</h1>
+  </span>
     
-    <section>
-        <!--Blurb-->
-        <div class="artic">
-            <h3 id="userName"></h3>
-            <span id="imageSection">
-            </span>
-            <h5><u><b>Description:</b></u></h5>
-            <p id="userDesc">
-            </p>
-          <p><b>Address</b>: <span id="userAd"></span> </p>
-            <p><b>PostalCode</b>: <span id="userPost"></span></p>
-          
-        <button> Request </button>
-       <button id="but1">
-        Message Donor
-      </button>
-        <button id="but3"> Save Current Post </button>
-        </div>
-      <div class="Messenger">
-      </div>
-    </section>
-
-
+  <span id="addrField">
+    <h1>Address</h1>
+  </span>
+    
+    <span id="postalCodeField">
+    <h1>Postal Code</h1>
+     </span>
+    </form>
+  </div>
+  
+        <section id="butt">
+      <button id="profPage">Submit Answers</button>
+      </section>
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, other API's    -->
@@ -165,124 +148,6 @@
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
-  
-  <script>
-  
-   $(document).ready(function(){ 
-     
-  var sender;
-     
-   db.collection("Posts").doc("Ok2Bb5O8dW4bs9LwENUg")
-    .onSnapshot(function (c) {
-     if(c.data().title != ""){
-    document.getElementById("userName").innerHTML = c.data().title;
-     } else {
-    document.getElementById("userName").innerHTML = "N/A";
-     }
-     if(c.data().postDesc != ""){
-    document.getElementById("userDesc").innerHTML = c.data().postDesc;
-     } else {
-    document.getElementById("userDesc").innerHTML = "N/A";
-     }
-     
-    sender = c.data().submitterNo;
-      
-  db.collection("Users").doc(c.data().submitterNo).onSnapshot(function (d){
-    if(d.data().addr != ""){
-    document.getElementById("userAd").innerHTML = d.data().addr;
-    } else {
-    document.getElementById("userAd").innerHTML = "N/A";
-    }
-    if(d.data().postalCode != ""){
-     document.getElementById("userPost").innerHTML = d.data().postalCode;
-    } else {
-     document.getElementById("userPost").innerHTML = "N/A";
-    }
-    if(c.data().image != ""){
-      $("#imageSection").append('<img id="img1" src='
-           + c.data().image + '>');
-     
-       } else {
-            $("#imageSection").append('<img id="img1" src='
-           + 'download.png' + '>');
-       }
-    })
-   
-    })
-      
-    var box = '<textarea id="box1" placeholder="Your Message Here"></textarea>';
-      
-    var break1 = '<br></br>'
-      
-    var button1 = '<button id="but2"> Send Message </button>'
-      
-    var mes = 1;
-      
-    $("#box1").css('width', '100%'); 
-      
-    $("#box1").css('height', '100%'); 
-      
-    $(".Messenger").css('padding-left','30%');
-      
-    $(".Messenger").css('padding-right','30%');
-      
-    $(".Messenger").css('padding-top','5%');
-      
-    $(".Messenger").append(box);
-      
-    $(".Messenger").append(break1);
-      
-    $(".Messenger").append(button1);
-      
-    $(".Messenger").hide();
-      
-    document.getElementById("but1").onclick = function () {
-      
-      if(mes == 1){
-        
-            $(".Messenger").show();
-            mes = 0;
-         
-         } else{
-           
-            $(".Messenger").hide();
-            mes = 1;
-           
-         }
-    };
-     
-    document.getElementById("but2").onclick = function(){
-      
-      var messageCont = document.getElementById("box1").value;
-      
-      var date = new Date();
-      
-      /** Will find a way to add senderID through firebaseAuth*/
-      
-      db.collection("Messages").add({
-        recipientID: sender,
-        senderID: "hOH2MQ9jZ2TvAuxEgDkN",
-        mesDesc: messageCont,
-        sentDate: date
-      }).then(function (){
-              if(mes == 1){
-        
-            $(".Messenger").show();
-            mes = 0;
-         
-         } else{
-           
-            $(".Messenger").hide();
-            mes = 1;
-           
-         }
-      });
-    };
-     
-    document.getElementById("but3").onclick(savePost());
-     
- });
-  </script>
 
 </body>
 
