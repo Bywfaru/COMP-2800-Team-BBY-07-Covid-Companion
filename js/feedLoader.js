@@ -54,5 +54,9 @@ function logout() {
      document.getElementById("prefPage").onclick = function () {
         window.location.replace("UserPref.html");
       }
+     
+     document.getElementById("butt1").onclick = function(){ 
+        window.location.replace("UserPassword.html");
+     }
       
     });
