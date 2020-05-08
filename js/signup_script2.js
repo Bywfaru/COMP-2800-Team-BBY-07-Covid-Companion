@@ -21,19 +21,12 @@ var uiConfig = {
             // Executes if the user is a new user.
             firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
-                   firebase.firestore().collection("Users").doc(user.uid).onSnapshot(function(c){
-                     if(c.data().addr != null
-                       || c.data().postalCode != null){
-                      window.location.replace("UserProf.html");
-                     } else {
-                       firebase.firestore().collection("Users").doc(user.uid).set({
+                 firebase.firestore().collection("Users").doc(user.uid).set({
                         name: user.displayName,
                         email: user.email
-                    }).then(function() {
+                    }, {merge: true}).then(function() {
                         return window.location.replace("UserProf.html");
                     });
-                     }
-                   });
                 }
             });
         },
