@@ -21,11 +21,12 @@ var uiConfig = {
             // Executes if the user is a new user.
             firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
-                 firebase.firestore().collection("Users").doc(user.uid).set({
+                    // If the user is signed in.
+                    firebase.firestore().collection("Users").doc(user.uid).set({
                         name: user.displayName,
                         email: user.email
-                    }, {merge: true}).then(function() {
-                        return window.location.replace("main.html");
+                    }).then(function() {
+                        return window.location.replace("PostTemplate.html");
                     });
                 }
             });

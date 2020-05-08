@@ -24,8 +24,23 @@ let dbRef = db.collection("Posts");
 // Functions            //
 //======================//
 
+<<<<<<< HEAD
 // gets OLDEST posts from DB (default)
+=======
+// get newest posts from DB
+>>>>>>> 22c837b5a8be706e56e228fb10743de2c8449a59
 function getPosts() {
+    document.getElementById("cards").innerHTML = '';
+    dbRef.orderBy("submissionDate", "desc")
+        .get()
+        .then(function (snap) {
+            displayCards(snap);
+        });
+}
+
+// get oldest posts from DB
+function getOldestPosts() {
+    document.getElementById("cards").innerHTML = '';
     dbRef.orderBy("submissionDate")
         .get()
         .then(function (snap) {
@@ -33,6 +48,7 @@ function getPosts() {
         });
 }
 
+<<<<<<< HEAD
 // get NEWEST posts from DB
 function getNew() {
     // TODO
@@ -49,6 +65,28 @@ function getRequests() {
 }
 
 
+=======
+// get offer posts from DB
+function getOffers() {
+    document.getElementById("cards").innerHTML = '';
+    dbRef.where("type", "==", "OFFERING")
+        .get()
+        .then(function (snap) {
+            displayCards(snap);
+        });
+}
+
+// get request posts from DB
+function getRequests() {
+    document.getElementById("cards").innerHTML = '';
+    dbRef.where("type", "==", "REQUESTING")
+        .get()
+        .then(function (snap) {
+            displayCards(snap);
+        });
+}
+
+>>>>>>> 22c837b5a8be706e56e228fb10743de2c8449a59
 /**
  * Displays the post cards.
  * 

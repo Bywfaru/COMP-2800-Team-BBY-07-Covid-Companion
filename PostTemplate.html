@@ -10,6 +10,9 @@
     <!--  Meta tag for rendering on mobile devices -->
     <!----------------------------------------------->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!--      Adding Favicon ------------>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
 
     <!----------------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
@@ -34,6 +37,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  
+  <script src="js/saving.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -271,21 +276,8 @@
       });
     };
      
-    document.getElementById("but3").onclick = function(){
-      
-     db.collection("SavedPosts").add({
-     }).then (function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
-       db.collection("SavedPosts").doc(docRef.id).set({
-      savedPostNo: docRef.id,
-       postNo: "Ok2Bb5O8dW4bs9LwENUg",
-       saverID: "hOH2MQ9jZ2TvAuxEgDkN"
-       })
-     }).catch(function(error) {
-    console.error("Error adding document: ", error);
-     });
-    
-    };
+    document.getElementById("but3").onclick(savePost());
+     
  });
   </script>
 

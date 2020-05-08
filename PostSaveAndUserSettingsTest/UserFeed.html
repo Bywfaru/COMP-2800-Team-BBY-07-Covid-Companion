@@ -10,9 +10,6 @@
     <!--  Meta tag for rendering on mobile devices -->
     <!----------------------------------------------->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!--      Adding Favicon ------------>
-    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
 
     <!----------------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
@@ -38,7 +35,7 @@
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   
-  <script src="js/prefAuth.js"></script>
+    <script src="js/savedPostGenerate.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -63,15 +60,33 @@
   
   <style>
     
-    .artic{
-     
-      align-content:center;
-      
+    #prefPage{
+      float:right;
+      padding-right: 20%;
     }
     
-    #butt{
-      float:right;
-      padding-right: 37%;
+    #userName{
+     text-align: center;
+    }
+    
+    body {
+      background-color: lightgray;
+    }
+    
+    .artic{
+      padding-top: 5%;
+      padding-left: 10%;
+      padding-right: 10%;
+      background-color:lightgray;
+    }
+  
+    #img1{
+      width: 80%;
+      height: 150%;
+    }
+    
+    #userSaves{
+      background-color:azure;
     }
   
   </style>
@@ -110,29 +125,30 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="UserProf.html"> Go to my Page </a>
+              </li>
             </ul>
         </div>
     </nav>
-  
-  <div class="artic">
-  <form>
-  <span id="nameField">
-    <h1>Name</h1>
-  </span>
+
     
-  <span id="addrField">
-    <h1>Address</h1>
-  </span>
-    
-    <span id="postalCodeField">
-    <h1>Postal Code</h1>
-     </span>
-    </form>
-  </div>
-  
-        <section id="butt">
-      <button id="profPage">Submit Answers</button>
+    <section>
+        <!--Blurb-->
+        <div class="artic">
+                <div class="feed">
+            <h1><u><b> My Feed </b></u></h1>
+            <div id="userSaves">
+            <p><u><b>Currently Saved Posts</b></u></p>
+            <ul id ="savePosts"></ul>
+      </div>
+            
+        </div>
+        </div>
+    <section id="prefPage">
+    <button id="butt">User Profile</button>
       </section>
+    </section>
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, other API's    -->
@@ -151,6 +167,49 @@
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
+  
+  <script>
+    
+    /**
+    
+    function loadSaves(){
+    
+    var listOfObjects = [];
+      
+    var lastincol;
+      
+    db.collection('SavedPosts').get().then(function(querySnapshot){
+      
+    });
+        db.collection('SavedPosts').get().then(function(querySnapshot){
+          querySnapshot.forEach(function(doc){
+              if(doc.data().saverID == "1j77JwtPUW4p8aBCQZV1"){
+                db.collection('Posts').doc(doc.data().postNo).onSnapshot(
+                function (c){
+                  var postNum = (c.data().postNo);
+                  var date = (c.data().expiryDate);
+                  var newObject = {"postNumber": postNum, "expires": date};
+                  listOfObjects.push(newObject);
+                  listOfObjects.sort((a, b) => (a.expires > b.expires) ? -1 : 1);
+                    console.log(listOfObjects);
+                    for(let i = 0; i < listOfObjects.length; i++){
+                    console.log((listOfObjects[i]).postNumber);
+                    $(document).ready(function () {
+                    var value = '<li><a>' + (listOfObjects[i]).postNumber + '</a></li>';
+                    $("#savePosts").append(value);
+                    });
+                  }
+                });
+              }
+          });
+        });
+      }
+    
+    loadSaves();
+    
+    */
+
+  </script>
 
 </body>
 
