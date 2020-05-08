@@ -37,6 +37,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <script src="js/feedLoader.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -146,6 +147,7 @@
       <div class="Messenger">
       </div>
       <section id="butt">
+      <button id="butt1">Change Password</button>
       <button id="butt2">User Feed</button>
       <button id="prefPage">User Preferences</button>
       </section>
@@ -168,30 +170,12 @@
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
-  
   <script>
-    
-    $(document).ready(function(){
-      
-      db.collection("Users").doc("1j77JwtPUW4p8aBCQZV1").onSnapshot(
-      function (c){
-        document.getElementById("userName").innerHTML = c.data().name;
-        document.getElementById("useremail").innerHTML = c.data().email;
-        document.getElementById("userAd").innerHTML = c.data().addr;
-        document.getElementById("userPost").innerHTML = c.data().postalCode;
-        $("#imageSection").append('<img id="img1" src='
-           + c.data().profImage + '>');
-      });
-      
-      document.getElementById("prefPage").onclick = function () {
-        window.location.replace("UserPref.html");
-      }
-      document.getElementById("butt2").onclick = function () {
-        window.location.replace("UserFeed.html");
-      }
-
-    });
-
+  
+  
+  
+  
+  
   </script>
 
 </body>

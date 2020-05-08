@@ -21,9 +21,41 @@ let dbRef = db.collection("Posts");
 //======================//
 // Functions            //
 //======================//
-// get posts from db based on date
+
+// get newest posts from DB
 function getPosts() {
+    document.getElementById("cards").innerHTML = '';
+    dbRef.orderBy("submissionDate", "desc")
+        .get()
+        .then(function (snap) {
+            displayCards(snap);
+        });
+}
+
+// get oldest posts from DB
+function getOldestPosts() {
+    document.getElementById("cards").innerHTML = '';
     dbRef.orderBy("submissionDate")
+        .get()
+        .then(function (snap) {
+            displayCards(snap);
+        });
+}
+
+// get offer posts from DB
+function getOffers() {
+    document.getElementById("cards").innerHTML = '';
+    dbRef.where("type", "==", "OFFERING")
+        .get()
+        .then(function (snap) {
+            displayCards(snap);
+        });
+}
+
+// get request posts from DB
+function getRequests() {
+    document.getElementById("cards").innerHTML = '';
+    dbRef.where("type", "==", "REQUESTING")
         .get()
         .then(function (snap) {
             displayCards(snap);

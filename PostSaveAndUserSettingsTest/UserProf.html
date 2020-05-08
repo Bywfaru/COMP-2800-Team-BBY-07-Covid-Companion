@@ -10,9 +10,6 @@
     <!--  Meta tag for rendering on mobile devices -->
     <!----------------------------------------------->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!--      Adding Favicon ------------>
-    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
 
     <!----------------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
@@ -37,8 +34,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  
-  <script src="js/prefAuth.js"></script>
+  <script src="js/feedLoader.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -63,15 +59,32 @@
   
   <style>
     
+    
+    #userName{
+     text-align: center;
+    }
+    
     .artic{
      
-      align-content:center;
+      padding-top: 5%;
+      padding-left: 30%;
+      padding-right: 30%;
       
+    }
+  
+    #img1{
+      width: 80%;
+      height: 150%;
     }
     
     #butt{
       float:right;
       padding-right: 37%;
+    }
+    
+    #userSaves{
+      padding-left: 30%;
+      padding-right: 30%;
     }
   
   </style>
@@ -110,29 +123,34 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
+              <li class="nav-item" href="UserProf.html">
+                  <a class="nav-link"> Go to my Page </a>
+              </li>
             </ul>
         </div>
     </nav>
-  
-  <div class="artic">
-  <form>
-  <span id="nameField">
-    <h1>Name</h1>
-  </span>
+
     
-  <span id="addrField">
-    <h1>Address</h1>
-  </span>
-    
-    <span id="postalCodeField">
-    <h1>Postal Code</h1>
-     </span>
-    </form>
-  </div>
-  
-        <section id="butt">
-      <button id="profPage">Submit Answers</button>
+    <section>
+        <!--Blurb-->
+        <div class="artic">
+            <h3 id="userName"></h3>
+            <span id="imageSection">
+            </span>
+            <h5><u><b>Description:</b></u></h5>
+            <p id="userDesc">
+            </p>
+          <p><b>Email</b>: <span id="useremail"></span></p>
+          <p><b>Address</b>: <span id="userAd"></span> </p>
+            <p><b>PostalCode</b>: <span id="userPost"></span></p>
+        </div>
+      <div class="Messenger">
+      </div>
+      <section id="butt">
+      <button id="butt2">User Feed</button>
+      <button id="prefPage">User Preferences</button>
       </section>
+    </section>
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, other API's    -->
@@ -151,6 +169,13 @@
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
+  <script>
+  
+  
+  
+  
+  
+  </script>
 
 </body>
 
