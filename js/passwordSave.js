@@ -18,6 +18,8 @@ function changePass() {
           if(newPassword != null &&
             newPassword != ""){
             
+          user.sendEmailVerification();
+            
           user.updatePassword(newPassword).then(function(){
             
             console.log("Change Successful");
