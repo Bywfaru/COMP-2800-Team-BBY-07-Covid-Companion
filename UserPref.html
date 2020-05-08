@@ -14,6 +14,11 @@
     <!--      Adding Favicon ------------>
     <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
 
+    <!--    Importing Fonts------------>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+
     <!----------------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
     <!----------------------------------------------->
@@ -68,7 +73,13 @@
       align-content:center;
       
     }
-    
+
+    h1{
+      font-family: 'Lato', sans-serif;
+      font-style: italic;
+      font-size: 35px;
+      color: #4689b5;
+    }
     #butt{
       float:right;
       padding-right: 37%;
@@ -89,35 +100,44 @@
     <!------------------->
 
     <!--NavBar-->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="index.html">
-            <h1>COVID COMPANION</h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
+      <a class="navbar-brand" href="index.html">
+          <h1><img src="images/smallfavicon.PNG" alt="logo" height="42" width="45"> COVID COMPANION</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Get Help</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Offer Help</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Guidelines</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="GetHelp.html">
+                      <span style="color: black; font-family: 'Lato', sans-serif;">Get Help</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="OfferHelp.html">
+                      <span style="color: black; font-family: 'Lato', sans-serif;">Offer Help</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Guidelines.html">
+                      <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="AboutUs.html">
+                      <span style="color: black; font-family: 'Lato', sans-serif;">About Us</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Contact.html">
+                      <span style="color: black; font-family: 'Lato', sans-serif;">Contact Us</span>
+                  </a>
+              </li>
+          </ul>
+  </nav>
   
   <div class="artic">
   <form>
