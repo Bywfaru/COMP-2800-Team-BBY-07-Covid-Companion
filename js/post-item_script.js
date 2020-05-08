@@ -17,6 +17,8 @@ const serviceCategories = ["Select a category...", "Renovation", "Plumbing", "El
 
 // The user currently signed in.
 let thisUser = "test";
+// Image upload DOM element.
+let itemImgDOM = document.getElementById("postImage");
 
 //--------------------------------------//
 //                                      //
@@ -101,13 +103,21 @@ function updateCategoryOptions() {
  * Submits the post.
  */
 function submitPost() {
-    let post = getValues();
-    console.log(post);
-    db.collection("Posts").add(post).then(function () {
-        alert();
-        return true;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            thisUser = user;
+
+            let post = getValues();
+            console.log(post);
+            db.collection("Posts").add(post).then(function() {
+                alert();
+                return true;
+            });
+            return false;
+        } else {
+            alert("Not signed in!");
+        }
     });
-    return false;
 }
 
 /**
@@ -119,7 +129,6 @@ function getValues() {
     let donationTypeDOM = document.getElementById("donationType-0");
     let postTitleDOM = document.getElementById("postTitle");
     let postDescDOM = document.getElementById("postDesc");
-    let itemImgDOM = document.getElementById("postImage");
 
     // Values
     let postType;
@@ -174,23 +183,20 @@ function getValues() {
     };
 }
 
-/**
- * Retrieves and sets the current user.
- */
-function getUser() {
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            thisUser = user;
-        } else {
-            alert("Not signed in!");
-        }
-    });
-}
-
 //--------------------------------------//
 //                                      //
-// Method Calls                         //
+// Event Listener                       //
 //                                      //
 //--------------------------------------//
 
-//getUser();
+// Listens for the image upload DOM element for an image upload.
+itemImgDOM.addEventListener("change", function(e) {
+    // Get file.
+    let file = e.target.files[0];
+
+    // Create a storage ref.
+    let storageRef = firebase.storage().ref("postImage/" + file.name);
+
+    // Upload file.
+    storageRef.put(file);
+});
