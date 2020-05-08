@@ -15,10 +15,10 @@ const serviceCategories = ["Select a category...", "Renovation", "Plumbing", "El
 //                                      //
 //--------------------------------------//
 
-// The user currently signed in.
-let thisUser = "test";
 // Image upload DOM element.
 let itemImgDOM = document.getElementById("postImage");
+// Item image name.
+let itemImgName = "";
 
 //--------------------------------------//
 //                                      //
@@ -104,11 +104,9 @@ function updateCategoryOptions() {
  */
 function submitPost() {
     firebase.auth().onAuthStateChanged(function(user) {
+        console.log(user);
         if (user) {
-            thisUser = user;
-
-            let post = getValues();
-            console.log(post);
+            let post = getValues(user);
             db.collection("Posts").add(post).then(function() {
                 alert();
                 return true;
@@ -123,19 +121,22 @@ function submitPost() {
 /**
  * Gets the values from the fieldset.
  */
-function getValues() {
+function getValues(thisUser) {
     // DOM elements
     let postTypeDOM = document.getElementById("postType-0");
     let donationTypeDOM = document.getElementById("donationType-0");
-    let postTitleDOM = document.getElementById("postTitle");
+    let postTitleDOM = document.getElementById("title");
     let postDescDOM = document.getElementById("postDesc");
 
     // Values
+    let thisUserName;
     let postType;
     let donationType;
     let postTitle;
     let postDesc;
-    let itemImg;
+
+    // Poster's name
+    thisUserName = thisUser.displayName;
 
     // Post type
     if (postTypeDOM.checked) {
@@ -159,27 +160,14 @@ function getValues() {
     let today = new Date();
     submissionDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
-    // TODO: save image and reference in firebase storage
-    // Item image
-    itemImgDOM.addEventListener('change', function(e) {
-    // get file
-    var file = e.target.files[0];
-    // create storage ref
-    var storageRef = firebase.storage().ref('images'/ + file.name);
-    // upload file
-    var task = storageRef.put(file);
-})
-    
-    itemImg = storageRef;
-    
     return {
-        thisUser,
+        thisUserName,
         postType,
         donationType,
         postTitle,
         postDesc,
         submissionDate,
-        itemImg
+        itemImgName
     };
 }
 
@@ -191,6 +179,7 @@ function getValues() {
 
 // Listens for the image upload DOM element for an image upload.
 itemImgDOM.addEventListener("change", function(e) {
+    console.log(e);
     // Get file.
     let file = e.target.files[0];
 
@@ -199,4 +188,7 @@ itemImgDOM.addEventListener("change", function(e) {
 
     // Upload file.
     storageRef.put(file);
+    
+    // Set image name variable.
+    itemImgName = file.name;
 });

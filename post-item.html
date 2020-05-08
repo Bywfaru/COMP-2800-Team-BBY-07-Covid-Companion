@@ -6,20 +6,16 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/styles.css" type="text/css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<<<<<<< HEAD
-        <script src="jquery-3.4.1.min.js"></script>   
-=======
         
         <!--      Adding Favicon ------------>
         <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
         
->>>>>>> 22c837b5a8be706e56e228fb10743de2c8449a59
     </head>
 
     <body>
         <!-- https://bootsnipp.com/forms -->
         <div class="form-container">
-            <form class="form-horizontal" onsubmit="return submitPost()">
+            <form class="form-horizontal" onsubmit="return false">
                 <fieldset>
                     <!-- Form Name -->
                     <legend>Create a post</legend>
@@ -30,21 +26,13 @@
                         <div class="col-md-4">
                             <div class="radio">
                                 <label for="postType-0">
-<<<<<<< HEAD
-                                    <input type="radio" name="postType" id="postType-0" value="1" checked="checked">
-=======
                                     <input type="radio" name="postType" id="postType-0" value="OFFERING" checked="checked">
->>>>>>> 22c837b5a8be706e56e228fb10743de2c8449a59
                                     OFFERING
                                 </label>
                             </div>
                             <div class="radio">
                                 <label for="postType-1">
-<<<<<<< HEAD
-                                    <input type="radio" name="postType" id="postType-1" value="2">
-=======
                                     <input type="radio" name="postType" id="postType-1" value="REQUESTING">
->>>>>>> 22c837b5a8be706e56e228fb10743de2c8449a59
                                     REQUESTING
                                 </label>
                             </div>
@@ -55,7 +43,6 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="itemName">Post Title</label>  
                         <div class="col-md-4">
-<<<<<<< HEAD
                             <div class="radio">
                                 <label for="donationType-0">
                                     <input type="radio" name="donationType" id="donationType-0" value="1" onchange="updateCategoryOptions()" checked="checked">
@@ -75,12 +62,8 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="postTitle">Title</label>  
                         <div class="col-md-4">
-                            <input id="postTitle" name="postTitle" type="text" placeholder="Post title..." class="form-control input-md" required="">
-                            <span class="help-block">Type in the title of your post here</span>  
-=======
                             <input id="title" name="titleName" type="text" placeholder="Title..." class="form-control input-md" required="">
                             <span class="help-block">Type in the name of the item or service here (eg: toilet paper)</span>  
->>>>>>> 22c837b5a8be706e56e228fb10743de2c8449a59
                         </div>
                     </div>
 
@@ -116,7 +99,7 @@
         <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
 
     <script src="js/firebaseConfig.js"></script>
 
