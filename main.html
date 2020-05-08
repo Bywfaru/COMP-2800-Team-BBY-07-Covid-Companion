@@ -114,9 +114,10 @@
         <!--SIDEBAR-->
         <aside>
             SORT BY:<br>
-            <button>OLDEST</button><br>
-            <button>OFFERING</button><br>
-            <button>REQUESTING</button>
+            <button onclick="getPosts()">NEWEST</button><br>
+            <button onclick="getOldestPosts()">OLDEST</button><br>
+            <button onclick="getOffers()">OFFERS</button><br>
+            <button onclick="getRequests()">REQUESTS</button>
         </aside>
 
         <!--Feed-->
@@ -126,7 +127,26 @@
             </div>
         </section>
 
+        <!--Footer-->
         <footer>
+            <!--Page Links-->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
             <h4>Please note that all face-to-face interactions are at your own risk.</h4>
             <h4>Be safe and help #FlattenTheCurve !</h4>
         </footer>
