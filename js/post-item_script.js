@@ -142,7 +142,7 @@ function getValues(thisUser) {
     if (postTypeDOM.checked) {
         postType = "OFFERING";
     } else {
-        postType = "REQEUSTING";
+        postType = "REQUESTING";
     }
     // Donation type
     if (donationTypeDOM.checked) {

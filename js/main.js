@@ -99,25 +99,21 @@ function createOneCard(c) {
     // Post TYPE
     var type = document.createElement("h4");
     type.setAttribute("class", "card-title");
-    var text = document.createTextNode(c.data().type + ":");
+    var text = document.createTextNode(c.data().postType + ":");
     type.appendChild(text);
 
     // Post TITLE
     var title = document.createElement("h4");
     title.setAttribute("class", "card-text");
-    var text = document.createTextNode(c.data().title);
+    var text = document.createTextNode(c.data().postTitle);
     title.appendChild(text);
 
     // Post IMAGE
     var image = document.createElement("img");
     image.setAttribute("class", "card-img");
-
     storageRef.child('postImage/' + c.data().itemImgName).getDownloadURL().then(function (url) {
         image.src = url;
-        console.log(url);
     });
-
-    
 
     // Post DESCRIPTION
     var desc = document.createElement("p");
