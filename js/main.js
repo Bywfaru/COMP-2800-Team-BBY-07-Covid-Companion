@@ -53,7 +53,7 @@ function getOldestPosts() {
 // get offer posts from DB
 function getOffers() {
     document.getElementById("cards").innerHTML = '';
-    dbRef.where("type", "==", "OFFERING")
+    dbRef.where("postType", "==", "OFFERING")
         .get()
         .then(function (snap) {
             displayCards(snap);
@@ -63,7 +63,7 @@ function getOffers() {
 // get request posts from DB
 function getRequests() {
     document.getElementById("cards").innerHTML = '';
-    dbRef.where("type", "==", "REQUESTING")
+    dbRef.where("postType", "==", "REQUESTING")
         .get()
         .then(function (snap) {
             displayCards(snap);
