@@ -8,7 +8,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 //======================//
 // Global Variables     //
 //======================//
-let dbRef = db.collection("Posts");
+let dbRef = db.collection("Users");
 
 // Get a reference to the storage service, which is used to create references in your storage bucket
 var storage = firebase.storage();
@@ -33,41 +33,19 @@ var storageRef = storage.ref();
 // get newest posts from DB
 function getPosts() {
     document.getElementById("cards").innerHTML = '';
-    dbRef.orderBy("submissionDate", "desc")
-        .get()
-        .then(function (snap) {
-            displayCards(snap);
-        });
-}
 
-// get oldest posts from DB
-function getOldestPosts() {
-    document.getElementById("cards").innerHTML = '';
-    dbRef.orderBy("submissionDate")
-        .get()
-        .then(function (snap) {
-            displayCards(snap);
-        });
-}
-
-// get offer posts from DB
-function getOffers() {
-    document.getElementById("cards").innerHTML = '';
-    dbRef.where("postType", "==", "OFFERING")
-        .get()
-        .then(function (snap) {
-            displayCards(snap);
-        });
-}
-
-// get request posts from DB
-function getRequests() {
-    document.getElementById("cards").innerHTML = '';
-    dbRef.where("postType", "==", "REQUESTING")
-        .get()
-        .then(function (snap) {
-            displayCards(snap);
-        });
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            dbRef.doc(user.uid).collection("Posts")
+                .get()
+                .then(function (snap) {
+                    displayCards(snap);
+                    console.log(snap);
+                })
+        } else {
+            alert("Not signed in!");
+        }
+    });
 }
 
 /**
@@ -125,16 +103,12 @@ function createOneCard(c) {
     var date = document.createElement("p");
     date.setAttribute("class", "card-text");
     let subDate = c.data().submissionDate; // STRING
-    // TODO: display date in the form of "April, 20, 2020"
 
     let d = new Date(subDate);
-    console.log(d);
 
     let year = d.getFullYear();
     let month = monthNames[d.getMonth()];
     let day = d.getDate();
-
-    console.log(day);
 
     var text = document.createTextNode(month + " " + day + ", " + year);
     date.appendChild(text);
