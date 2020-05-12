@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>COVID Companion</title>
+
+    <!----------------------------------------------->
+    <!--  Meta tag for rendering on mobile devices -->
+    <!----------------------------------------------->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Helping British Columbians connect!">
+    <meta name="author" content="Linked Up">
+
+    <!----------------------------------------------->
+    <!-- CSS: Bootstrap, Firebase, other API -->
+    <!----------------------------------------------->
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!------------------------> 
+    <!-- Adding Favicon ------>
+    <!------------------------>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+
+    <!----------------------------------------------->
+    <!--  INTERNAL CSS AND JS -->
+    <!----------------------------------------------->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        section {
+            border: 1px solid;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!------------------->
+    <!--  HTML Section -->
+    <!------------------->
+
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="index.html">
+            <h1>COVID COMPANION</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="get-help.html">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">Get Help</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="offer-help.html">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">Offer Help</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="guidelines.html">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about-us.html">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">About Us</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">Contact Us</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!----------------------------------------------->
+    <!--  MAIN CONTAINER CONTAINER -->
+    <!----------------------------------------------->
+
+    <div id="messageListItems" class="container">
+        <div class="container d-block h-100" style="margin-top: 35vh" id="noMessages">
+            <div class="row justify-content-center align-self-center">
+                <h1>Your messages will show up here once you start chats.</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIREBASE -->
+    <!-- Firebase Core SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <!-- Firebase Products -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+    <!-- Firebase Initialize -->
+    <script src="js/firebaseConfig.js"></script>
+
+    <!----------------------------------------------->
+    <!--  LOAD INTERNAL JS AFTER BODY LOADS  -->
+    <!----------------------------------------------->
+
+    <script src="js/messagelist.js"></script>
+    <script src="js/index_script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create a post</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/styles.css" type="text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <!--      Adding Favicon ------------>
+        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+        
+        <!--    Importing Fonts------------>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+        <style>
+            h1{
+            font-family: 'Lato', sans-serif;
+            font-style: italic;
+            font-size: 35px;
+            color: #4689b5;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
+        <a class="navbar-brand" href="main.html">
+            <h1><img src="images/smallfavicon.PNG" alt="logo" height="42" width="45"> COVID COMPANION</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="get-help.html">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">Get Help</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="offer-help.html">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">Offer Help</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="guidelines.html">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about-us.html">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">About Us</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">Contact Us</span>
+                    </a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+        <!-- https://bootsnipp.com/forms -->
+        <div class="form-container">
+            <form class="form-horizontal" onsubmit="return false">
+                <fieldset>
+                    <!-- Form Name -->
+                    <legend>Create a post</legend>
+
+                    <!-- Post Type Multiple Radios -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="postType">Post type</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label for="postType-0">
+                                    <input type="radio" name="postType" id="postType-0" value="OFFERING" checked="checked">
+                                    OFFERING
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="postType-1">
+                                    <input type="radio" name="postType" id="postType-1" value="REQUESTING">
+                                    REQUESTING
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Donation Type Multiple Radios -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="itemName">Post Title</label>  
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label for="donationType-0">
+                                    <input type="radio" name="donationType" id="donationType-0" value="1" onchange="updateCategoryOptions()" checked="checked">
+                                    Item
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="donationType-1">
+                                    <input type="radio" name="donationType" id="donationType-1" value="2" onchange="updateCategoryOptions()">
+                                    Service
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item Name Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="postTitle">Title</label>  
+                        <div class="col-md-4">
+                            <input id="title" name="titleName" type="text" placeholder="Title..." class="form-control input-md" required="">
+                            <span class="help-block">Type in the title of your post here</span>  
+                        </div>
+                    </div>
+
+                    <!-- Category Select Basic -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="postDesc">Description</label>
+                        <div class="col-md-4">                     
+                            <textarea class="form-control" id="postDesc" name="textarea" placeholder="Description..."></textarea>
+                            <span class="help-block">Description and any additional comments for your post</span> 
+                        </div>
+                    </div>
+
+                    <!-- Post Image File Button --> 
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="postImage">Post Image</label>
+                        <div class="col-md-4">
+                            <input id="postImage" name="postImage" class="input-file" type="file" accept="image/png, image/jpeg">
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="btnSubmit"></label>
+                        <div class="col-md-4">
+                            <button id="btnSubmit" name="btnSubmit" class="btn btn-success" onclick="submitPost()">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>  
+        </div>    
+            
+        <!-- Firebase Services -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+
+    <script src="js/firebaseConfig.js"></script>
+
+    <!----------------------------------------------->
+    <!-- JS files: Your own JavaScripts go here    -->
+    <!----------------------------------------------->
+    <script src="js/post-item_script.js"></script>
+    </body>
+</html>
