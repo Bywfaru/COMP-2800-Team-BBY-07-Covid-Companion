@@ -24,11 +24,7 @@ let dbRef = db.collection("Posts");
 // Functions            //
 //======================//
 
-<<<<<<< HEAD
-// gets OLDEST posts from DB (default)
-=======
 // get newest posts from DB
->>>>>>> 22c837b5a8be706e56e228fb10743de2c8449a59
 function getPosts() {
     document.getElementById("cards").innerHTML = '';
     dbRef.orderBy("submissionDate", "desc")
@@ -48,24 +44,6 @@ function getOldestPosts() {
         });
 }
 
-<<<<<<< HEAD
-// get NEWEST posts from DB
-function getNew() {
-    // TODO
-}
-
-// get OFFERING posts from DB
-function getOffers() {
-    // TODO
-}
-
-// get REQUESTING posts from DB
-function getRequests() {
-    // TODO
-}
-
-
-=======
 // get offer posts from DB
 function getOffers() {
     document.getElementById("cards").innerHTML = '';
@@ -86,7 +64,6 @@ function getRequests() {
         });
 }
 
->>>>>>> 22c837b5a8be706e56e228fb10743de2c8449a59
 /**
  * Displays the post cards.
  * 

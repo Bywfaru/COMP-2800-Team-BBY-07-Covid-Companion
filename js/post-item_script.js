@@ -107,6 +107,7 @@ function submitPost() {
         console.log(user);
         if (user) {
             let post = getValues(user);
+            db.collection("Users").doc(user.uid).collection("Posts").add(post);
             db.collection("Posts").add(post).then(function() {
                 alert();
                 return true;
