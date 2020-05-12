@@ -18,7 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
-
     <!----------------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
     <!----------------------------------------------->
@@ -42,8 +41,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  
-  <script src="js/prefAuth.js"></script>
+  <script src="js/feedLoader.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -68,26 +66,39 @@
   
   <style>
     
-    .artic{
-     
-      align-content:center;
-      
+    
+    #userName{
+     text-align: center;
     }
-
+    
     h1{
       font-family: 'Lato', sans-serif;
       font-style: italic;
       font-size: 35px;
       color: #4689b5;
     }
+
+    .artic{
+     
+      padding-top: 5%;
+      padding-left: 30%;
+      padding-right: 30%;
+      
+    }
+  
+    #img1{
+      width: 80%;
+      height: 150%;
+    }
+    
     #butt{
       float:right;
       padding-right: 37%;
     }
     
-    h6{
-      color: lightgray;
-      font-size: 15px;
+    #userSaves{
+      padding-left: 30%;
+      padding-right: 30%;
     }
   
   </style>
@@ -112,55 +123,55 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                  <a class="nav-link" href="GetHelp.html">
+                  <a class="nav-link" href="get-help.html">
                       <span style="color: black; font-family: 'Lato', sans-serif;">Get Help</span>
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="OfferHelp.html">
+                  <a class="nav-link" href="offer-help.html">
                       <span style="color: black; font-family: 'Lato', sans-serif;">Offer Help</span>
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="Guidelines.html">
+                  <a class="nav-link" href="guidelines.html">
                       <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="AboutUs.html">
+                  <a class="nav-link" href="about-us.html">
                       <span style="color: black; font-family: 'Lato', sans-serif;">About Us</span>
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="Contact.html">
+                  <a class="nav-link" href="contact.html">
                       <span style="color: black; font-family: 'Lato', sans-serif;">Contact Us</span>
                   </a>
               </li>
           </ul>
   </nav>
-  
-  <div class="artic">
-  <form>
-  <span id="nameField">
-    <h1>Name</h1>
-    <h6>(If left blank, this section will remained unchanged.)</h6>
-  </span>
+
     
-  <span id="addrField">
-    <h1>Address</h1>
-    <h6>(If left blank, this section will remained unchanged.)</h6>
-  </span>
-    
-    <span id="postalCodeField">
-    <h1>Postal Code</h1>
-    <h6>(If left blank, this section will remained unchanged.)</h6>
-     </span>
-    </form>
-  </div>
-  
-        <section id="butt">
-      <button id="profPage">Submit Answers</button>
+    <section>
+        <!--Blurb-->
+        <div class="artic">
+            <h3 id="userName"></h3>
+            <span id="imageSection">
+            </span>
+            <h5><u><b>Description:</b></u></h5>
+            <p id="userDesc">
+            </p>
+          <p><b>Email</b>: <span id="useremail"></span></p>
+          <p><b>Address</b>: <span id="userAd"></span> </p>
+            <p><b>PostalCode</b>: <span id="userPost"></span></p>
+        </div>
+      <div class="Messenger">
+      </div>
+      <section id="butt">
+      <button id="butt1">Change Password</button>
+      <button id="butt2">User Feed</button>
+      <button id="prefPage">User Preferences</button>
       </section>
+    </section>
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, other API's    -->
@@ -175,11 +186,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-
-    <!----------------------------------------------->
-    <!-- JS files: Your own JavaScripts go here    -->
-    <!----------------------------------------------->
-
 </body>
 
 </html>
