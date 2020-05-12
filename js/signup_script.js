@@ -36,6 +36,8 @@ var uiConfig = {
             document.getElementById('loader').style.display = 'none';
         }
     },
+    // Disables AccountChooser. 
+    credentialHelper: firebaseui.auth.CredentialHelper.NONE,
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
     //signInSuccessUrl: '/main.html',
