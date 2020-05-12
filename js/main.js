@@ -2,13 +2,19 @@
 // Constants            //
 //======================//
 const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
+    "July", "August", "September", "October", "November", "December"
 ];
 
 //======================//
 // Global Variables     //
 //======================//
 let dbRef = db.collection("Posts");
+
+// Get a reference to the storage service, which is used to create references in your storage bucket
+var storage = firebase.storage();
+
+// Create a storage reference from our storage service
+var storageRef = storage.ref();
 
 //======================//
 // HTML DOM Elements    //
@@ -47,7 +53,7 @@ function getOldestPosts() {
 // get offer posts from DB
 function getOffers() {
     document.getElementById("cards").innerHTML = '';
-    dbRef.where("type", "==", "OFFERING")
+    dbRef.where("postType", "==", "OFFERING")
         .get()
         .then(function (snap) {
             displayCards(snap);
@@ -57,7 +63,7 @@ function getOffers() {
 // get request posts from DB
 function getRequests() {
     document.getElementById("cards").innerHTML = '';
-    dbRef.where("type", "==", "REQUESTING")
+    dbRef.where("postType", "==", "REQUESTING")
         .get()
         .then(function (snap) {
             displayCards(snap);
@@ -93,19 +99,21 @@ function createOneCard(c) {
     // Post TYPE
     var type = document.createElement("h4");
     type.setAttribute("class", "card-title");
-    var text = document.createTextNode(c.data().type + ":");
+    var text = document.createTextNode(c.data().postType + ":");
     type.appendChild(text);
 
     // Post TITLE
     var title = document.createElement("h4");
     title.setAttribute("class", "card-text");
-    var text = document.createTextNode(c.data().title);
+    var text = document.createTextNode(c.data().postTitle);
     title.appendChild(text);
 
     // Post IMAGE
     var image = document.createElement("img");
     image.setAttribute("class", "card-img");
-    image.src = c.data().image;
+    storageRef.child('postImage/' + c.data().itemImgName).getDownloadURL().then(function (url) {
+        image.src = url;
+    });
 
     // Post DESCRIPTION
     var desc = document.createElement("p");
@@ -134,7 +142,7 @@ function createOneCard(c) {
     a.type = "button"
     a.setAttribute("value", "View");
     a.addEventListener('click', function () {
-        window.location.href = "posttemplate.html";
+        window.location.href = "PostTemplate.html";
     });
     a.setAttribute("class", "btn btn-outline-secondary");
     var text = document.createTextNode("View Gym");
