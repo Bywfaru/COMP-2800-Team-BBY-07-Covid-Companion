@@ -38,7 +38,6 @@
         main {
             display: grid;
             grid-template-areas:
-                "aside"
                 "section"
                 "footer";
         }
@@ -67,8 +66,8 @@
             main {
                 grid-template-columns: 20%;
                 grid-template-areas:
-                    "aside section"
-                    "footer footer";
+                    "section"
+                    "footer";
             }
         }
     </style>
@@ -132,17 +131,9 @@
             </form>
         </div>
     </nav>
-
+    MY POSTS
     <main>
-        <!--SIDEBAR-->
-        <aside>
-            SORT BY:<br>
-            <button onclick="getPosts()">NEWEST</button><br>
-            <button onclick="getOldestPosts()">OLDEST</button><br>
-            <button onclick="getOffers()">OFFERS</button><br>
-            <button onclick="getRequests()">REQUESTS</button>
-        </aside>
-
+        
         <!--Feed-->
         <section>
             <div class="jumbotron" id="cards" style="background-color: white;">
