@@ -108,7 +108,7 @@ function createOneCard(c) {
 
     let year = d.getFullYear();
     let month = monthNames[d.getMonth()];
-    let day = d.getDay();
+    let day = d.getDate();
 
     var text = document.createTextNode(month + " " + day + ", " + year);
     date.appendChild(text);

@@ -128,10 +128,13 @@ function createOneCard(c) {
     // TODO: display date in the form of "April, 20, 2020"
 
     let d = new Date(subDate);
+    console.log(d);
 
     let year = d.getFullYear();
     let month = monthNames[d.getMonth()];
-    let day = d.getDay();
+    let day = d.getDate();
+
+    console.log(day);
 
     var text = document.createTextNode(month + " " + day + ", " + year);
     date.appendChild(text);
