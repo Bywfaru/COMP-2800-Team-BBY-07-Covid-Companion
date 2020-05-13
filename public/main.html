@@ -28,50 +28,7 @@
     <!--      Adding Favicon ------------>
     <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
     
-    <style>
-        h1{
-            font-family: 'Lato', sans-serif;
-            font-style: italic;
-            font-size: 35px;
-            color: #4689b5;
-        }
-        main {
-            display: grid;
-            grid-template-areas:
-                "aside"
-                "section"
-                "footer";
-        }
-
-        section {
-            grid-area: section;
-            border: 1px solid;
-        }
-
-        aside {
-            grid-area: aside;
-            border: 1px solid;
-        }
-
-        footer {
-            position: relative;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            grid-area: footer;
-            border: 1px solid;
-            z-index: 1;
-        }
-
-        @media (min-width: 1025px) {
-            main {
-                grid-template-columns: 20%;
-                grid-template-areas:
-                    "aside section"
-                    "footer footer";
-            }
-        }
-    </style>
+        <link rel="stylesheet" type="text/css" href="css/main.css" media="screen"/>
 </head>
 
 <body>
