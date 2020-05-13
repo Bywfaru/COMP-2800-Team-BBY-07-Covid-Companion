@@ -44,6 +44,7 @@ function getPosts() {
                 })
         } else {
             alert("Not signed in!");
+            window.location.href = "index.html"
         }
     });
 }
@@ -113,17 +114,27 @@ function createOneCard(c) {
     var text = document.createTextNode(month + " " + day + ", " + year);
     date.appendChild(text);
 
-
     // View Post button
     var a = document.createElement("input");
     a.type = "button"
-    a.setAttribute("value", "View");
+    a.setAttribute("value", "View Post");
     a.addEventListener('click', function () {
         window.location.href = "PostTemplate.html";
     });
     a.setAttribute("class", "btn btn-outline-secondary");
-    var text = document.createTextNode("View Gym");
+    var text = document.createTextNode("View Post");
     a.appendChild(text);
+
+    // View Post button
+    var b = document.createElement("input");
+    b.type = "button"
+    b.setAttribute("value", "Edit Post");
+    b.addEventListener('click', function () {
+        editPost(c.id);
+    });
+    b.setAttribute("class", "btn btn-outline-secondary");
+    var text = document.createTextNode("Edit Post");
+    b.appendChild(text);
 
     // Stitch it all together 
     cardbodydiv.appendChild(type);
@@ -132,14 +143,16 @@ function createOneCard(c) {
     cardbodydiv.appendChild(desc);
     cardbodydiv.appendChild(date);
     cardbodydiv.appendChild(a);
+    cardbodydiv.appendChild(b);
     carddiv.appendChild(cardbodydiv);
     coldiv.appendChild(carddiv);
     document.getElementById("cards").appendChild(coldiv); //stick it in the div
 }
 
 
-function getDate() {
-
+function editPost(postId) {
+    window.localStorage.setItem('postId', postId);
+    window.location.href = "editPost.html"
 }
 
 //======================//
