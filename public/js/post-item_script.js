@@ -107,8 +107,11 @@ function submitPost() {
         console.log(user);
         if (user) {
             let post = getValues(user);
-            db.collection("Posts").add(post).then(function() {
-                alert();
+            db.collection("Posts").add(post)
+            .then(function(docRef) {
+                console.log(user.uid);
+                db.collection("Users").doc(user.uid).collection("Posts").doc(docRef.id).set(post);
+                window.alert("Successfully posted!");
                 return true;
             });
             return false;

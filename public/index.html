@@ -26,49 +26,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     
-    <style>
-        ul#menu li {
-            display:inline;
-            padding: 50px;
-        }
-        footer{
-            grid-area: footer;
-            background-color: black;
-            color: white;
-        }
-        header{
-            grid-area: header;
-            background-color: #edce1d;
-        }
-        h1{
-            font-family: 'Lato', sans-serif;
-            font-style: italic;
-            font-size: 35px;
-            color: #4689b5;
-        }
-        section{
-            grid-area: section;
-            text-align: center;
-            background-color: lightgrey;
-        }
-        #button{
-            float: right;
-        }
-        main{
-            grid-area: main;
-            text-align: center;
-        }
-        body{
-        overflow-x: hidden;
-        display: grid;
-        grid-template-rows: auto;
-        grid-template-areas: 
-        "header"
-        "main"
-        "section"   
-        "footer";
-        }
-    </style>
+        <link rel="stylesheet" type="text/css" href="css/index.css" media="screen"/>
+  
 </head>
 
 <body>
@@ -162,6 +121,36 @@
     <footer>
         <br>
         <h4>Covid Companion</h4>
+        <!-- The wrapper div. -->
+<!--
+<div style="position:relative; 
+            font-size:60px; 
+            width:300px; 
+            height:60px; 
+            overflow:hidden; 
+            margin:0 auto 0 auto; 
+            border:none">
+-->
+<!-- The content of the wrapper div. -->
+<!--<div style="float:left;">1</div>-->
+<!--
+<div style="float:right;">3</div>
+<div style="text-align:center;">2</div>
+<div style="clear:both;"></div>
+-->
+<!-- The easter egg div, also within the the wwapper div. -->
+<!--
+<div style="position:absolute; 
+            top:0px; 
+            right:0px; 
+            z-index:99; 
+            background-color:transparent; 
+            width:40px; 
+            height:60px;" 
+     onmouseover="MouseoverMessageInAlertBox()"></div>
+</div>
+-->
+<!-- End of wrapper div. -->
         <p>
             Covid Companion is helping thousands of people <br>
             during this time of crisis by making the essential<br>
@@ -169,7 +158,7 @@
         </p>
         <img class="img-thumbnail"  src="./images/socialmedia.png" alt="connect us">
         <br><br>
-        
+         
     </footer>
 
     <!----------------------------------------------->
@@ -185,11 +174,94 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/egg.js/1.0/egg.min.js"></script>
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
     <script src="scripts/index.js"></script>
+    <script>
+        
+        var today = new Date();
+// Regular days just use these emoji
+var possibleEmoji = [
+      '🐹',
+      '🐢',
+      '🌼',
+      '🍉'
+    ];
+
+// Special emoji if close to Halloween
+if (today.getMonth() === 9 && [31, 30, 29, 28].indexOf(today.getDate()) !== -1) {
+  possibleEmoji = [
+    '👻',
+    '🎃',
+    '🧟‍♀️'
+  ];
+}
+
+// Special emoji if close to Christmas
+if (today.getMonth() === 11 && [21, 22, 23, 24, 25, 26].indexOf(today.getDate()) !== -1) {
+  possibleEmoji = [
+    '❄️',
+    '🎅',
+    '🎁'
+  ];
+}
+
+document.body.addEventListener('click', function (event) {
+  /* 
+   * generate random number that falls between 0 and the total number 
+   * of emoji possibilities
+  */
+  var randomNumber = Math.round(Math.random() * possibleEmoji.length);
+
+  var span = document.createElement('span'); 
+  span.textContent = possibleEmoji[randomNumber];
+  span.className= 'emoji click-emoji';
+  /* 
+   * event.clientX is where the mouse was horizontally at the time of 
+   * the click. This way we can insert the emoji in the exact location 
+   * the user clicked.
+  */
+  span.style.left = event.clientX + 'px';
+  // event.clientY - same idea as clientX, but vertical position.
+  span.style.top = event.clientY + 'px'; 
+  /* Of course these values are useless if we don’t set the emoji's
+   * position to something outside the normal flow of content. */
+  span.style.position = 'fixed';
+  document.body.appendChild(span);                           
+});
+//    var egg = new Egg();
+//egg
+//  .addCode("up,up,down,down,left,right,left,right,b,a", function() {
+//    jQuery('#egggif').fadeIn(500, function() {
+//      window.setTimeout(function() { jQuery('#egggif').hide(); }, 5000);
+//    });
+//  })
+//  .addHook(function(){
+//    console.log("Hook called for: " + this.activeEgg.keys);
+//    console.log(this.activeEgg.metadata);
+//  }).listen();
+//        
+//        var egg = new Egg("up,up,down,down,left,right,left,right,b,a", function() {
+//  jQuery('#egggif').fadeIn(500, function() {
+//    window.setTimeout(function() { jQuery('#egggif').hide(); }, 5000);
+//  });
+//}).listen();
+    </script>
+<!--
+    <script type="text/javascript">
+var firstTime = true;
+var message = "Cool. You tried it!";
+var later = "\n\nThis is the real easter egg.\n\nThe first message isn't a real easter egg because the web page says what to do.\n\nThis one, however, is a message revealed only if the number '3' is hovered over more than once.\n\n "
+function MouseoverMessageInAlertBox()
+{
+   if(firstTime) { alert(message); }
+   else { alert(later); }
+   firstTime = false;
+}
+</script>
+-->
 </body>
 
 </html>

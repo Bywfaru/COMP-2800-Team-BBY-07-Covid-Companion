@@ -48,15 +48,15 @@ function logout() {
       loadUser();
       
    document.getElementById("butt2").onclick = function () {
-        window.location.replace("UserFeed.html");
+        window.location.replace("user-feed.html");
       }
    
      document.getElementById("prefPage").onclick = function () {
-        window.location.replace("UserPref.html");
+        window.location.replace("user-pref.html");
       }
      
      document.getElementById("butt1").onclick = function(){ 
-        window.location.replace("UserPassword.html");
+        window.location.replace("user-password.html");
      }
       
     });

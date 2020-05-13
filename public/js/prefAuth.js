@@ -50,7 +50,7 @@ function writeProf() {
            userID: user.uid
          }).then(function(){
            
-      window.location.replace("UserProf.html");
+      window.location.replace("user-prof.html");
            
     });
          
