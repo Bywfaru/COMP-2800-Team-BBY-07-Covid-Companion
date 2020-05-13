@@ -43,7 +43,6 @@
                 <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
           <script src="js/search.js"></script>
     
-</head>
         <!------------------------>
         <!-- Your own CSS files -->
         <!------------------------>
@@ -51,6 +50,7 @@
     </head>
 
     <body>
+        <header>
         <!-- Navbar -->
         <div class="shadow p-3 mb-5 bg-#edce1d rounded">
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
@@ -91,10 +91,10 @@
                         </li>
                     </ul>
                     <div class="button">
-                        <button class="btn btn-outline-primary" type="submit" onclick="window.location.href = 'signup.html';">
-                            Login
-                        </button>
-                    </div>
+                <button class="btn btn-outline-primary" type="submit" onclick="window.location.href = 'signup.html';">
+                    Login
+                </button>
+            </div>
                   <form class="form-inline my-2 my-lg-0">
                     <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
@@ -102,20 +102,22 @@
                 </div>
             </nav>
         </div>
-
+</header>
+         <main>
         <!--BANNER-->
-        <h1>Contact Us</h1>
-        
-        <h2>Get in touch</h2>
-        
+             <br><br>
+        <h1>Contact Us</h1>     
         <p>
             Covid Companion is helping thousands of people who need help during this period of crisis who are not able 
             to purchase essential items to survive or want any other kind of service/help. We provide a common 
             platform for community to come together and help those who are struggling. Please call one of our toll 
             free numbers below or email Covid Companion using the contact form below if you have any questions about 
             how to donate/request or what to donate/request.
-        </p>
-        
+        </p><br><br>
+            </main>
+        <section>
+            <br><br>
+        <h2>Get in touch</h2>
         <p>
             <b>Covid Companion</b>
             <br>
@@ -136,50 +138,20 @@
             <br>
             Email: info@CovidCompanion.com
             <br>
-        </p>
-
-        <!--Footer-->
+        </p><br><br>
+</section>
         <footer>
-            <br>
-            <h4>Covid Companion</h4>
-            <!-- The wrapper div. -->
-            <!--
-            <div style="position:relative; 
-                        font-size:60px; 
-                        width:300px; 
-                        height:60px; 
-                        overflow:hidden; 
-                        margin:0 auto 0 auto; 
-                        border:none">
-            -->
-            <!-- The content of the wrapper div. -->
-            <!--<div style="float:left;">1</div>-->
-            <!--
-            <div style="float:right;">3</div>
-            <div style="text-align:center;">2</div>
-            <div style="clear:both;"></div>
-            -->
-            <!-- The easter egg div, also within the the wwapper div. -->
-            <!--
-            <div style="position:absolute; 
-                        top:0px; 
-                        right:0px; 
-                        z-index:99; 
-                        background-color:transparent; 
-                        width:40px; 
-                        height:60px;" 
-                onmouseover="MouseoverMessageInAlertBox()"></div>
-            </div>
-            -->
-            <!-- End of wrapper div. -->
-            <p>
-                Covid Companion is helping thousands of people <br>
-                during this time of crisis by making the essential<br>
-                items available to them as soon as possible.
-            </p>
-            <img class="img-thumbnail" src="./images/socialmedia.png" alt="connect us">
-            <br><br>
-        </footer>
+        <br>
+        <h4>Covid Companion</h4>
+        <p>
+            Covid Companion is helping thousands of people <br>
+            during this time of crisis by making the essential<br>
+            items available to them as soon as possible.
+        </p>
+        <img class="img-thumbnail"  src="./images/socialmedia.png" alt="connect us">
+        <br><br>
+         
+    </footer>
 
         <!----------------------------------------------->
         <!-- JS: Boostrap, Firebase, other API's -->
