@@ -137,6 +137,7 @@ function getValues(thisUser) {
     let donationType;
     let postTitle;
     let postDesc;
+    let status;
 
     // Poster's name
     thisUserName = thisUser.displayName;
@@ -162,6 +163,8 @@ function getValues(thisUser) {
     // Date posted
     let today = new Date();
     submissionDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    
+    status = "unrequested";
 
     return {
         thisUserName,
@@ -170,7 +173,8 @@ function getValues(thisUser) {
         postTitle,
         postDesc,
         submissionDate,
-        itemImgName
+        itemImgName,
+        status
     };
 }
 
