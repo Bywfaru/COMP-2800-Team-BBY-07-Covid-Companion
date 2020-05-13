@@ -1,0 +1,74 @@
+.card {
+    text-align: center;  
+}
+
+#baseCard {
+    background-image: linear-gradient(to bottom right, red, white);
+}
+
+p {
+    font-weight: bold;
+}
+
+#titleName {
+    color: white;
+}
+
+#baseCard {
+    background: rgb(24,78,104);
+    background: radial-gradient(circle, rgba(24,78,104,1) 0%, rgba(87,202,133,1) 100%);
+}
+
+#gameGuide {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    padding: 5px ;
+}
+#wordHint {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    padding: 5px ;
+    color: red;
+}
+
+#hangmanImageDiv {
+    background-color: white;
+}
+
+#hangmanImage {
+    width: 60px;
+    height: 69px;
+}
+
+.keyboardStyle {
+    border: 1px solid black;
+    padding-top: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: white; 
+}
+
+#keyBoardBack {
+    padding: 10px;
+    background-color: black;
+}
+
+#leftFloat {
+    float: left;
+}
+
+#reset {
+    background: rgb(18,25,214);
+    background: radial-gradient(circle, rgba(18,25,214,1) 0%, rgba(18,137,214,1) 100%);
+}
+
+#endGame {
+    background: rgb(214,18,18);
+    background: radial-gradient(circle, rgba(214,18,18,1) 0%, rgba(214,80,18,1) 100%);
+}
+
