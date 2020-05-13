@@ -42,6 +42,7 @@
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <script src="js/feedLoader.js"></script>
+  <script src="js/search.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -73,7 +74,7 @@
     <!--  HTML Section -->
     <!------------------->
 
-=======
+
   <head>
       <meta charset="UTF-8">
       <title>COVID Companion</title>
@@ -106,7 +107,6 @@
   </head>
 
   <body>
->>>>>>> ba81eea09bed70b0dcc45a8277a2a131662bfb4d
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
       <a class="navbar-brand" href="main.html">
@@ -163,8 +163,8 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
@@ -194,10 +194,6 @@
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, other API's -->
     <!----------------------------------------------->
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
 
     <script 
         src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -214,7 +210,5 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
         crossorigin="anonymous">
     </script>
-
-    <script src="js/firebaseConfig.js"></script>
   </body>
 </html>
