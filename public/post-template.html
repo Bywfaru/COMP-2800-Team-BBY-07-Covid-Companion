@@ -3,302 +3,299 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>COVID Companion</title>
+  <meta charset="UTF-8">
+  <title>COVID Companion</title>
 
-    <!----------------------------------------------->
-    <!--  Meta tag for rendering on mobile devices -->
-    <!----------------------------------------------->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!--      Adding Favicon ------------>
-    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+  <!----------------------------------------------->
+  <!--  Meta tag for rendering on mobile devices -->
+  <!----------------------------------------------->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-     <!--    Importing Fonts------------>
-     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
- 
-    <!----------------------------------------------->
-    <!-- CSS: Bootstrap, Firebase, other API -->
-    <!----------------------------------------------->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  
-      <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
-  
-    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <!--      Adding Favicon ------------>
+  <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
 
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-    
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <!--    Importing Fonts------------>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-    
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
-    
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+  <!----------------------------------------------->
+  <!-- CSS: Bootstrap, Firebase, other API -->
+  <!----------------------------------------------->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  
+  <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
   <script src="js/saving.js"></script>
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBaZHm6ZVMik8nQSd9By8swddN_23rsAhU",
-    authDomain: "comp2800-covid-companion.firebaseapp.com",
-    databaseURL: "https://comp2800-covid-companion.firebaseio.com",
-    projectId: "comp2800-covid-companion",
-    storageBucket: "comp2800-covid-companion.appspot.com",
-    messagingSenderId: "1049614650890",
-    appId: "1:1049614650890:web:1c78ffca70f68c90ead9f3",
-    measurementId: "G-XLKW7NCXFD"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  var db = firebase.firestore();
-</script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBaZHm6ZVMik8nQSd9By8swddN_23rsAhU",
+      authDomain: "comp2800-covid-companion.firebaseapp.com",
+      databaseURL: "https://comp2800-covid-companion.firebaseio.com",
+      projectId: "comp2800-covid-companion",
+      storageBucket: "comp2800-covid-companion.appspot.com",
+      messagingSenderId: "1049614650890",
+      appId: "1:1049614650890:web:1c78ffca70f68c90ead9f3",
+      measurementId: "G-XLKW7NCXFD"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+  </script>
 
-    <!------------------------>
-    <!-- Your own CSS files -->
-    <!------------------------>
-  
+  <!------------------------>
+  <!-- Your own CSS files -->
+  <!------------------------>
+
   <style>
-    
-    #userName{
-     text-align: center;
+    #userName {
+      text-align: center;
     }
-    
-    .artic{
-     
+
+    .artic {
+
       padding-top: 5%;
       padding-left: 30%;
       padding-right: 30%;
-      
+
     }
-    
-    
-  
-    #img1{
+
+
+
+    #img1 {
       width: 80%;
       height: 150%;
     }
-    h1{
+
+    h1 {
       font-family: 'Lato', sans-serif;
       font-style: italic;
       font-size: 35px;
       color: #4689b5;
     }
   </style>
-  
+
 </head>
 
 <body>
-    <!------------------->
-    <!--  HTML Section -->
-    <!------------------->
+  <!------------------->
+  <!--  HTML Section -->
+  <!------------------->
 
-    <!--NavBar-->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
-      <a class="navbar-brand" href="main.html">
-          <h1><img src="images/smallfavicon.PNG" alt="logo" height="42" width="45"> COVID COMPANION</h1>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+  <!--NavBar-->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
+    <a class="navbar-brand" href="main.html">
+      <h1><img src="images/smallfavicon.PNG" alt="logo" height="42" width="45"> COVID COMPANION</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-              <a class="nav-link" href="get-help.html">
-                  <span style="color: black; font-family: 'Lato', sans-serif;">Get Help</span>
-              </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="offer-help.html">
-                  <span style="color: black; font-family: 'Lato', sans-serif;">Offer Help</span>
-              </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="guidelines.html">
-                  <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
-              </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="about-us.html">
-                  <span style="color: black; font-family: 'Lato', sans-serif;">About Us</span>
-              </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="contact.html">
-                  <span style="color: black; font-family: 'Lato', sans-serif;">Contact Us</span>
-              </a>
-          </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="GetHelp.html">
+            <span style="color: black; font-family: 'Lato', sans-serif;">Get Help</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="OfferHelp.html">
+            <span style="color: black; font-family: 'Lato', sans-serif;">Offer Help</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Guidelines.html">
+            <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="AboutUs.html">
+            <span style="color: black; font-family: 'Lato', sans-serif;">About Us</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Contact.html">
+            <span style="color: black; font-family: 'Lato', sans-serif;">Contact Us</span>
+          </a>
+        </li>
       </ul>
   </nav>
 
-    
-    <section>
-        <!--Blurb-->
-        <div class="artic">
-            <h3 id="userName"></h3>
-            <span id="imageSection">
-            </span>
-            <h5><u><b>Description:</b></u></h5>
-            <p id="userDesc">
-            </p>
-          <p><b>Address</b>: <span id="userAd"></span> </p>
-            <p><b>PostalCode</b>: <span id="userPost"></span></p>
-          
-        <button> Request </button>
-       <button id="but1">
-        Message Donor
-      </button>
-        <button id="but3"> Save Current Post </button>
-        </div>
-      <div class="Messenger">
-      </div>
-    </section>
+
+  <section>
+    <!--Blurb-->
+    <div class="artic">
+      <h3 id="userName"></h3>
+      <span id="imageSection">
+      </span>
+      <h5><u><b>Description:</b></u></h5>
+      <p id="userDesc">
+      </p>
+      <p><b>Address</b>: <span id="userAd"></span> </p>
+      <p><b>PostalCode</b>: <span id="userPost"></span></p>
+
+      <button> Request </button>
+      <button id="but1">Message Donor</button>
+      <button id="but3"> Save Current Post </button>
+    </div>
+    <div class="Messenger">
+    </div>
+  </section>
 
 
 
-    <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, other API's    -->
-    <!----------------------------------------------->
+  <!----------------------------------------------->
+  <!-- JS: Boostrap, Firebase, other API's    -->
+  <!----------------------------------------------->
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
 
-    <!----------------------------------------------->
-    <!-- JS files: Your own JavaScripts go here    -->
-    <!----------------------------------------------->
-  
+  <!----------------------------------------------->
+  <!-- JS files: Your own JavaScripts go here    -->
+  <!----------------------------------------------->
+
   <script>
-  
-   $(document).ready(function(){ 
-     
-  var sender;
-     
-   db.collection("Posts").doc("Ok2Bb5O8dW4bs9LwENUg")
-    .onSnapshot(function (c) {
-     if(c.data().title != ""){
-    document.getElementById("userName").innerHTML = c.data().title;
-     } else {
-    document.getElementById("userName").innerHTML = "N/A";
-     }
-     if(c.data().postDesc != ""){
-    document.getElementById("userDesc").innerHTML = c.data().postDesc;
-     } else {
-    document.getElementById("userDesc").innerHTML = "N/A";
-     }
-     
-    sender = c.data().submitterNo;
-      
-  db.collection("Users").doc(c.data().submitterNo).onSnapshot(function (d){
-    if(d.data().addr != ""){
-    document.getElementById("userAd").innerHTML = d.data().addr;
-    } else {
-    document.getElementById("userAd").innerHTML = "N/A";
-    }
-    if(d.data().postalCode != ""){
-     document.getElementById("userPost").innerHTML = d.data().postalCode;
-    } else {
-     document.getElementById("userPost").innerHTML = "N/A";
-    }
-    if(c.data().image != ""){
-      $("#imageSection").append('<img id="img1" src='
-           + c.data().image + '>');
-     
-       } else {
-            $("#imageSection").append('<img id="img1" src='
-           + 'download.png' + '>');
-       }
-    })
-   
-    })
-      
-    var box = '<textarea id="box1" placeholder="Your Message Here"></textarea>';
-      
-    var break1 = '<br></br>'
-      
-    var button1 = '<button id="but2"> Send Message </button>'
-      
-    var mes = 1;
-      
-    $("#box1").css('width', '100%'); 
-      
-    $("#box1").css('height', '100%'); 
-      
-    $(".Messenger").css('padding-left','30%');
-      
-    $(".Messenger").css('padding-right','30%');
-      
-    $(".Messenger").css('padding-top','5%');
-      
-    $(".Messenger").append(box);
-      
-    $(".Messenger").append(break1);
-      
-    $(".Messenger").append(button1);
-      
-    $(".Messenger").hide();
-      
-    document.getElementById("but1").onclick = function () {
-      
-      if(mes == 1){
-        
+    $(document).ready(function () {
+
+      var sender;
+
+      db.collection("Posts").doc("Ok2Bb5O8dW4bs9LwENUg")
+        .onSnapshot(function (c) {
+          if (c.data().title != "") {
+            document.getElementById("userName").innerHTML = c.data().title;
+          } else {
+            document.getElementById("userName").innerHTML = "N/A";
+          }
+          if (c.data().postDesc != "") {
+            document.getElementById("userDesc").innerHTML = c.data().postDesc;
+          } else {
+            document.getElementById("userDesc").innerHTML = "N/A";
+          }
+
+          sender = c.data().submitterNo;
+
+          db.collection("Users").doc(c.data().submitterNo).onSnapshot(function (d) {
+            if (d.data().addr != "") {
+              document.getElementById("userAd").innerHTML = d.data().addr;
+            } else {
+              document.getElementById("userAd").innerHTML = "N/A";
+            }
+            if (d.data().postalCode != "") {
+              document.getElementById("userPost").innerHTML = d.data().postalCode;
+            } else {
+              document.getElementById("userPost").innerHTML = "N/A";
+            }
+            if (c.data().image != "") {
+              $("#imageSection").append('<img id="img1" src=' +
+                c.data().image + '>');
+
+            } else {
+              $("#imageSection").append('<img id="img1" src=' +
+                'download.png' + '>');
+            }
+          })
+
+        })
+
+      var box = '<textarea id="box1" placeholder="Your Message Here"></textarea>';
+
+      var break1 = '<br></br>'
+
+      var button1 = '<button id="but2"> Send Message </button>'
+
+      var mes = 1;
+
+      $("#box1").css('width', '100%');
+
+      $("#box1").css('height', '100%');
+
+      $(".Messenger").css('padding-left', '30%');
+
+      $(".Messenger").css('padding-right', '30%');
+
+      $(".Messenger").css('padding-top', '5%');
+
+      $(".Messenger").append(box);
+
+      $(".Messenger").append(break1);
+
+      $(".Messenger").append(button1);
+
+      $(".Messenger").hide();
+
+      document.getElementById("but1").onclick = function () {
+
+        if (mes == 1) {
+
+          $(".Messenger").show();
+          mes = 0;
+
+        } else {
+
+          $(".Messenger").hide();
+          mes = 1;
+
+        }
+      };
+
+      document.getElementById("but2").onclick = function () {
+
+        var messageCont = document.getElementById("box1").value;
+
+        var date = new Date();
+
+        /** Will find a way to add senderID through firebaseAuth*/
+
+        db.collection("Messages").add({
+          recipientID: sender,
+          senderID: "hOH2MQ9jZ2TvAuxEgDkN",
+          mesDesc: messageCont,
+          sentDate: date
+        }).then(function () {
+          if (mes == 1) {
+
             $(".Messenger").show();
             mes = 0;
-         
-         } else{
-           
+
+          } else {
+
             $(".Messenger").hide();
             mes = 1;
-           
-         }
-    };
-     
-    document.getElementById("but2").onclick = function(){
-      
-      var messageCont = document.getElementById("box1").value;
-      
-      var date = new Date();
-      
-      /** Will find a way to add senderID through firebaseAuth*/
-      
-      db.collection("Messages").add({
-        recipientID: sender,
-        senderID: "hOH2MQ9jZ2TvAuxEgDkN",
-        mesDesc: messageCont,
-        sentDate: date
-      }).then(function (){
-              if(mes == 1){
-        
-            $(".Messenger").show();
-            mes = 0;
-         
-         } else{
-           
-            $(".Messenger").hide();
-            mes = 1;
-           
-         }
-      });
-    };
-     
-    document.getElementById("but3").onclick(savePost());
-     
- });
+
+          }
+        });
+      };
+
+      document.getElementById("but3").onclick(savePost());
+
+    });
   </script>
 
 </body>
