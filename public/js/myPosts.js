@@ -119,7 +119,7 @@ function createOneCard(c) {
     a.type = "button"
     a.setAttribute("value", "View Post");
     a.addEventListener('click', function () {
-        window.location.href = "PostTemplate.html";
+        window.location.href = "post-template.html";
     });
     a.setAttribute("class", "btn btn-outline-secondary");
     var text = document.createTextNode("View Post");
