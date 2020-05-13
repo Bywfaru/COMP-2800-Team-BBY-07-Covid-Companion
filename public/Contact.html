@@ -1,102 +1,142 @@
+<!DOCTYPE html>
+
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Get Help</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Get Help</title>
 
-    <!----------------------------------------------->
-    <!--  Meta tag for rendering on mobile devices -->
-    <!----------------------------------------------->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!------------------------> 
-    <!-- Adding Favicon ------>
-    <!------------------------>
-    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
-    
-     <!--    Importing Fonts------------>
-     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
- 
-    <style>
-        body{
-            background-color: lightyellow;
-        }
-        h1{
-            font-family: 'Lato', sans-serif;
-            font-style: italic;
-            font-size: 35px;
-            color: #4689b5;
-        }
-    </style>
-</head>
+        <!----------------------------------------------->
+        <!--  Meta tag for rendering on mobile devices -->
+        <!----------------------------------------------->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!----------------------------------------------->
+        <!-- CSS: Bootstrap, Firebase, other API -->
+        <!----------------------------------------------->
+        <link 
+            rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+            crossorigin="anonymous">
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+        
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
-<body>
-    <!------------------->
-    <!--  HTML Section -->
-    <!------------------->
-<!--NavBar-->
-<!-- <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
-    <a class="navbar-brand" href="index.html">
-        <h1><img src="images/smallfavicon.PNG" alt="logo" height="42" width="45"> COVID COMPANION</h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        <!------------------------>
+        <!-- Your own CSS files -->
+        <!------------------------>
+        <link rel="stylesheet" type="text/css" href="./css/contact_style.css" media="screen"/>
+    </head>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                  <a class="nav-link" href="get-help.html">
-                      <span style="color: black; font-family: 'Lato', sans-serif;">Get Help</span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="offer-help.html">
-                      <span style="color: black; font-family: 'Lato', sans-serif;">Offer Help</span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="guidelines.html">
-                      <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="about-us.html">
-                      <span style="color: black; font-family: 'Lato', sans-serif;">About Us</span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="contact.html">
-                      <span style="color: black; font-family: 'Lato', sans-serif;">Contact Us</span>
-                  </a>
-              </li>
-          </ul>
-</nav> -->
+    <body>
+        <!-- Navbar -->
+        <div class="shadow p-3 mb-5 bg-#edce1d rounded">
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
+                <a class="navbar-brand" href="index.html">
+                    <h1><img src="images/smallfavicon.PNG" alt="logo" height="42" width="45"> COVID COMPANION</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <!--BANNER-->
-    <h1>Contact Us</h1>
-    
-    <h2>Get in touch</h2>
-    
-    <p>
-        Covid Companion is helping thousands of people who need help during this period of crisis who are not able to purchase essential items to survive or want any other kind of service/help. 
-        We provide a common platform for community to come together and help those who are struggling. Please call one of our toll free numbers below or email Covid Companion using the contact form below 
-        if you have any questions about how to donate/request or what to donate/request.</p>
-    
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="get-help.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Get Help</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="offer-help.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Offer Help</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="guidelines.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about-us.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">About Us</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Contact Us</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="button">
+                        <button class="btn btn-outline-primary" type="submit" onclick="window.location.href = 'signup.html';">
+                            Login
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!--BANNER-->
+        <h1>Contact Us</h1>
+        
+        <h2>Get in touch</h2>
+        
         <p>
-            <b>Covid Companion</b><br>
-            555 Seymour Street<br>
-            Vancouver, BC<br>
-            V6B 3H6, Canada<br>
+            Covid Companion is helping thousands of people who need help during this period of crisis who are not able 
+            to purchase essential items to survive or want any other kind of service/help. We provide a common 
+            platform for community to come together and help those who are struggling. Please call one of our toll 
+            free numbers below or email Covid Companion using the contact form below if you have any questions about 
+            how to donate/request or what to donate/request.
+        </p>
+        
+        <p>
+            <b>Covid Companion</b>
+            <br>
+            555 Seymour Street
+            <br>
+            Vancouver, BC
+            <br>
+            V6B 3H6, Canada
+            <br>
         </p>
 
         <p>
-            Toll Free: 1-866-303-6061<br>
-            Phone: +1-604-856-4595<br>
-            Fax: 604-856-3800<br>
-            Email: info@CovidCompanion.com<br>
+            Toll Free: 1-866-303-6061
+            <br>
+            Phone: +1-604-856-4595
+            <br>
+            Fax: 604-856-3800
+            <br>
+            Email: info@CovidCompanion.com
+            <br>
         </p>
 
-</body>
+        <!----------------------------------------------->
+        <!-- JS: Boostrap, Firebase, other API's -->
+        <!----------------------------------------------->
+        <script 
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            type="text/javascript" 
+            src="https://cdnjs.cloudflare.com/ajax/libs/egg.js/1.0/egg.min.js">
+        </script>
+    </body>
 </html>
