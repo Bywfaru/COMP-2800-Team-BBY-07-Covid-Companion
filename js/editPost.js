@@ -78,8 +78,11 @@ function submitPost() {
         if (user) {
             let post = getValues(user);
             //TODO: update post in db
-            db.collection("Posts").doc(postId).set(post);
-            db.collection("Users").doc(postId).set(post);
+            db.collection("Posts").doc(postId).set(post)
+            .then(function(docRef) {
+                // update in myPosts
+                db.collection("Users").doc(user.uid).collection("Posts").doc(postId).set(post)
+            });
         } else {
             alert("Not signed in!");
         }
