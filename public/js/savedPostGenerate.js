@@ -1,7 +1,7 @@
     $(document).ready(function(){
       
       document.getElementById("butt").onclick = function () {
-        window.location.replace("UserProf.html");
+        window.location.replace("user-prof.html");
       }
       
 /**

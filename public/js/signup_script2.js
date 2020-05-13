@@ -25,7 +25,7 @@ var uiConfig = {
                         name: user.displayName,
                         email: user.email
                     }, {merge: true}).then(function() {
-                        return window.location.replace("UserProf.html");
+                        return window.location.replace("user-prof.html");
                     });
                 }
             });
