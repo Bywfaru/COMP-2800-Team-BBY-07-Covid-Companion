@@ -125,24 +125,19 @@ function createOneCard(c) {
     var date = document.createElement("p");
     date.setAttribute("class", "card-text");
     let subDate = c.data().submissionDate; // STRING
-    // TODO: display date in the form of "April, 20, 2020"
-
     let d = new Date(subDate);
-
     let year = d.getFullYear();
     let month = monthNames[d.getMonth()];
-    let day = d.getDay();
-
+    let day = d.getDate();
     var text = document.createTextNode(month + " " + day + ", " + year);
     date.appendChild(text);
-
 
     // View Post button
     var a = document.createElement("input");
     a.type = "button"
     a.setAttribute("value", "View");
     a.addEventListener('click', function () {
-        window.location.href = "PostTemplate.html";
+        window.location.href = "post-template.html";
     });
     a.setAttribute("class", "btn btn-outline-secondary");
     var text = document.createTextNode("View Gym");
@@ -158,11 +153,6 @@ function createOneCard(c) {
     carddiv.appendChild(cardbodydiv);
     coldiv.appendChild(carddiv);
     document.getElementById("cards").appendChild(coldiv); //stick it in the div
-}
-
-
-function getDate() {
-
 }
 
 //======================//

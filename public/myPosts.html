@@ -28,7 +28,49 @@
     <!--      Adding Favicon ------------>
     <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
     
-        <link rel="stylesheet" type="text/css" href="css/main.css" media="screen"/>
+    <style>
+        h1{
+            font-family: 'Lato', sans-serif;
+            font-style: italic;
+            font-size: 35px;
+            color: #4689b5;
+        }
+        main {
+            display: grid;
+            grid-template-areas:
+                "section"
+                "footer";
+        }
+
+        section {
+            grid-area: section;
+            border: 1px solid;
+        }
+
+        aside {
+            grid-area: aside;
+            border: 1px solid;
+        }
+
+        footer {
+            position: relative;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            grid-area: footer;
+            border: 1px solid;
+            z-index: 1;
+        }
+
+        @media (min-width: 1025px) {
+            main {
+                grid-template-columns: 20%;
+                grid-template-areas:
+                    "section"
+                    "footer";
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -48,7 +90,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                 <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="#">
                         <span style="color: black; font-family: 'Lato', sans-serif;">Alerts</span>
                     </a>
@@ -67,10 +109,10 @@
                         <a class="dropdown-item" href="myPosts.html">
                             <span style="color: black; font-family: 'Lato', sans-serif;">My Posts</span>
                         </a>
-                        <a class="dropdown-item" href="user-prof.html">
+                        <a class="dropdown-item" href="userprof.html">
                             <span style="color: black; font-family: 'Lato', sans-serif;">My Profile</span>
                         </a>
-                        <a class="dropdown-item" href="user-pref.html">
+                        <a class="dropdown-item" href="UserPref.html">
                             <span style="color: black; font-family: 'Lato', sans-serif;">Account Settings</span>
                         </a>
                         <div class="dropdown-divider"></div>
@@ -89,17 +131,9 @@
             </form>
         </div>
     </nav>
-
+    MY POSTS
     <main>
-        <!--SIDEBAR-->
-        <aside>
-            SORT BY:<br>
-            <button onclick="getPosts()">NEWEST</button><br>
-            <button onclick="getOldestPosts()">OLDEST</button><br>
-            <button onclick="getOffers()">OFFERS</button><br>
-            <button onclick="getRequests()">REQUESTS</button>
-        </aside>
-
+        
         <!--Feed-->
         <section>
             <div class="jumbotron" id="cards" style="background-color: white;">
@@ -156,9 +190,7 @@
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
-    <script src="js/main.js"></script>
-    <script src="js/konami.js"></script>
-
+    <script src="js/myPosts.js"></script>
 
 </body>
 

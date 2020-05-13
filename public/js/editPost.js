@@ -4,10 +4,6 @@
 //                                      //
 //--------------------------------------//
 
-// Item categories.
-const itemCategories = ["Select a category...", "Toiletries", "Femenine hygeine", "Cleaning supplies"];
-// Service categories.
-const serviceCategories = ["Select a category...", "Renovation", "Plumbing", "Electrical"];
 
 //--------------------------------------//
 //                                      //
@@ -20,39 +16,13 @@ let itemImgDOM = document.getElementById("postImage");
 // Item image name.
 let itemImgName = "";
 
+let postId = window.localStorage.getItem('postId');
+
 //--------------------------------------//
 //                                      //
 // Functions                            //
 //                                      //
 //--------------------------------------//
-
-/**
- * Shows and hides the quantity menu depending on the category type.
- */
-function updateQtyDisplay() {
-    let radioService = document.getElementById("donationType-1");
-    let selectQty = document.getElementById("selectQty-container");
-
-    if (radioService.checked) {
-        selectQty.style.display = "none";
-    } else {
-        selectQty.style.display = "block";
-    }
-}
-
-/**
- * Shows text input for quantity of "More..." is selected from the quantity select box.
- */
-function updateTextQtyDisplay() {
-    let selectQty = document.getElementById("selectQty");
-    let textQty = document.getElementById("textQty-container");
-
-    if (selectQty.value == "more") {
-        textQty.style.display = "block";
-    } else {
-        textQty.style.display = "none";
-    }
-}
 
 /**
  * Updates the category options depending on the category type.
@@ -107,14 +77,13 @@ function submitPost() {
         console.log(user);
         if (user) {
             let post = getValues(user);
-            db.collection("Posts").add(post)
+            // update post in db
+            db.collection("Posts").doc(postId).set(post)
             .then(function(docRef) {
-                console.log(user.uid);
-                db.collection("Users").doc(user.uid).collection("Posts").doc(docRef.id).set({postId: docRef.id});
-                window.alert("Successfully posted!");
-                return true;
+                // update in user's posts
+                db.collection("Users").doc(user.uid).collection("Posts").doc(postId).set(post)
+                window.location.href = "myPosts.html";
             });
-            return false;
         } else {
             alert("Not signed in!");
         }

@@ -110,7 +110,7 @@ function submitPost() {
             db.collection("Posts").add(post)
             .then(function(docRef) {
                 console.log(user.uid);
-                db.collection("Users").doc(user.uid).collection("Posts").doc(docRef.id).set({postId: docRef.id});
+                db.collection("Users").doc(user.uid).collection("Posts").doc(docRef.id).set(post);
                 window.alert("Successfully posted!");
                 return true;
             });
