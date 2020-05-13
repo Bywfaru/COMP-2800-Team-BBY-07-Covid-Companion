@@ -24,7 +24,7 @@ function changePass() {
             
             console.log("Change Successful");
             
-            window.location.assign("UserProf.html");
+            window.location.assign("user-prof.html");
 
             }).catch(function(err){
               console.log("Error was found" + err);
@@ -58,7 +58,7 @@ function logout() {
 }
   
  function changePage(){
-        window.location.assign("UserProf.html");
+        window.location.assign("user-prof.html");
  }
   
   document.getElementById("sub").onclick = changePass;
