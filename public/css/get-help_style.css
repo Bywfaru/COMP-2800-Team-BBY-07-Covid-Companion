@@ -1,0 +1,10 @@
+body {
+    background-color: lightpink;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-size: 35px;
+    color: #4689b5;
+}
