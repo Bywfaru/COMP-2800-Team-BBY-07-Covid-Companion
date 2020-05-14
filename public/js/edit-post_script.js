@@ -101,14 +101,14 @@ function getValues(thisUser) {
     let postDescDOM = document.getElementById("postDesc");
 
     // Values
-    let thisUserName;
+    let thisUserId;
     let postType;
     let donationType;
     let postTitle;
     let postDesc;
 
     // Poster's name
-    thisUserName = thisUser.displayName;
+    thisUserId = thisUser.uid;
 
     // Post type
     if (postTypeDOM.checked) {
@@ -133,7 +133,7 @@ function getValues(thisUser) {
     submissionDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
     return {
-        thisUserName,
+        thisUserId,
         postType,
         donationType,
         postTitle,
