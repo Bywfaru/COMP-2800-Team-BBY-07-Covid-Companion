@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
         <title>COVID Companion</title>
@@ -26,6 +26,7 @@
         <!------------------------>
         <!-- Your own CSS files -->
         <!------------------------>
+        <link href="css/post-page_style.css" type="text/css" rel="stylesheet">
         
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
@@ -82,84 +83,25 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                        <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
                 </form>
             </div>
         </nav>
 
-        <main>
-            <!--SIDEBAR-->
-            <aside>
-                SORT BY:<br>
-                <button onclick="getPosts()">NEWEST</button><br>
-                <button onclick="getOldestPosts()">OLDEST</button><br>
-                <button onclick="getOffers()">OFFERS</button><br>
-                <button onclick="getRequests()">REQUESTS</button>
-            </aside>
+        <section>
+            <div class="artic">
+                <h3 id="userName"></h3>
+                <h5 id="postTitle"><u><b>Post Title</b></u></h5>
+                <img src="https://via.placeholder.com/300.png" id="imageSection">
+                <p id="postDesc">Post description.</p>
+                <p><b>Address</b>: <span id="userAd">Address</span></p>
+                <p><b>Postal Code</b>: <span id="userPost">Postal Code</span></p>
 
-            <!--Feed-->
-            <section>
-                <div class="jumbotron" id="cards" style="background-color: white;">
-                    <!--Cards go here-->
-                </div>
-            </section>
-
-            <!--Footer-->
-            <footer>
-                <!--Page Links-->
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <h4>Please note that all face-to-face interactions are at your own risk.</h4>
-                <h4>Be safe and help #FlattenTheCurve !</h4>
-            </footer>
-        </main>
-
-        <!----------------------------------------------->
-        <!-- JS: Boostrap, Firebase, other API's -->
-        <!----------------------------------------------->
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-
-        <script 
-            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
-            crossorigin="anonymous">
-        </script>
-        <script 
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
-            crossorigin="anonymous">
-        </script>
-        <script 
-            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
-            crossorigin="anonymous">
-        </script>
-
-        <script src="js/firebaseConfig.js"></script>
+                <button type="button" name="request" id="request">Request</button>
+                <button type="button" name="message" id="message">Message Poster</button>
+                <button type="button" name="save" id="save">Save Post</button>
+            </div>
+        </section>
     </body>
-
-    <!----------------------------------------------->
-    <!-- JS files: Your own JavaScripts go here    -->
-    <!----------------------------------------------->
-    <script src="js/main_script.js"></script>
-    <script src="js/konami.js"></script>
 </html>
