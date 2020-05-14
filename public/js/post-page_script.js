@@ -1,10 +1,10 @@
-
 //======================//
 // Global Variables     //
 //======================//
 let dbRef = db.collection("Posts");
 var storage = firebase.storage();
 var storageRef = storage.ref();
+let postId = window.localStorage.getItem('postId');
 
 
 //==================================//
@@ -25,39 +25,29 @@ function loadPage() {
     let userAdDOM = document.getElementById("userAd"); // Post creator's address.
     let userPostDOM = document.getElementById("userPost"); // Post creator's postal code.
 
-    // Sets the DOM element's values/attributes.
-    // TODO: Get the post's information and change the values to the db's values.
-    //       Replace all "<db-value>" with the db's value. 
+    // Sets the DOM element's values/attributes
+    dbRef.doc(postId).get().then(function (snap) {
 
-    
-
-
-
-
-    postTitleDOM.innerHTML = "<db-value>"; 
-    userNameDOM.innerHTML = "<db-value>";
-    imageSectionDOM.src = "<db-value>";
-    postDescDOM.innerHTML = "<db-value>";
-    userAdDOM = "<db-value>";
-    userPostDOM = "<db-value>";
+        postTitleDOM.innerHTML = snap.data().postTitle;
+        userNameDOM.innerHTML = snap.data().thisUserName;
+        storageRef.child('postImage/' + snap.data().itemImgName).getDownloadURL().then(function (url) {
+            imageSectionDOM.src = url;
+        });
+        postDescDOM.innerHTML = snap.data().postDesc;
+        userAdDOM = "<db-value>";
+        userPostDOM = "<db-value>";
+    });
 }
 
-function isPoster() {
-    
+// If user is the post owner, then generate a delete post button
+function isPosterOwner() {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-          userVal = user;
-            dbRef.doc(user.uid).collection("Posts")
-                .get()
-                .then(function (snap) {
-                    displayCards(snap);
-                    console.log(snap);
-                })
-        } else {
-            alert("Not signed in!");
-            window.location.href = "index.html"
+        if (user.id) {
+            let deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Delete Post";
+            // generate delete post
         }
-    });
+    })
 }
 
 
@@ -68,4 +58,4 @@ function isPoster() {
 //==================================//
 
 // TODO: Uncomment the line of code below once the function has been updated.
-// loadPage();
+loadPage();
