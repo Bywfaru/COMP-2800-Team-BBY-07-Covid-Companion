@@ -13,13 +13,11 @@ $(document).ready(function(){
         
       var text2 = (doc.data().postDesc).toLowerCase();
         
-      var text3 = (doc.data().thisUserName).toLowerCase();
-        
-        if(doc.data().status == "unrequested"){
+      console.log(text);
+      console.log(text2);
           
       if(searchRes.some(keyword => text.includes((keyword).toLowerCase()))
-        || searchRes.some(keyword => text2.includes((keyword).toLowerCase()))
-        || searchRes.some(keyword => text3.includes((keyword).toLowerCase()))) {
+        || searchRes.some(keyword => text2.includes((keyword).toLowerCase()))) {
           var addition = '<p>';
           if(doc.data().itemImgName != null){
             addition += '<img src="' + doc.data().itemImgName + '"><br>';
@@ -34,7 +32,7 @@ $(document).ready(function(){
           console.log("not found");
     }
           
-        }
+        
     
       });
     });
