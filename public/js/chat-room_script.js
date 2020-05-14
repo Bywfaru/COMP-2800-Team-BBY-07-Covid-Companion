@@ -127,6 +127,7 @@ function updateChats(user) {
         )
         .then(function() {
             updateUser(user, chatId);
+            updateUser(localStorage.getItem("posterId"), chatId);
         }); 
     } else {
         let chatDocRef = chatRef.doc(chatId);
@@ -169,6 +170,7 @@ function updateChats(user) {
         })
         .then(function() {
             updateUser(user, chatId);
+            updateUser(localStorage.getItem("posterId"), chatId);
         }); 
     }
 }
@@ -216,39 +218,41 @@ function logout() {
 
 function loadMessages() {
     firebase.auth().onAuthStateChanged(function(user) {
+        console.log(chatId);
         if (user) {
             // If the user is signed in.
-            let chatsDocRef = db.collection("Chats").doc(chatId);
+            if (chatId != "null") {
+                let chatsDocRef = db.collection("Chats").doc(chatId);
+                chatsDocRef.collection("Messages").get()
+                .then(function(snapshot) {
+                    //snapshot.orderBy("messageNum", "asc")  
+                    
+                    snapshot.forEach(doc => {
+                        let messageUser = db.collection("Users").doc(doc.data().from);
+                        let userName = messageUser.displayName;
+                        let userPic = messageUser.photoURL;
+                        let message = doc.data().message;
+                        let today = doc.data().time;
 
-            chatsDocRef.collection("Messages").get()
-            .then(function(snapshot) {
-                //snapshot.orderBy("messageNum", "asc")  
-                
-                snapshot.forEach(doc => {
-                    let messageUser = db.collection("Users").doc(doc.data().from);
-                    let userName = messageUser.displayName;
-                    let userPic = messageUser.photoURL;
-                    let message = doc.data().message;
-                    let today = doc.data().time;
+                        //----------------------------------------
+                        createMessageDiv();
+                        setElementAttributes();
 
-                    //----------------------------------------
-                    createMessageDiv();
-                    setElementAttributes();
-
-                    elements[0].src = userPic;
-                    elements[1].innerHTML = userName;
-                    elements[2].innerHTML = message;
-                    elements[3].innerHTML =
-                    // TODO: When possible, replace this with the timestamp provided by Firestore
-                    //MONTH[today.getMonth()] + " " +
-                    //today.getDate() + ", " +
-                    //today.getFullYear() + ", " +
-                    //today.getHours() + ":" +
-                    //today.getMinutes();
-                    "Test date";
-                    appendElements();
+                        elements[0].src = userPic;
+                        elements[1].innerHTML = userName;
+                        elements[2].innerHTML = message;
+                        elements[3].innerHTML =
+                        // TODO: When possible, replace this with the timestamp provided by Firestore
+                        //MONTH[today.getMonth()] + " " +
+                        //today.getDate() + ", " +
+                        //today.getFullYear() + ", " +
+                        //today.getHours() + ":" +
+                        //today.getMinutes();
+                        "Test date";
+                        appendElements();
+                    });
                 });
-            });       
+            }       
         } else {
             // If the user is not signed in.
             alert("You're not logged in!");

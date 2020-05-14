@@ -55,7 +55,7 @@ function loadPage() {
 }
 
 /**
- * If user is the post owner, then generate a delete post button.
+ * If user is the post owner, then generate a delete post button and removes the message button.
  */
 function isPosterOwner() {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -63,10 +63,13 @@ function isPosterOwner() {
 
         if (user.uid == postCreatorId) {
             let deleteButton = document.createElement("button");
+            let messageButton = document.getElementById("message");
+
             deleteButton.innerHTML = "Delete Post";
             deleteButton.onclick = deletePost;
             // generate delete post
             document.getElementById("postDiv").appendChild(deleteButton);
+            document.getElementById("postDiv").removeChild(messageButton);
         }
     })
 }
@@ -97,6 +100,21 @@ function deletePost() {
 };
 // TODO: if post is deleted, the post must also be deleted from all saved posts
 
+/**
+ * Message the poster.
+ */
+function messagePoster() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        let posterId = document.getElementById("userId").value; // Gets the poster's user ID.
+        console.log("Poster's id: " + posterId);
+        console.log("Viewer's id: " + user.uid );
+        localStorage.setItem("chatId", null); // Sets the local storage's chat ID to null so that a new message is
+                                              // created.
+        localStorage.setItem("posterId", posterId); // Sets the local storage's poster ID to the poster's ID.
+
+        window.location.href = "chat-room.html"; // Redirects to "chat-room.html."
+    });
+}
 
 //==================================//
 //                                  //

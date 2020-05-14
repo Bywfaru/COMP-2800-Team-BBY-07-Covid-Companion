@@ -111,7 +111,8 @@ function appendElements(promisedElements) {
  */
 function messageClick(chatId) {
     localStorage.setItem("chatId", chatId);
-    window.open("chatRoom.html", "_self");
+    alert(localStorage.getItem("chatId"));
+    window.open("chat-room.html", "_self");
 }
 
 
