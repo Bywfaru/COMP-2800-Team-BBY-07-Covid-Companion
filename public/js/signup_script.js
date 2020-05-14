@@ -33,6 +33,24 @@ ui.start('#firebaseui-auth-container', {
     ],
 });
 
+/** 
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+
+{
+    status: 'connected',
+    authResponse: {
+        accessToken: '...',
+        expiresIn:'...',
+        signedRequest:'...',
+        userID:'...'
+    }
+}
+
+*/
+
 // FirebaseUI configuration.
 var uiConfig = {
     callbacks: {
