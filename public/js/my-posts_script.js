@@ -30,12 +30,15 @@ var storageRef = storage.ref();
 // Functions            //
 //======================//
 
+var userVal;
+
 // get newest posts from DB
 function getPosts() {
     document.getElementById("cards").innerHTML = '';
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
+          userVal = user;
             dbRef.doc(user.uid).collection("Posts")
                 .get()
                 .then(function (snap) {
@@ -135,6 +138,20 @@ function createOneCard(c) {
     b.setAttribute("class", "btn btn-outline-secondary");
     var text = document.createTextNode("Edit Post");
     b.appendChild(text);
+  
+    var reqBut = document.createElement("input");
+    reqBut.type = "button";
+    reqBut.addEventListener('click', function () {
+        db.collection("Posts").doc(c.id).set({
+          status: "Fulfilled"
+        }, {merge: true});
+        db.collection("Users").doc(userVal.uid).collection("Posts").doc(c.id).set({
+          status: "Fulfilled"
+        }, {merge: true});
+    });
+    reqBut.setAttribute("value", "Fullfill Request");
+    var inText = document.createTextNode("Request Fulfilled");
+    reqBut.appendChild(inText);
 
     // Stitch it all together 
     cardbodydiv.appendChild(type);
@@ -144,6 +161,7 @@ function createOneCard(c) {
     cardbodydiv.appendChild(date);
     cardbodydiv.appendChild(a);
     cardbodydiv.appendChild(b);
+    cardbodydiv.appendChild(reqBut);
     carddiv.appendChild(cardbodydiv);
     coldiv.appendChild(carddiv);
     document.getElementById("cards").appendChild(coldiv); //stick it in the div
