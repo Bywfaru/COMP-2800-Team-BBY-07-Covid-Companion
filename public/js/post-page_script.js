@@ -6,7 +6,6 @@ var storage = firebase.storage();
 var storageRef = storage.ref();
 let postId = window.localStorage.getItem('postId');
 
-
 //==================================//
 //                                  //
 // Functions                        //
@@ -24,22 +23,35 @@ function loadPage() {
     let postDescDOM = document.getElementById("postDesc"); // Post's description.
     let userAdDOM = document.getElementById("userAd"); // Post creator's address.
     let userPostDOM = document.getElementById("userPost"); // Post creator's postal code.
+    let userIdDOM = document.getElementById("userId"); // Post creator's user ID.
+                                                       // This DOM element is purposely hidden.
 
     // Sets the DOM element's values/attributes
-    dbRef.doc(postId).get().then(function (snap) {
+    dbRef.doc(postId).get()
+    .then(function (snap) {
+        let userId = snap.data().thisUserId;
+
+        // Gets the poster's name by their ID.
+        db.collection("Users").doc(userId).get()
+        .then(function(snap) {
+            userNameDOM.innerHTML = snap.data().name;
+        });
 
         postTitleDOM.innerHTML = snap.data().postTitle;
-        userNameDOM.innerHTML = snap.data().thisUserName;
-        storageRef.child('postImage/' + snap.data().itemImgName).getDownloadURL().then(function (url) {
+        storageRef.child('postImage/' + snap.data().itemImgName).getDownloadURL()
+        .then(function (url) {
             imageSectionDOM.src = url;
         });
         postDescDOM.innerHTML = snap.data().postDesc;
-        userAdDOM = "<db-value>";
-        userPostDOM = "<db-value>";
+        userAdDOM.innerHTML = "<db-value>";
+        userPostDOM.innerHTML = "<db-value>";
+        userIdDOM.value = userId;
     });
 }
 
-// If user is the post owner, then generate a delete post button
+/**
+ * If user is the post owner, then generate a delete post button.
+ */
 function isPosterOwner() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user.id) {
@@ -49,7 +61,6 @@ function isPosterOwner() {
         }
     })
 }
-
 
 //==================================//
 //                                  //
