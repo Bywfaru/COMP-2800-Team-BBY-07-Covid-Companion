@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="message-list.html">
                             <span style="color: black; font-family: 'Lato', sans-serif;">DMs</span>
                         </a>
                     </li>
@@ -69,7 +69,7 @@
                             <a class="dropdown-item" href="userprof.html">
                                 <span style="color: black; font-family: 'Lato', sans-serif;">My Profile</span>
                             </a>
-                            <a class="dropdown-item" href="UserPref.html">
+                            <a class="dropdown-item" href="user-pref.html">
                                 <span style="color: black; font-family: 'Lato', sans-serif;">Account Settings</span>
                             </a>
                             <div class="dropdown-divider"></div>
@@ -83,8 +83,8 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                        <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
                 </form>
             </div>
         </nav>
@@ -103,5 +103,31 @@
                 <button type="button" name="save" id="save">Save Post</button>
             </div>
         </section>
+
+        <!----------------------------------------------->
+        <!-- JS: Boostrap, Firebase, other API's -->
+        <!----------------------------------------------->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+        <script 
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+            crossorigin="anonymous">
+        </script>
+
+        <script src="js/firebaseConfig.js"></script>
     </body>
 </html>
