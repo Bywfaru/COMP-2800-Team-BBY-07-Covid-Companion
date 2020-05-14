@@ -55,7 +55,7 @@ function loadPage() {
 }
 
 /**
- * If user is the post owner, then generate a delete post button.
+ * If user is the post owner, then generate a delete post button and removes the message button.
  */
 function isPosterOwner() {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -63,10 +63,13 @@ function isPosterOwner() {
 
         if (user.uid == postCreatorId) {
             let deleteButton = document.createElement("button");
+            let messageButton = document.getElementById("message");
+
             deleteButton.innerHTML = "Delete Post";
             deleteButton.onclick = deletePost;
             // generate delete post
             document.getElementById("postDiv").appendChild(deleteButton);
+            document.getElementById("postDiv").removeChild(messageButton);
         }
     })
 }
