@@ -14,7 +14,9 @@ $(document).ready(function(){
       var text2 = (doc.data().postDesc).toLowerCase();
         
       var text3 = (doc.data().thisUserName).toLowerCase();
-      
+        
+        if(doc.data().status == "unrequested"){
+          
       if(searchRes.some(keyword => text.includes((keyword).toLowerCase()))
         || searchRes.some(keyword => text2.includes((keyword).toLowerCase()))
         || searchRes.some(keyword => text3.includes((keyword).toLowerCase()))) {
@@ -31,6 +33,9 @@ $(document).ready(function(){
     } else {
           console.log("not found");
     }
+          
+        }
+    
       });
     });
 
