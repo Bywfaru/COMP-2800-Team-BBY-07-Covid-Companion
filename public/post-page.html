@@ -91,15 +91,21 @@
 
         <section>
             <div class="artic">
-                <h3 id="userName"></h3>
-                <h5 id="postTitle"><u><b>Post Title</b></u></h5>
+                <h3 id="postTitle">Post Title</h3>
+                <p id="userName">Name</p>
                 <img src="https://via.placeholder.com/300.png" id="imageSection">
-                <p id="postDesc">Post description.</p>
-                <p><b>Address</b>: <span id="userAd">Address</span></p>
-                <p><b>Postal Code</b>: <span id="userPost">Postal Code</span></p>
+                <p id="postDesc">
+                    Post description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac fermentum lorem. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis sit amet quam et viverra. 
+                    Curabitur a lacus vitae dui vehicula bibendum. Pellentesque dignissim nulla arcu, vitae vestibulum 
+                    diam venenatis at. Cras tincidunt justo a euismod facilisis. Fusce eget blandit neque. Suspendisse 
+                    a eros ut elit posuere viverra. Integer at leo eu nibh aliquam facilisis.
+                </p>
+                <p><b>Address</b>: <span id="userAd">123 Street Dr.</span></p>
+                <p><b>Postal Code</b>: <span id="userPost">A1B C2D</span></p>
 
                 <button type="button" name="request" id="request">Request</button>
-                <button type="button" name="message" id="message">Message Poster</button>
+                <button type="button" name="message" id="message" onclick="">Message Poster</button>
                 <button type="button" name="save" id="save">Save Post</button>
             </div>
         </section>
@@ -130,4 +136,6 @@
 
         <script src="js/firebaseConfig.js"></script>
     </body>
+
+    <script src="js/post-page_script.js"></script>
 </html>
