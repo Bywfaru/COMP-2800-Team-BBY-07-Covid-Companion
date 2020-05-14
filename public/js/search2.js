@@ -8,16 +8,18 @@ $(document).ready(function(){
     firebase.firestore().collection('Posts').get()
     .then(querySnapshot => {
       querySnapshot.docs.map(doc => {
-        
+        firebase.firestore().collection('Users').doc(doc.data().thisUserId).get().then(doc1 => {
+                  
       var text = (doc.data().postTitle).toLowerCase();
         
       var text2 = (doc.data().postDesc).toLowerCase();
         
-      console.log(text);
-      console.log(text2);
+      var text3 = (doc1.data().name).toLowerCase();
+
           
       if(searchRes.some(keyword => text.includes((keyword).toLowerCase()))
-        || searchRes.some(keyword => text2.includes((keyword).toLowerCase()))) {
+        || searchRes.some(keyword => text2.includes((keyword).toLowerCase()))
+        || searchRes.some(keyword => text3.includes((keyword).toLowerCase()))) {
           var addition = '<p>';
           if(doc.data().itemImgName != null){
             addition += '<img src="' + doc.data().itemImgName + '"><br>';
@@ -31,9 +33,7 @@ $(document).ready(function(){
     } else {
           console.log("not found");
     }
-          
-        
-    
+        });
       });
     });
 
