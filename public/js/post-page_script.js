@@ -1,3 +1,12 @@
+
+//======================//
+// Global Variables     //
+//======================//
+let dbRef = db.collection("Posts");
+var storage = firebase.storage();
+var storageRef = storage.ref();
+
+
 //==================================//
 //                                  //
 // Functions                        //
@@ -19,6 +28,12 @@ function loadPage() {
     // Sets the DOM element's values/attributes.
     // TODO: Get the post's information and change the values to the db's values.
     //       Replace all "<db-value>" with the db's value. 
+
+    
+
+
+
+
     postTitleDOM.innerHTML = "<db-value>"; 
     userNameDOM.innerHTML = "<db-value>";
     imageSectionDOM.src = "<db-value>";
@@ -26,6 +41,25 @@ function loadPage() {
     userAdDOM = "<db-value>";
     userPostDOM = "<db-value>";
 }
+
+function isPoster() {
+    
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+          userVal = user;
+            dbRef.doc(user.uid).collection("Posts")
+                .get()
+                .then(function (snap) {
+                    displayCards(snap);
+                    console.log(snap);
+                })
+        } else {
+            alert("Not signed in!");
+            window.location.href = "index.html"
+        }
+    });
+}
+
 
 //==================================//
 //                                  //
