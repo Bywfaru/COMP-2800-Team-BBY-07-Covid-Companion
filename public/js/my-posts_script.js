@@ -16,6 +16,8 @@ var storage = firebase.storage();
 // Create a storage reference from our storage service
 var storageRef = storage.ref();
 
+var userVal;
+
 //======================//
 // HTML DOM Elements    //
 //======================//
@@ -30,7 +32,6 @@ var storageRef = storage.ref();
 // Functions            //
 //======================//
 
-var userVal;
 
 // get newest posts from DB
 function getPosts() {
@@ -43,7 +44,6 @@ function getPosts() {
                 .get()
                 .then(function (snap) {
                     displayCards(snap);
-                    console.log(snap);
                 })
         } else {
             alert("Not signed in!");
