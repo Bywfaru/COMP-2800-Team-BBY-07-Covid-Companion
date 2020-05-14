@@ -46,6 +46,8 @@ function loadPage() {
         userAdDOM.innerHTML = "<db-value>";
         userPostDOM.innerHTML = "<db-value>";
         userIdDOM.value = userId;
+
+        isPosterOwner();
     });
 }
 
@@ -54,10 +56,13 @@ function loadPage() {
  */
 function isPosterOwner() {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user.id) {
+        let postCreatorId = document.getElementById("userId").value;
+
+        if (user.uid == postCreatorId) {
             let deleteButton = document.createElement("button");
             deleteButton.innerHTML = "Delete Post";
             // generate delete post
+            document.getElementById("postDiv").appendChild(deleteButton);
         }
     })
 }
@@ -68,5 +73,4 @@ function isPosterOwner() {
 //                                  //
 //==================================//
 
-// TODO: Uncomment the line of code below once the function has been updated.
 loadPage();
