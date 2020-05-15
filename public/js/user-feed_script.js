@@ -68,6 +68,10 @@ function displayCards(CardObjects) { //takes in collection
  * @param c the post document
  */
 function createOneCard(c) {
+    if (typeof c.data() === 'undefined') {
+        return;
+    }
+
     let thisPostId = String(c.id);
     var coldiv = document.createElement("div");
     coldiv.setAttribute("class", "col-md-auto");
