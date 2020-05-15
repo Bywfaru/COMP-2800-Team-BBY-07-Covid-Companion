@@ -31,7 +31,7 @@ function changePass() {
             });
             
           } else {
-            window.location.assign("UserProf.html");
+            window.location.assign("user-prof.html");
             console.log("New Password was Null");
           }
           
