@@ -70,27 +70,8 @@ function updateCategoryOptions() {
 }
 
 /**
- * Submits the post.
- 
-function submitPost() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        console.log(user);
-        if (user) {
-            let post = getValues(user);
-            // update post in db
-            db.collection("Posts").doc(postId).set(post)
-            .then(function(docRef) {
-                // update in user's posts
-                db.collection("Users").doc(user.uid).collection("Posts").doc(postId).set(post)
-                window.location.href = "my-posts.html";
-            });
-        } else {
-            alert("Not signed in!");
-        }
-    });
-}
+ * Submits the edited post.
 */
-
 function submitPost() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
