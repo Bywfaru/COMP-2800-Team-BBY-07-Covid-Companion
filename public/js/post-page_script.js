@@ -6,6 +6,7 @@ let userRef = db.collection("Users");
 var storage = firebase.storage();
 var storageRef = storage.ref();
 let postId = window.localStorage.getItem('postId');
+var userId;
 
 //==================================//
 //                                  //
@@ -31,7 +32,7 @@ function loadPage() {
     // Sets the DOM element's values/attributes
     dbRef.doc(postId).get()
         .then(function (snap) {
-            let userId = snap.data().thisUserId;
+            userId = snap.data().thisUserId;
 
             // Gets the poster's name by their ID.
             db.collection("Users").doc(userId).get()
@@ -81,7 +82,7 @@ function savePost() {
     firebase.auth().onAuthStateChanged(function (user) {
         userRef.doc(user.uid).collection("SavedPosts").doc(postId).set({
                 postId: postId
-        })
+            })
             .then(function () {
                 alert("Post successfully saved!");
             })
@@ -94,22 +95,26 @@ function savePost() {
 function deletePost() {
     dbRef.doc(postId).delete()
         .then(function () {
+            userRef.doc(userId).collection("Posts").doc(postId).delete();
+    // TODO: if post is deleted, the post must also be deleted from ALL user's saved post list
             alert("Post successfully deleted!");
             window.location.href = "main.html";
-        })
+        });
+
+    userRef.where("SavedPost",)
 };
-// TODO: if post is deleted, the post must also be deleted from all saved posts
+
 
 /**
  * Message the poster.
  */
 function messagePoster() {
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function (user) {
         let posterId = document.getElementById("userId").value; // Gets the poster's user ID.
         console.log("Poster's id: " + posterId);
-        console.log("Viewer's id: " + user.uid );
+        console.log("Viewer's id: " + user.uid);
         localStorage.setItem("chatId", null); // Sets the local storage's chat ID to null so that a new message is
-                                              // created.
+        // created.
         localStorage.setItem("posterId", posterId); // Sets the local storage's poster ID to the poster's ID.
 
         window.location.href = "chat-room.html"; // Redirects to "chat-room.html."

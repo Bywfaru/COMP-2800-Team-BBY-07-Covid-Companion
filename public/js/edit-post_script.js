@@ -71,7 +71,7 @@ function updateCategoryOptions() {
 
 /**
  * Submits the post.
- */
+ 
 function submitPost() {
     firebase.auth().onAuthStateChanged(function(user) {
         console.log(user);
@@ -82,7 +82,32 @@ function submitPost() {
             .then(function(docRef) {
                 // update in user's posts
                 db.collection("Users").doc(user.uid).collection("Posts").doc(postId).set(post)
-                window.location.href = "myPosts.html";
+                window.location.href = "my-posts.html";
+            });
+        } else {
+            alert("Not signed in!");
+        }
+    });
+}
+*/
+
+function submitPost() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            db.collection("Posts").orderBy("postNum", "desc").limit(1).get().then(function (snap) {
+                snap.forEach(function (obj) {
+                    var submissionNo = obj.data().postNum;
+                    submissionNo++;
+
+                    let post = getValues(user, submissionNo);
+                    db.collection("Posts").doc(postId).set(post)
+                    .then(function(docRef) {
+                        // update in user's posts
+                        db.collection("Users").doc(user.uid).collection("Posts").doc(postId).set(post)
+                        alert("Post successfully edited!");
+                        window.location.href = "my-posts.html";
+                    });
+                })
             });
         } else {
             alert("Not signed in!");
@@ -93,7 +118,7 @@ function submitPost() {
 /**
  * Gets the values from the fieldset.
  */
-function getValues(thisUser) {
+function getValues(thisUser, submissionNum) {
     // DOM elements
     let postTypeDOM = document.getElementById("postType-0");
     let donationTypeDOM = document.getElementById("donationType-0");
@@ -106,6 +131,7 @@ function getValues(thisUser) {
     let donationType;
     let postTitle;
     let postDesc;
+    let postNum
 
     // Poster's name
     thisUserId = thisUser.uid;
@@ -132,6 +158,9 @@ function getValues(thisUser) {
     let today = new Date();
     submissionDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
+    // Submission number for ordering
+    postNum = submissionNum;
+
     return {
         thisUserId,
         postType,
@@ -139,7 +168,8 @@ function getValues(thisUser) {
         postTitle,
         postDesc,
         submissionDate,
-        itemImgName
+        itemImgName,
+        postNum
     };
 }
 
