@@ -20,39 +20,13 @@ let itemImgDOM = document.getElementById("postImage");
 // Item image name.
 let itemImgName = "";
 
+let submissionNo = 0;
+
 //--------------------------------------//
 //                                      //
 // Functions                            //
 //                                      //
 //--------------------------------------//
-
-/**
- * Shows and hides the quantity menu depending on the category type.
- */
-function updateQtyDisplay() {
-    let radioService = document.getElementById("donationType-1");
-    let selectQty = document.getElementById("selectQty-container");
-
-    if (radioService.checked) {
-        selectQty.style.display = "none";
-    } else {
-        selectQty.style.display = "block";
-    }
-}
-
-/**
- * Shows text input for quantity of "More..." is selected from the quantity select box.
- */
-function updateTextQtyDisplay() {
-    let selectQty = document.getElementById("selectQty");
-    let textQty = document.getElementById("textQty-container");
-
-    if (selectQty.value == "more") {
-        textQty.style.display = "block";
-    } else {
-        textQty.style.display = "none";
-    }
-}
 
 /**
  * Updates the category options depending on the category type.
@@ -103,13 +77,17 @@ function updateCategoryOptions() {
  * Submits the post.
  */
 function submitPost() {
+    db.collection("Posts").orderBy("postNum", "desc").limit(1).get().then(function(snap) {
+        snap.forEach(function(obj) {
+            submissionNo = obj.data().postNum;
+            submissionNo++;
+        })
+    });
     firebase.auth().onAuthStateChanged(function(user) {
-        console.log(user);
         if (user) {
             let post = getValues(user);
             db.collection("Posts").add(post)
             .then(function(docRef) {
-                console.log(user.uid);
                 db.collection("Users").doc(user.uid).collection("Posts").doc(docRef.id).set(post);
                 window.alert("Successfully posted!");
                 return true;
@@ -137,7 +115,7 @@ function getValues(thisUser) {
     let donationType;
     let postTitle;
     let postDesc;
-    let status;
+    let postNum;
 
     // Poster's name
     thisUserId = thisUser.uid;
@@ -163,9 +141,10 @@ function getValues(thisUser) {
     // Date posted
     let today = new Date();
     submissionDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    
-    status = "unrequested";
 
+    // Submission number for ordering
+    postNum = submissionNo;
+    
     return {
         thisUserId,
         postType,
@@ -174,7 +153,7 @@ function getValues(thisUser) {
         postDesc,
         submissionDate,
         itemImgName,
-        status
+        postNum
     };
 }
 
@@ -186,7 +165,6 @@ function getValues(thisUser) {
 
 // Listens for the image upload DOM element for an image upload.
 itemImgDOM.addEventListener("change", function(e) {
-    console.log(e);
     // Get file.
     let file = e.target.files[0];
 
