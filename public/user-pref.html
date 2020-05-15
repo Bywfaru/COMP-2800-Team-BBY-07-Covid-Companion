@@ -32,6 +32,72 @@
     <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
   
      <link rel="stylesheet" type="text/css" href="css/user-pref.css" media="screen"/>
+    
+            <!-- Couldn't screate style sheet for searchbar 
+          have to put code here with the style element.-->
+        <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px Arial;  
+}
+
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+</style>
   
 </head>
 
@@ -108,10 +174,13 @@
               <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href = 'post-item.html';">Post</button>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+                <form class="form-inline my-2 my-lg-0" autocomplete="off" action="/action_page.php">
+                  <div class="autocomplete" style="width:300px;">
+                    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  </div>
+                    <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                    
+                </form>
       </div>
     </nav>
 
@@ -137,6 +206,13 @@
     <section id="butt">
       <button id="profPage">Submit Answers</button>
     </section>
+    
+<!-- Where the autofill code goes for the search bar 
+it only seems to work when but around the bottom of the 
+body-->
+    
+    <script src="js/search-bar.js">
+    </script>
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, other API's -->
