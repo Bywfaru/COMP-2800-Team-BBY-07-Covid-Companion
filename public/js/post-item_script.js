@@ -72,7 +72,7 @@ function updateCategoryOptions() {
 }
 
 /**
- * Submits the post.
+ * Submits the post and assigns it a submission number.
  */
 function submitPost() {
     firebase.auth().onAuthStateChanged(function (user) {

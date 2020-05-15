@@ -96,19 +96,12 @@ function deletePost() {
     dbRef.doc(postId).delete()
         .then(function () {
             userRef.doc(userId).collection("Posts").doc(postId).delete();
+    // TODO: if post is deleted, the post must also be deleted from ALL user's saved post list
             alert("Post successfully deleted!");
             window.location.href = "main.html";
         });
-        
-        
 
-    // TODO: if post is deleted, the post must also be deleted from all user's saved posts
-    //userRef.get()
-    //    .then(function (snapshot) {
-    //        snapshot.forEach(function(doc){
-    //            if ()
-    //        })
-    //})
+    userRef.where("SavedPost",)
 };
 
 
