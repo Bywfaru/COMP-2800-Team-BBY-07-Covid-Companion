@@ -27,34 +27,6 @@ let itemImgName = "";
 //--------------------------------------//
 
 /**
- * Shows and hides the quantity menu depending on the category type.
- */
-function updateQtyDisplay() {
-    let radioService = document.getElementById("donationType-1");
-    let selectQty = document.getElementById("selectQty-container");
-
-    if (radioService.checked) {
-        selectQty.style.display = "none";
-    } else {
-        selectQty.style.display = "block";
-    }
-}
-
-/**
- * Shows text input for quantity of "More..." is selected from the quantity select box.
- */
-function updateTextQtyDisplay() {
-    let selectQty = document.getElementById("selectQty");
-    let textQty = document.getElementById("textQty-container");
-
-    if (selectQty.value == "more") {
-        textQty.style.display = "block";
-    } else {
-        textQty.style.display = "none";
-    }
-}
-
-/**
  * Updates the category options depending on the category type.
  */
 function updateCategoryOptions() {
@@ -103,18 +75,23 @@ function updateCategoryOptions() {
  * Submits the post.
  */
 function submitPost() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        console.log(user);
+    firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            let post = getValues(user);
-            db.collection("Posts").add(post)
-            .then(function(docRef) {
-                console.log(user.uid);
-                db.collection("Users").doc(user.uid).collection("Posts").doc(docRef.id).set(post);
-                window.alert("Successfully posted!");
-                return true;
+            db.collection("Posts").orderBy("postNum", "desc").limit(1).get().then(function (snap) {
+                snap.forEach(function (obj) {
+                    var submissionNo = obj.data().postNum;
+                    submissionNo++;
+
+                    let post = getValues(user, submissionNo);
+                    db.collection("Posts").add(post)
+                        .then(function (docRef) {
+                            db.collection("Users").doc(user.uid).collection("Posts").doc(docRef.id).set(post);
+                            window.alert("Successfully posted!");
+                            location.reload();
+                            return true;
+                        });
+                })
             });
-            return false;
         } else {
             alert("Not signed in!");
         }
@@ -124,7 +101,7 @@ function submitPost() {
 /**
  * Gets the values from the fieldset.
  */
-function getValues(thisUser) {
+function getValues(thisUser, submissionNum) {
     // DOM elements
     let postTypeDOM = document.getElementById("postType-0");
     let donationTypeDOM = document.getElementById("donationType-0");
@@ -137,7 +114,7 @@ function getValues(thisUser) {
     let donationType;
     let postTitle;
     let postDesc;
-    let status;
+    let postNum;
 
     // Poster's name
     thisUserId = thisUser.uid;
@@ -163,8 +140,9 @@ function getValues(thisUser) {
     // Date posted
     let today = new Date();
     submissionDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    
-    status = "unrequested";
+
+    // Submission number for ordering
+    postNum = submissionNum;
 
     return {
         thisUserId,
@@ -174,7 +152,7 @@ function getValues(thisUser) {
         postDesc,
         submissionDate,
         itemImgName,
-        status
+        postNum
     };
 }
 
@@ -185,8 +163,7 @@ function getValues(thisUser) {
 //--------------------------------------//
 
 // Listens for the image upload DOM element for an image upload.
-itemImgDOM.addEventListener("change", function(e) {
-    console.log(e);
+itemImgDOM.addEventListener("change", function (e) {
     // Get file.
     let file = e.target.files[0];
 
@@ -195,7 +172,7 @@ itemImgDOM.addEventListener("change", function(e) {
 
     // Upload file.
     storageRef.put(file);
-    
+
     // Set image name variable.
     itemImgName = file.name;
 });

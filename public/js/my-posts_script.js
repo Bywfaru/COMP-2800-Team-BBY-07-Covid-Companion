@@ -122,6 +122,8 @@ function createOneCard(c) {
     a.type = "button"
     a.setAttribute("value", "View Post");
     a.addEventListener('click', function () {
+        let postId = c.id;
+        window.localStorage.setItem("postId", postId);
         window.location.href = "post-page.html";
     });
     a.setAttribute("class", "btn btn-outline-secondary");

@@ -33,7 +33,7 @@ var storageRef = storage.ref();
 // get newest posts from DB
 function getPosts() {
     document.getElementById("cards").innerHTML = '';
-    dbRef.orderBy("submissionDate", "desc")
+    dbRef.orderBy("postNum", "desc")
         .get()
         .then(function (snap) {
             displayCards(snap);
@@ -43,7 +43,7 @@ function getPosts() {
 // get oldest posts from DB
 function getOldestPosts() {
     document.getElementById("cards").innerHTML = '';
-    dbRef.orderBy("submissionDate")
+    dbRef.orderBy("postNum")
         .get()
         .then(function (snap) {
             displayCards(snap);
