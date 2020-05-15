@@ -26,11 +26,58 @@
         <!------------------------>
         <!-- Your own CSS files -->
         <!------------------------>
-        
+         <link rel="stylesheet" type="text/css" href="./css/main.css" media="screen"/>
+
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
-              <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
-      <script src="js/search.js"></script>
+        <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
+        <!-- Couldn't screate style sheet for searchbar 
+          have to put code here with the style element.-->
+        <style>
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+#search {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+</style>
+        <script src="js/search.js"></script>
     </head>
 
     <body>
@@ -65,10 +112,10 @@
                             <a class="dropdown-item" href="my-posts.html">
                                 <span style="color: black; font-family: 'Lato', sans-serif;">My Posts</span>
                             </a>
-                            <a class="dropdown-item" href="userprof.html">
+                            <a class="dropdown-item" href="user-prof.html">
                                 <span style="color: black; font-family: 'Lato', sans-serif;">My Profile</span>
                             </a>
-                            <a class="dropdown-item" href="UserPref.html">
+                            <a class="dropdown-item" href="user-pref.html">
                                 <span style="color: black; font-family: 'Lato', sans-serif;">Account Settings</span>
                             </a>
                             <div class="dropdown-divider"></div>
@@ -81,9 +128,12 @@
                         <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href = 'post-item.html';">Post</button>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                        <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                <form class="form-inline my-2 my-lg-0" autocomplete="off" action="/action_page.php">
+                  <div class="autocomplete" style="width:300px;">
+                    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  </div>
+                    <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                    
                 </form>
             </div>
         </nav>
@@ -129,6 +179,13 @@
                 <h4>Be safe and help #FlattenTheCurve !</h4>
             </footer>
         </main>
+      
+<!-- Where the autofill code goes for the search bar 
+it only seems to work when but around the bottom of the 
+body-->
+      
+<script src="js/search-bar.js">
+</script>
 
         <!----------------------------------------------->
         <!-- JS: Boostrap, Firebase, other API's -->

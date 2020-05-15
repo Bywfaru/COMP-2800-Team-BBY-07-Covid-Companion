@@ -1,40 +1,7 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Get Help</title>
 
-    <!----------------------------------------------->
-    <!--  Meta tag for rendering on mobile devices -->
-    <!----------------------------------------------->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!--      Adding Favicon ------------>
-    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
-    
-       <link rel="stylesheet" type="text/css" href="css/guidelines.css" media="screen"/>
-</head>
-
-<body>
-    <!------------------->
-    <!--  HTML Section -->
-    <!------------------->
-
-    <!--BANNER-->
-    <h1>Guidelines</h1>
-
-    <p>
-        We undertand that the current situation is difficult for everyone. We are here to help you guys in any way possible.The following are some guidelines you need to follow:
-    </p>
-    <ul>
-        <li>You must be a resident of Vancouver to be able to receive/provide help</li>
-        <li>If you have any kind of excess supplies but don;t know what to do then here you go, you can donate them!</li>
-        <li>Running out of suuplies or need help? just post a request.</li>
-        <li>If you are short of an essential item (like toilet paper, etc), you can flag your post to make it appear at the top of feed for other users. </li>
-    </ul>
-
-</body>
     <head>
         <meta charset="UTF-8">
         <title>Get Help</title>
@@ -43,6 +10,10 @@
         <!--  Meta tag for rendering on mobile devices -->
         <!----------------------------------------------->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <!--      Adding Favicon ------------>
+        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+    
+       <link rel="stylesheet" type="text/css" href="css/guidelines.css" media="screen"/>
 
         <!----------------------------------------------->
         <!-- CSS: Bootstrap, Firebase, other API -->
@@ -67,6 +38,52 @@
         <link 
             href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" 
             rel="stylesheet">
+        <!-- Couldn't screate style sheet for searchbar 
+          have to put code here with the style element.-->
+        <style>
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+#search {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+</style>
     </head>
 
     <body>
@@ -110,11 +127,13 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="button">
-                            <button class="btn btn-outline-primary" type="submit" onclick="window.location.href = 'signup.html';">
-                                Login
-                            </button>
-                        </div>
+                <form class="form-inline my-2 my-lg-0" autocomplete="off" action="/action_page.php">
+                  <div class="autocomplete" style="width:300px;">
+                    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  </div>
+                    <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                    
+                </form>
                     </div>
                 </nav>
             </div>
@@ -192,6 +211,13 @@
             <img class="img-thumbnail" src="./images/socialmedia.png" alt="connect us">
             <br><br>
         </footer>
+      
+<!-- Where the autofill code goes for the search bar 
+it only seems to work when but around the bottom of the 
+body-->
+      
+<script src="js/search-bar.js">
+</script>
 
         <!----------------------------------------------->
         <!-- JS: Boostrap, Firebase, other API's -->

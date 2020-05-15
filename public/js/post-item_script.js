@@ -132,7 +132,7 @@ function getValues(thisUser) {
     let postDescDOM = document.getElementById("postDesc");
 
     // Values
-    let thisUserName;
+    let thisUserId;
     let postType;
     let donationType;
     let postTitle;
@@ -140,7 +140,7 @@ function getValues(thisUser) {
     let status;
 
     // Poster's name
-    thisUserName = thisUser.displayName;
+    thisUserId = thisUser.uid;
 
     // Post type
     if (postTypeDOM.checked) {
@@ -167,7 +167,7 @@ function getValues(thisUser) {
     status = "unrequested";
 
     return {
-        thisUserName,
+        thisUserId,
         postType,
         donationType,
         postTitle,

@@ -16,6 +16,8 @@ var storage = firebase.storage();
 // Create a storage reference from our storage service
 var storageRef = storage.ref();
 
+var userVal;
+
 //======================//
 // HTML DOM Elements    //
 //======================//
@@ -30,7 +32,6 @@ var storageRef = storage.ref();
 // Functions            //
 //======================//
 
-var userVal;
 
 // get newest posts from DB
 function getPosts() {
@@ -43,7 +44,6 @@ function getPosts() {
                 .get()
                 .then(function (snap) {
                     displayCards(snap);
-                    console.log(snap);
                 })
         } else {
             alert("Not signed in!");
@@ -122,7 +122,7 @@ function createOneCard(c) {
     a.type = "button"
     a.setAttribute("value", "View Post");
     a.addEventListener('click', function () {
-        window.location.href = "post-template.html";
+        window.location.href = "post-page.html";
     });
     a.setAttribute("class", "btn btn-outline-secondary");
     var text = document.createTextNode("View Post");
@@ -138,20 +138,6 @@ function createOneCard(c) {
     b.setAttribute("class", "btn btn-outline-secondary");
     var text = document.createTextNode("Edit Post");
     b.appendChild(text);
-  
-    var reqBut = document.createElement("input");
-    reqBut.type = "button";
-    reqBut.addEventListener('click', function () {
-        db.collection("Posts").doc(c.id).set({
-          status: "Fulfilled"
-        }, {merge: true});
-        db.collection("Users").doc(userVal.uid).collection("Posts").doc(c.id).set({
-          status: "Fulfilled"
-        }, {merge: true});
-    });
-    reqBut.setAttribute("value", "Fullfill Request");
-    var inText = document.createTextNode("Request Fulfilled");
-    reqBut.appendChild(inText);
 
     // Stitch it all together 
     cardbodydiv.appendChild(type);
@@ -161,16 +147,14 @@ function createOneCard(c) {
     cardbodydiv.appendChild(date);
     cardbodydiv.appendChild(a);
     cardbodydiv.appendChild(b);
-    cardbodydiv.appendChild(reqBut);
     carddiv.appendChild(cardbodydiv);
     coldiv.appendChild(carddiv);
     document.getElementById("cards").appendChild(coldiv); //stick it in the div
 }
 
-
 function editPost(postId) {
     window.localStorage.setItem('postId', postId);
-    window.location.href = "editPost.html"
+    window.location.href = "edit-post.html"
 }
 
 //======================//

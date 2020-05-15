@@ -19,20 +19,18 @@
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
             crossorigin="anonymous">
 
+        <!-- Importing Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
         <!------------------------>
         <!-- Your own CSS files -->
         <!------------------------>
-        <link rel="stylesheet" type="text/css" href="./css/main.css" media="screen"/>
+        <link href="css/post-page_style.css" type="text/css" rel="stylesheet">
         
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
-        <!-- Fonts -->
-        <link 
-            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" 
-            rel="stylesheet">
-        <link 
-            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" 
-            rel="stylesheet">
+        <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
         <!-- Couldn't screate style sheet for searchbar 
           have to put code here with the style element.-->
         <style>
@@ -79,26 +77,17 @@
   color: #ffffff; 
 }
 </style>
+        <script src="js/search.js"></script>
     </head>
 
     <body>
-
-        <!--Navbar-->
+        <!--NavBar-->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
             <a class="navbar-brand" href="main.html">
-                <h1>
-                    <img src="images/smallfavicon.PNG" alt="logo" height="42" width="45">
-                    COVID COMPANION
-                </h1>
+                <h1><img src="images/smallfavicon.PNG" alt="logo" height="42" width="45"> COVID COMPANION</h1>
             </a>
-            <button 
-                class="navbar-toggler" 
-                type="button" 
-                data-toggle="collapse" 
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" 
-                aria-expanded="false" 
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -149,38 +138,61 @@
             </div>
         </nav>
 
-        <!----------------------------------------------->
-        <!--  MAIN CONTAINER CONTAINER -->
-        <!----------------------------------------------->
+        <section>
+            <div class="artic" id="postDiv">
+                <h3 id="postTitle">Post Title</h3>
+                <p id="userName">Name</p>
+                <img src="https://via.placeholder.com/300.png" id="imageSection">
+                <p id="postDesc">
+                    Post description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac fermentum lorem. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis sit amet quam et viverra. 
+                    Curabitur a lacus vitae dui vehicula bibendum. Pellentesque dignissim nulla arcu, vitae vestibulum 
+                    diam venenatis at. Cras tincidunt justo a euismod facilisis. Fusce eget blandit neque. Suspendisse 
+                    a eros ut elit posuere viverra. Integer at leo eu nibh aliquam facilisis.
+                </p>
+                <p><b>Address</b>: <span id="userAd">123 Street Dr.</span></p>
+                <p><b>Postal Code</b>: <span id="userPost">A1B C2D</span></p>
 
-        <div id="messageListItems" class="container">
-            <div class="container d-block h-100" style="margin-top: 35vh" id="noMessages">
-                <div class="row justify-content-center align-self-center">
-                    <h1>Your messages will show up here once you start chats.</h1>
-                </div>
+                <button type="button" name="request" id="request">Request</button>
+                <button type="button" name="message" id="message" onclick="messagePoster()">Message Poster</button>
+                <button type="button" name="save" id="save">Save Post</button>
+                <input type="hidden" name="userId" id="userId" value="userId">
             </div>
-        </div>
+        </section>
       
-      <!-- Where the autofill code goes for the search bar 
+<!-- Where the autofill code goes for the search bar 
 it only seems to work when but around the bottom of the 
 body-->
       
 <script src="js/search-bar.js">
-</script>
+</script>    
 
-        <!-- FIREBASE -->
-        <!-- Firebase Core SDKs -->
-        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
-        <!-- Firebase Products -->
-        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
-        <!-- Firebase Initialize -->
+        <!----------------------------------------------->
+        <!-- JS: Boostrap, Firebase, other API's -->
+        <!----------------------------------------------->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+        <script 
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+            crossorigin="anonymous">
+        </script>
+
         <script src="js/firebaseConfig.js"></script>
     </body>
 
-    <!----------------------------------------------->
-    <!--  LOAD INTERNAL JS AFTER BODY LOADS  -->
-    <!----------------------------------------------->
-    <script src="js/message-list_script.js"></script>
+    <script src="js/post-page_script.js"></script>
 </html>

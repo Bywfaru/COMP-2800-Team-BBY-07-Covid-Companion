@@ -11,8 +11,37 @@
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
 
-        <link href="css/signup_style.css" type="text/css" rel="stylesheet">
+       <link rel="stylesheet" type="text/css" href="./css/signup_style.css" media="screen"/>
+   
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+      
     </head>
+  
+        <!-- Facebook App Code -->
+      <script>
+        
+        /**
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '{your-app-id}',
+            cookie     : true,
+            xfbml      : true,
+            version    : '{api-version}'
+          });
+
+          FB.AppEvents.logPageView();   
+
+        };
+
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+         */
+      </script>
 
     <body>
         <!-- HTML element where the FirebaseUI sign-in widget will be rendered. -->

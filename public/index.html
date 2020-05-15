@@ -23,7 +23,7 @@
         <!-- Your own CSS files -->
         <!------------------------>
         <link rel="stylesheet" type="text/css" href="css/index.css" media="screen"/>
-
+        <link href="css/style.css" type="text/css" rel="stylesheet">
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
 
@@ -104,50 +104,49 @@
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="container">
-                    <div class="card" id="baseCard">
-                        <div class="card-body">
-                            <div id="gameName">
-                                <h2 class="card-title" id="titleName">HANGman Game!</h2>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="container">
+            <div class="card" id="baseCard">
+                <div class="card-body">
+                    <div id="gameName">
+                        <h2 class="card-title" id="titleName">HANGman Game!</h2>
+                    </div>
+                    <div class="card" id="gameGuide">
+                        <h5 class="card-text">Please help our HAGman out! Guess the word! Hint is Below!</h5>
+                        <h5 class="card-text" id="wordHint"> Text hint for the word</h5>
+                    </div>
+                    <div class="card" id="hangmanImageDiv">
+                        <img class="card-img-top" id="hangmanImage" src="images/Transparent.png" alt="Hangman image goes here">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card" id="wrongGuesses" id="leftFloat">
+                                <p>Wrong Guesses: </p> 
+                                <span id="mistakes">0 out of 7</span> 
                             </div>
-                            <div class="card" id="gameGuide">
-                                <h5 class="card-text">Please help our HAGman out! Guess the word! Hint is Below!</h5>
-                                <h5 class="card-text" id="wordHint"> Text hint for the word</h5>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card" id="guessedLetters">
+                                <p>Letters Guessed: </p> 
+                                <span id="guess">Guessed goes here</span> 
                             </div>
-                            <div class="card" id="hangmanImageDiv">
-                                <img class="card-img-top" id="hangmanImage" src="images/Transparent.png" alt="Hangman image goes here">
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="card" id="wrongGuesses" id="leftFloat">
-                                        <p>Wrong Guesses: </p> 
-                                        <span id="mistakes">0 out of 7</span> 
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="card" id="guessedLetters">
-                                        <p>Letters Guessed: </p> 
-                                        <span id="guess">Guessed goes here</span> 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card" id="keyBoardBack">
-                                <div id="keyboard"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="card">
-                                        <a href="#!" class="btn btn-primary" id="reset" onclick="reset()">Reset</a>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="card" id="keyBoardBack">
+                        <div id="keyboard"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <a href="#!" class="btn btn-primary" id="reset" onclick="reset()">Reset</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div></div></div>
+            </div>
+        </div>
         </header>
         <main>
             <br><br>
