@@ -87,17 +87,6 @@ $(document).ready(function(){
     var text = document.createTextNode("View Post");
     a.appendChild(text);
 
-    // View Post button
-    var b = document.createElement("input");
-    b.type = "button"
-    b.setAttribute("value", "Edit Post");
-    b.addEventListener('click', function () {
-        editPost(c.id);
-    });
-    b.setAttribute("class", "btn btn-outline-secondary");
-    var text = document.createTextNode("Edit Post");
-    b.appendChild(text);
-
     // Stitch it all together 
     cardbodydiv.appendChild(type);
     cardbodydiv.appendChild(title);
@@ -105,7 +94,6 @@ $(document).ready(function(){
     cardbodydiv.appendChild(desc);
     cardbodydiv.appendChild(date);
     cardbodydiv.appendChild(a);
-    cardbodydiv.appendChild(b);
     carddiv.appendChild(cardbodydiv);
     coldiv.appendChild(carddiv);
     document.getElementById("postings").appendChild(coldiv); 
