@@ -87,7 +87,9 @@ function submitPost() {
                         .then(function (docRef) {
                             db.collection("Users").doc(user.uid).collection("Posts").doc(docRef.id).set(post);
                             window.alert("Successfully posted!");
-                            location.reload();
+//                            location.reload();
+                            window.location.replace("main.html");
+
                             return true;
                         });
                 })
