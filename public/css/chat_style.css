@@ -188,6 +188,7 @@ img {
 .type_msg {
     border-top: 1px solid #c4c4c4;
     position: relative;
+    visibility: hidden;
 }
 
 .msg_send_btn {
