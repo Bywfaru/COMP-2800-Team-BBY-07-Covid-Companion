@@ -218,9 +218,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         loadList();
     } else {
         // If the user is not signed in.
-        // TODO: Uncomment the code below once ready.
-        // window.location.href = "signup.html"; // Redirects the user to "signup.html" to sign-up/log-in.
+        window.location.href = "signup.html"; // Redirects the user to "signup.html" to sign-up/log-in.
     }
 });
 
-localStorage.setItem("activeChatId", null);
+localStorage.setItem("activeChatId", null); // Resets the local storage item.
