@@ -189,6 +189,7 @@ function sendMessage() {
 
     messageDocRef
         .set({
+            // Sets the message's properties.
             message: message.value,
             from: thisUser.uid,
             time: firebase.firestore.Timestamp.now()
@@ -196,6 +197,7 @@ function sendMessage() {
         .then(function() {
             chatDocRef
                 .update({
+                    // Adds the new message's ID to the array.
                     messageIdArray: firebase.firestore.FieldValue.arrayUnion(messageDocRef.id)
                 });
         });
