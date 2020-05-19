@@ -135,11 +135,17 @@ function createChat() {
                         // If the document exists.
                         id: firebase.firestore.FieldValue.arrayUnion(chatId)
                     })
+                    .then(function() {
+                        window.location.href = "chat.html";
+                    })
                     .catch(function() {
                         // If the document doesn't exist.
                         posterChatIdDocRef
                             .set({
                                 id: [chatId]
+                            })
+                            .then(function() {
+                                window.location.href = "chat.html";
                             });
                     });
             });
