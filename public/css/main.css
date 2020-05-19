@@ -7,23 +7,18 @@
         main {
             display: grid;
             grid-template-areas:
-                "aside"
                 "section"
                 "footer";
         }
 
         section {
             grid-area: section;
-            border: 1px solid;
-        }
-
-        aside {
-            grid-area: aside;
-            border: 1px solid;
         }
 
         footer {
             position: relative;
+            background-color: black;
+            color: white;
             left: 0;
             right: 0;
             bottom: 0;
@@ -36,7 +31,7 @@
             main {
                 grid-template-columns: 20%;
                 grid-template-areas:
-                    "aside section"
+                    "section section"
                     "footer footer";
             }
         }
