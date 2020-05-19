@@ -26,7 +26,7 @@
         <!------------------------>
         <!-- Your own CSS files -->
         <!------------------------>
-        <link href="css/post-item_style.css" type="text/css" rel="stylesheet">
+        <link href="./css/post-item_style.css" type="text/css" rel="stylesheet">
       
               <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
         
@@ -165,9 +165,8 @@
                                 <label for="postType-0">
                                     <input type="radio" name="postType" id="postType-0" value="OFFERING" checked="checked">
                                     OFFERING
-                                </label>
-                            </div>
-                            <div class="radio">
+                                </label> 
+                                &ensp;
                                 <label for="postType-1">
                                     <input type="radio" name="postType" id="postType-1" value="REQUESTING">
                                     REQUESTING
@@ -185,8 +184,7 @@
                                     <input type="radio" name="donationType" id="donationType-0" value="1" onchange="updateCategoryOptions()" checked="checked">
                                     Item
                                 </label>
-                            </div>
-                            <div class="radio">
+                                 &ensp;
                                 <label for="donationType-1">
                                     <input type="radio" name="donationType" id="donationType-1" value="2" onchange="updateCategoryOptions()">
                                     Service
@@ -200,7 +198,7 @@
                         <label class="col-md-4 control-label" for="postTitle">Title</label>  
                         <div class="col-md-4">
                             <input id="title" name="titleName" type="text" placeholder="Title..." class="form-control input-md" required="">
-                            <span class="help-block">Type in the title of your post here</span>  
+                            <span class="help-block">(Type in the title of your post here)</span>  
                         </div>
                     </div>
 
@@ -209,7 +207,7 @@
                         <label class="col-md-4 control-label" for="postDesc">Description</label>
                         <div class="col-md-4">                     
                             <textarea class="form-control" id="postDesc" name="textarea" placeholder="Description..."></textarea>
-                            <span class="help-block">Description and any additional comments for your post</span> 
+                            <span class="help-block">(Description and any additional comments for your post)</span> 
                         </div>
                     </div>
 

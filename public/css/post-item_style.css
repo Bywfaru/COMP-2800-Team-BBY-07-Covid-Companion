@@ -4,3 +4,11 @@ h1 {
     font-size: 35px;
     color: #4689b5;
 }
+body{
+    font-family: 'Lato', sans-serif;
+     background: url("./images/fav1.png") no-repeat center center fixed;
+}
+legend{
+    text-align: center;
+}
+
