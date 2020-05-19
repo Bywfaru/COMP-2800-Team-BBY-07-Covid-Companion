@@ -50,7 +50,9 @@ h1 {
     font-size: 35px;
     color: #4689b5;
 }
-
+body{
+    font-family: 'Lato', sans-serif;
+}
 #butt {
     float:right;
     padding-right: 37%;
