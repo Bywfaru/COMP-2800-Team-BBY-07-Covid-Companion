@@ -6,9 +6,11 @@ h1 {
 }
 body{
     font-family: 'Lato', sans-serif;
-     background: url("./images/fav1.png") no-repeat center center fixed;
+/*    background-color: #a1bfe3;*/
 }
 legend{
     text-align: center;
 }
-
+#gif{
+    float: right;
+}
