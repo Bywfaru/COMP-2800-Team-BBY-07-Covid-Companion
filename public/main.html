@@ -13,6 +13,7 @@
         <!----------------------------------------------->
         <!-- CSS: Bootstrap, Firebase, other API -->
         <!----------------------------------------------->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link 
             rel="stylesheet" 
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -139,18 +140,26 @@
             </div>
         </nav>
         <br>
+         <div id="btnContainer">
         <span style="color: black; font-family: 'Lato', sans-serif;">SORT BY:</span>
-                <button onclick="getPosts()" class="btn btn-outline-primary">NEWEST</button>
-                <button onclick="getOldestPosts()" class="btn btn-outline-primary">OLDEST</button>
-                <button onclick="getOffers()" class="btn btn-outline-primary">OFFERS</button>
-                <button onclick="getRequests()" class="btn btn-outline-primary">REQUESTS</button>
+                <button onclick="getPosts()" class="btn btn-outline-success my-2 my-sm-0">NEWEST</button>
+                <button onclick="getOldestPosts()" class="btn btn-outline-success my-2 my-sm-0">OLDEST</button>
+                <button onclick="getOffers()" class="btn btn-outline-success my-2 my-sm-0">OFFERS</button>
+                <button onclick="getRequests()" class="btn btn-outline-success my-2 my-sm-0">REQUESTS</button>
+  <button class="button" onclick="listView()"><i class="fa fa-bars"></i> List</button> 
+  <button class="button active" onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button>
+</div>
         <br>
         <main>
 
             <!--Feed-->
             <section>
-                <div class="jumbotron" id="cards" style="background-color: white;">
+                <div class="row">
+                    <div class="column">
+                <div id="cards" style="background-color: white;">
                     <!--Cards go here-->
+                </div>
+                    </div>
                 </div>
             </section>
 
@@ -218,11 +227,11 @@ body-->
         </script>
 
         <script src="js/firebaseConfig.js"></script>
+    
     </body>
 
     <!----------------------------------------------->
     <!-- JS files: Your own JavaScripts go here    -->
     <!----------------------------------------------->
     <script src="js/main_script.js"></script>
-    <script src="js/konami.js"></script>
 </html>

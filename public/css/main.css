@@ -1,37 +1,87 @@
-        h1{
-            font-family: 'Lato', sans-serif;
-            font-style: italic;
-            font-size: 35px;
-            color: #4689b5;
-        }
-        main {
-            display: grid;
-            grid-template-areas:
-                "section"
-                "footer";
+h1{
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-size: 35px;
+    color: #4689b5;
+}
+main {
+    overflow-x: hidden;
+    display: grid;
+    grid-template-areas:
+        "section"
+        "footer";
+}
+
+section {
+    grid-area: section;
+}
+
+footer {
+    position: relative;
+    background-color: black;
+    color: white;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    grid-area: footer;
+    border: 1px solid;
+    z-index: 1;
+}
+
+@media (min-width: 1025px) {
+    main {
+        grid-template-columns: 20%;
+        grid-template-areas:
+            "section section"
+            "footer footer";
+    }
+    .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
         }
 
-        section {
-            grid-area: section;
-        }
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 100%;
+  padding: 10px;
+}
 
-        footer {
-            position: relative;
-            background-color: black;
-            color: white;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            grid-area: footer;
-            border: 1px solid;
-            z-index: 1;
-        }
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-        @media (min-width: 1025px) {
-            main {
-                grid-template-columns: 20%;
-                grid-template-areas:
-                    "section section"
-                    "footer footer";
-            }
-        }
+/* Responsive columns */
+/*
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+*/
+/* Style the buttons */
+.button {
+  float:right;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ddd;
+}
+
+.button.active {
+  background-color: #666;
+  color: white;
+}
+</style>
