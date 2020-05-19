@@ -15,14 +15,55 @@
 let itemImgDOM = document.getElementById("postImage");
 // Item image name.
 let itemImgName = "";
-
+let dbRef = db.collection("Posts");
 let postId = window.localStorage.getItem('postId');
+var storage = firebase.storage();
+var storageRef = storage.ref();
+//let imgPreviewDOM = document.getElementById("preview");
 
 //--------------------------------------//
 //                                      //
 // Functions                            //
 //                                      //
 //--------------------------------------//
+
+
+/**
+ * Fill form with current post data to be edited
+ * 
+ * @param post 
+ */
+function setUpPage(post) {
+    let postTypeDOM = document.getElementById("postType-0");
+    let donationTypeDOM = document.getElementById("donationType-0");
+    let postTitleDOM = document.getElementById("title");
+    let postDescDOM = document.getElementById("postDesc");
+
+    dbRef.doc(post).get()
+        .then(function (snap) {
+            userId = snap.data().thisUserId;
+
+            if (snap.data().postType == "OFFERING"){
+                postTypeDOM.checked = "checked";
+            } else {
+                document.getElementById("postType-1").checked = "checked";
+            }
+
+            if (snap.data().donationType == "Item"){
+                donationTypeDOM.checked = "checked";
+            } else {
+                document.getElementById("donationType-1").checked = "checked";
+            }
+            postTitleDOM.value = snap.data().postTitle;
+            postDescDOM.value = snap.data().postDesc;
+            
+            // TODO: make preview window for image?
+            //storageRef.child('postImage/' + snap.data().itemImgName).getDownloadURL()
+            //    .then(function (url) {
+            //        imgPreviewDOM.src = url;
+            //   });
+        })};
+
 
 /**
  * Updates the category options depending on the category type.
@@ -175,3 +216,10 @@ itemImgDOM.addEventListener("change", function(e) {
     // Set image name variable.
     itemImgName = file.name;
 });
+
+//--------------------------------------//
+//                                      //
+// MAIN                                 //
+//                                      //
+//--------------------------------------//
+setUpPage(postId);

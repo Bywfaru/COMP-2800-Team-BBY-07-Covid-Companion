@@ -57,7 +57,7 @@ function loadPage() {
 }
 
 /**
- * If user is the post owner, then generate a delete post button and removes the message button.
+ * If user is the post owner, then generate delete and edit post buttons and removes the message button.
  */
 function isPosterOwner() {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -65,13 +65,19 @@ function isPosterOwner() {
 
         if (user.uid == postCreatorId) {
             let deleteButton = document.createElement("button");
+            let editButton = document.createElement("button");
             let messageButton = document.getElementById("message");
 
             deleteButton.innerHTML = "Delete Post";
             deleteButton.onclick = deletePost;
+            editButton.innerHTML = "Edit Post";
+            editButton.onclick = editPost;
             // generate delete post
             document.getElementById("postDiv").appendChild(deleteButton);
             document.getElementById("postDiv").removeChild(messageButton);
+            // generate edit post
+            document.getElementById("postDiv").appendChild(editButton);
+
         }
     })
 }
@@ -102,6 +108,11 @@ function deletePost() {
             window.location.href = "main.html";
         });
 };
+
+function editPost() {
+    window.localStorage.setItem('postId', postId);
+    window.location.href = "edit-post.html"
+}
 
 /**
  * Creates a new chat and redirects to chat.html.

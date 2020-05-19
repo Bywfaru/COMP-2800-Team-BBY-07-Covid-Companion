@@ -6,6 +6,10 @@ $(document).ready(function(){
   
   var storage = firebase.storage();
   
+  var round = 1;
+  
+  var hasRes = false;
+  
   var storageRef = storage.ref();
   
   var searchRes = [localStorage.getItem('searchVal')];
@@ -27,6 +31,8 @@ $(document).ready(function(){
       if(searchRes.some(keyword => text.includes((keyword).toLowerCase()))
         || searchRes.some(keyword => text2.includes((keyword).toLowerCase()))
         || searchRes.some(keyword => text3.includes((keyword).toLowerCase()))) {
+        
+        hasRes = true;
         
     var coldiv = document.createElement("div");
     coldiv.setAttribute("class", "col-md-auto");
@@ -113,6 +119,19 @@ $(document).ready(function(){
     } else {
           console.log("not found");
     }
+          if(round == querySnapshot.size){
+            if(hasRes == false){
+            var breaker = document.createElement("br");
+            var noResults = document.createElement("h1");
+            var text = document.createTextNode("No Posts Found Under '" + searchRes + "' Keyword");
+            noResults.appendChild(text);
+            document.getElementById("postings").appendChild(breaker);
+            document.getElementById("postings").appendChild(noResults);
+            } else {
+              console.log("Results Found");
+            }
+          }
+          round++;
         });
       });
     });
