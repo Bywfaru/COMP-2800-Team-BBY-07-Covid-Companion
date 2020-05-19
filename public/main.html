@@ -78,6 +78,7 @@
 }
 </style>
         <script src="js/search.js"></script>
+        <script src="js/sign-out.js"></script>
     </head>
 
     <body>
@@ -119,7 +120,7 @@
                                 <span style="color: black; font-family: 'Lato', sans-serif;">Account Settings</span>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
+                            <a id="logout" class="dropdown-item" href="index.html">
                                 <span style="color: black; font-family: 'Lato', sans-serif;">Logout</span>
                             </a>
                         </div>
@@ -137,16 +138,14 @@
                 </form>
             </div>
         </nav>
-
+        <br>
+        <span style="color: black; font-family: 'Lato', sans-serif;">SORT BY:</span>
+                <button onclick="getPosts()" class="btn btn-outline-primary">NEWEST</button>
+                <button onclick="getOldestPosts()" class="btn btn-outline-primary">OLDEST</button>
+                <button onclick="getOffers()" class="btn btn-outline-primary">OFFERS</button>
+                <button onclick="getRequests()" class="btn btn-outline-primary">REQUESTS</button>
+        <br>
         <main>
-            <!--SIDEBAR-->
-            <aside>
-                SORT BY:<br>
-                <button onclick="getPosts()">NEWEST</button><br>
-                <button onclick="getOldestPosts()">OLDEST</button><br>
-                <button onclick="getOffers()">OFFERS</button><br>
-                <button onclick="getRequests()">REQUESTS</button>
-            </aside>
 
             <!--Feed-->
             <section>
@@ -175,8 +174,15 @@
                         </li>
                     </ul>
                 </nav>
-                <h4>Please note that all face-to-face interactions are at your own risk.</h4>
-                <h4>Be safe and help #FlattenTheCurve !</h4>
+                <br>
+            <h4>Covid Companion</h4>
+            <p>
+                Covid Companion is helping thousands of people <br>
+                during this time of crisis by making the essential<br>
+                items available to them as soon as possible.
+            </p>
+            <img class="img-thumbnail"  src="./images/socialmedia.png" alt="connect us">
+            <br><br>
             </footer>
         </main>
       

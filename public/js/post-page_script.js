@@ -7,6 +7,7 @@ var storage = firebase.storage();
 var storageRef = storage.ref();
 let postId = window.localStorage.getItem('postId');
 var userId;
+let viewerId;
 
 //==================================//
 //                                  //
@@ -102,21 +103,50 @@ function deletePost() {
         });
 };
 
-
 /**
- * Message the poster.
+ * Creates a new chat and redirects to chat.html.
  */
-function messagePoster() {
-    firebase.auth().onAuthStateChanged(function (user) {
-        let posterId = document.getElementById("userId").value; // Gets the poster's user ID.
-        console.log("Poster's id: " + posterId);
-        console.log("Viewer's id: " + user.uid);
-        localStorage.setItem("chatId", null); // Sets the local storage's chat ID to null so that a new message is
-        // created.
-        localStorage.setItem("posterId", posterId); // Sets the local storage's poster ID to the poster's ID.
+function createChat() {
+    if (viewerId) {
+        // If the user (viewer) is logged in.
+        let posterId = document.getElementById("userId").value;
+        let chatId = db.collection("Chats").doc().id;
+        console.log(chatId);
+        console.log("Viewing user: " + viewerId);
+        console.log("Poster: " + posterId);
+        let viewerChatIdDocRef = db.collection("Users").doc(viewerId).collection("Chats").doc("chatId");
+        let posterChatIdDocRef = db.collection("Users").doc(posterId).collection("Chats").doc("chatId");
 
-        window.location.href = "chat-room.html"; // Redirects to "chat-room.html."
-    });
+        viewerChatIdDocRef
+            .update({
+                // If the document exists.
+                id: firebase.firestore.FieldValue.arrayUnion(chatId)
+            })
+            .catch(function() {
+                viewerChatIdDocRef
+                    .set({
+                        // If the document doesn't exist.
+                        id: [chatId]
+                    });
+            })
+            .then(function() {
+                posterChatIdDocRef
+                    .update({
+                        // If the document exists.
+                        id: firebase.firestore.FieldValue.arrayUnion(chatId)
+                    })
+                    .catch(function() {
+                        // If the document doesn't exist.
+                        posterChatIdDocRef
+                            .set({
+                                id: [chatId]
+                            });
+                    });
+            });
+    } else {
+        // If the user is not logged in.
+        window.location.href = "signup.html"; // Redirect the user to "signup.html."
+    }
 }
 
 //==================================//
@@ -124,5 +154,9 @@ function messagePoster() {
 // Function Calls                   //
 //                                  //
 //==================================//
+
+firebase.auth().onAuthStateChanged(function(user) {
+    viewerId = user.uid;
+});
 
 loadPage();
