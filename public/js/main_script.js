@@ -82,13 +82,6 @@ function displayCards(CardObjects) { //takes in collection
 };
 
 //TODO: create dynamic grid with cards
-
-
-//======================//
-// Main()               //
-//======================//
-getPosts();
-
 // Get the elements with class="column"
 var elements = document.getElementsByClassName("column");
 
@@ -108,3 +101,10 @@ function gridView() {
     elements[i].style.width = "75%";
   }
 }
+
+
+//======================//
+// Main()               //
+//======================//
+getPosts();
+
