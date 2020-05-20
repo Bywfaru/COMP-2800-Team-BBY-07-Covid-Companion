@@ -70,8 +70,10 @@ function isPosterOwner() {
 
             deleteButton.innerHTML = "Delete Post";
             deleteButton.onclick = deletePost;
+            deleteButton.setAttribute("class", "btn btn-outline-success my-2 my-sm-0");
             editButton.innerHTML = "Edit Post";
             editButton.onclick = editPost;
+            editButton.setAttribute("class", "btn btn-outline-success my-2 my-sm-0");
             // generate delete post
             document.getElementById("postDiv").appendChild(deleteButton);
             document.getElementById("postDiv").removeChild(messageButton);
