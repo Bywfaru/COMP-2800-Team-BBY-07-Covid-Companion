@@ -137,9 +137,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 /**
  * @desc adds onClick to the logout button
  */
+
 function addOnClick() {
+  
     document.getElementById("logoutButton").onclick = logout;
+    
 }
+
 
 /**
  * @desc log out current logged in user.
