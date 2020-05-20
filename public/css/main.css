@@ -128,3 +128,10 @@ footer {
   background-color: #666;
   color: white;
 }
+
+.fb-share-button{
+    float: right;
+}
+.twitter-hashtag-button{
+    float: right;
+}
