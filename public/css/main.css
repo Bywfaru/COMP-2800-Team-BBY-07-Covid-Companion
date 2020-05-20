@@ -1,3 +1,22 @@
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#container {
+    height:"400px";
+    width:"400px";
+}
+
 /*the container must be positioned relative:*/
 .autocomplete {
   position: relative;
@@ -83,22 +102,9 @@ footer {
     width: 100%;
     display: block;
     margin-bottom: 20px;
-  }
         }
+      }
 
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 100%;
-  padding: 10px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* Responsive columns */
 /*
