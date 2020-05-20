@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
-        <title>COVID Companion</title>
+        <title>Get Help</title>
 
         <!----------------------------------------------->
         <!--  Meta tag for rendering on mobile devices -->
@@ -11,26 +11,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!----------------------------------------------->
-        <!-- CSS: Bootstrap, Firebase, other API -->
+        <!--  Bootstrap files -->
         <!----------------------------------------------->
-        <link 
-            rel="stylesheet" 
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
-            crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-        <!-- Importing Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-      
-        <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
-
-        <!------------------------>
-        <!-- Your own CSS files -->
-        <!------------------------>
-        <link rel="stylesheet" type="text/css" href="./css/main.css" media="screen"/>
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <!------------------------> 
+    <!-- Your own CSS files -->
+    <!------------------------>
+    <link rel="stylesheet" type="text/css" href="./css/about-us_style.css" media="screen"/>
         <!-- Couldn't screate style sheet for searchbar 
           have to put code here with the style element.-->
         <style>
@@ -77,15 +74,22 @@
   color: #ffffff; 
 }
 </style>
+      
+</head>
+        <!------------------------> 
+        <!-- Your own CSS files -->
+        <!------------------------>
+        <link href="./css/about-us_style.css" type="text/css" rel="stylesheet">
+          <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
         <script src="js/search.js"></script>
-        <script src="js/sign-out.js"></script>
     </head>
 
     <body>
         <!------------------->
         <!--  HTML Section -->
         <!------------------->
-
+        <header>
+    
         <!--NavBar-->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
             <a class="navbar-brand" href="main.html">
@@ -132,7 +136,7 @@
                             </a>
                         </div>
                     </li>
-                           
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -171,80 +175,114 @@
                 </form>
             </div>
         </nav>
+            <img class = "aboutus" src="./images/AboutUs.png" alt="About Us" width = "100%">
+        </header>
 
-        <main>
-            <!--SIDEBAR-->
-            <aside>
-                SORT BY:<br>
-                <button onclick="getPosts()">NEWEST</button><br>
-                <button onclick="getOldestPosts()">OLDEST</button><br>
-                <button onclick="getOffers()">OFFERS</button><br>
-                <button onclick="getRequests()">REQUESTS</button>
-            </aside>
+        <section>
+            <br><br><br>
+            <h2><b>Bringing communities together. No privacy <br>issues. Easy helping process.</b></h2><br>
+            <p>
+                Covid Companion allows communities to come together and support each other during this time of crisis. 
+                <br>
+                Many people are not able to acquire key resources due to various reasons such as shortage of supplies, 
+                lack of funds, or risk of infection. 
+                <br>
+                We aim to help people in getting their everyday necessities for free by posting a request for an item 
+                or service they need.
+                <br>
+                We also aim to help those who wish to assist others, as users can choose to donate or offer items and 
+                services! 
+                <br>
+                Our top priority is helping the elderly and those with disabilities, people who are struggling 
+                financially, and those people who are stuck in isolation/quarantine.
+                <br> 
+                Providing any sort of assistance to these groups is our goal.
+                <br> 
+                Any items which are unclaimed after a specific period of time will go directly to charity groups that 
+                are specifically combatting COVID-19.
+                <br><br><Br>
+            </p>
+        </section>
+        
+        <article>
+            <br><br><br>
+            <h2>Meet Our Creative Team</h2>
+            <br><br>
+        </article>
 
-            <!--Feed-->
-            <section>
-                <div class="jumbotron" id="cards" style="background-color: white;">
-                    <!--Cards go here-->
+        <aside>
+            <br><br>
+            <div class="card-deck">
+                <div class="card">
+                    <img class="card-img-top" src="./images/Kashish.png" alt="Member1">
+                    <div class="card-body">
+                        <h4 class="card-title">Kashish Bansal</h4>
+                        <p class="card-text">
+                            Warm welcome to Covid Companion! We know that this is a time of hardship and hence we want 
+                            to make sure that people who have been affected or who are suffering/struggling gets help 
+                            as soon as possible. Shutdown of everything resulted in different types of crisis. I 
+                            request to everyone who is capable of helping others to come forward and participate in 
+                            this initiative started by us. Let's fight this together!
+                        </p>
+                    </div>
                 </div>
-            </section>
+                <div class="card">
+                    <img class="card-img-top" src="./images/ricky.png" alt="Member2">
+                    <div class="card-body">
+                        <h4 class="card-title">Ricky Sun</h4>
+                        <p class="card-text">
+                            Hey there and welcome to Covid Companion! As someone who has family that is vulnerable to 
+                            the COVID-19 infection, I wanted to find a way to help those stuck in isolation. Hopefully 
+                            this website can become a centralized platform that allows communities to help each other out 
+                            in this time of need!
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="./images/Amber.png" alt="Member3">
+                    <div class="card-body">
+                        <h4 class="card-title">Amber Ma</h4>
+                        <p class="card-text">Welcome to Covid Companion, I hope that you find that our website meets 
+                            all of your needs during this trying time! We want to do our very best at flattening the 
+                            curve, just as much as the rest of Canada and the world. We found that the best way to do
+                            so is to reach out to the kindness of fellow British Columbians, so that we can band 
+                            together and combat this crisis.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="./images/William.jpg" alt="Member4">
+                    <div class="card-body">
+                        <h4 class="card-title">William He</h4>
+                        <p class="card-text">
+                            I hope you're having a good day! Thanks for checking our team out. We worked really hard 
+                            to bring Covid Companion to you in hopes of strengthening our communities and easing the 
+                            burden the pandemic has brought upon us.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </aside>
 
-            <!--Footer-->
-            <footer>
-                <!--Page Links-->
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <h4>Please note that all face-to-face interactions are at your own risk.</h4>
-                <h4>Be safe and help #FlattenTheCurve !</h4>
-            </footer>
-        </main>
-      
+        <footer>
+            <br>
+            <h4>Covid Companion</h4>
+            <p>
+                Covid Companion is helping thousands of people 
+                <br>
+                during this time of crisis by making the essential
+                <br>
+                items available to them as soon as possible.
+            </p>
+            <img class="img-thumbnail" src="./images/socialmedia.png" alt="connect us">
+            <br><br>
+        </footer>
 <!-- Where the autofill code goes for the search bar 
 it only seems to work when but around the bottom of the 
 body-->
       
 <script src="js/search-bar.js">
 </script>
-
-        <!----------------------------------------------->
-        <!-- JS: Boostrap, Firebase, other API's -->
-        <!----------------------------------------------->
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-
-        <script 
-            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
-            crossorigin="anonymous">
-        </script>
-        <script 
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
-            crossorigin="anonymous">
-        </script>
-        <script 
-            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
-            crossorigin="anonymous">
-        </script>
-
-        <script src="js/firebaseConfig.js"></script>
     </body>
 </html>

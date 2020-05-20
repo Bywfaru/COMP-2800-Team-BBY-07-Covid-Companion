@@ -1,43 +1,34 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
-        <title>COVID Companion</title>
-    
+        <title>Get Help</title>
+
         <!----------------------------------------------->
         <!--  Meta tag for rendering on mobile devices -->
         <!----------------------------------------------->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      
-        <!------------------------> 
-        <!-- Adding Favicon ------>
-        <!------------------------>
-        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
-        
-        <link rel="stylesheet" type="text/css" href="css/chat-Room.css" media="screen"/>
-        <!----------------------------------------------->
-        <!-- CSS: Bootstrap, Firebase, other API -->
-        <!----------------------------------------------->
-        <link 
-            rel="stylesheet" 
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
-            crossorigin="anonymous">
 
-        <!------------------------>
-        <!-- Your own CSS files -->
-        <!------------------------>
-        <link rel="stylesheet" href="./css/chat-room_style.css" type="text/css">
-        
+        <!----------------------------------------------->
+        <!--  Bootstrap files -->
+        <!----------------------------------------------->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
-        <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
-        <!-- Couldn't screate style sheet for searchbar 
+        <!------------------------> 
+        <!-- Your own CSS files -->
+        <!------------------------>
+                <!-- Couldn't screate style sheet for searchbar 
           have to put code here with the style element.-->
         <style>
 /*the container must be positioned relative:*/
@@ -83,11 +74,11 @@
   color: #ffffff; 
 }
 </style>
-        <script src="js/search.js"></script>
-        <script src="js/sign-out.js"></script>
+        <link href="./css/offer-help_style.css" type="text/css" rel="stylesheet">
     </head>
 
     <body>
+    
         <!--NavBar-->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
             <a class="navbar-brand" href="main.html">
@@ -134,35 +125,33 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href = 'post-item.html';">Post</button>
-                    </li>
-                </ul>
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="get-help2.html">
-                            <span style="color: black; font-family: 'Lato', sans-serif;">Get Help</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="offer-help2.html">
-                            <span style="color: black; font-family: 'Lato', sans-serif;">Offer Help</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Guidelines2.html">
-                            <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about-us2.html">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span style="color: black; font-family: 'Lato', sans-serif;">About Us</span>
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="get-help2.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Get help</span>
+                            </a>
+                            <a class="dropdown-item" href="offer-help.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Offer help</span>
+                            </a>
+                            <a class="dropdown-item" href="Guidelines2.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
+                            </a>
+                            <a class="dropdown-item" href="about-us2.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">About us</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a id="logout" class="dropdown-item" href="Contact2.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Contact us</span>
+                            </a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Contact2.html">
-                            <span style="color: black; font-family: 'Lato', sans-serif;">Contact Us</span>
-                        </a>
+                        <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href = 'post-item.html';">Post</button>
                     </li>
                 </ul>
                 
@@ -175,30 +164,56 @@
                 </form>
             </div>
         </nav>
-        <!----------------------------------------------->
-        <!--  MAIN CONTAINER CONTAINER -->
-        <!----------------------------------------------->
-        <!-- Append messages to "allMessages" div in JavaScript -->
-        <!-- Must include all the elements with the class names like in example -->
-        <div id="allMessages" class="mt-5">
-            <!-- Example 
-                <div class="messageDiv">
-                    <img class="profilePic" src="https://via.placeholder.com/100.png/00f">
-                    <p class="userName">Bob</p>
-                    <p class="userMessage">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium...</p>
-                    <p class="sentDate">Jan 1, 2000, 12:00 am</p>
-                </div>
-            -->
-        </div>
+<main>
+        <!--BANNER-->
+    <br>
+        <h1>Have excess items? Donate!</h1>
+    <br>
+        <p>
+            We all know that COVID-19 has changed our lives drastically. Starting from shutdown of businesses, 
+            universities, schools, restaurants, cinema halls, airports to transitioning everything to online. Events 
+            like marriages are post-poned for indefinite time period. Many people have lost their jobs. They are 
+            struggling hard to survive during this crisis. They are stuck at one place due to travel restrictions and 
+            shortage of money. Everyone starting from students to elderly citizens are affected. There are long queues 
+            outside of the grocery stores which makes buying groceries a difficult task specially for elderly and 
+            people with disabilities. Moreover, some stores run out of essential items most of the time as people are 
+            stocking the items for later use. Studies and grades of students are affected drastically. Everyone is 
+            trying to remain safe and cope up with the current situation.
+        </p>
+</main><br>
+        <section><br>
+        <p>
+            If you have some items which are not useful to you but can be useful for others then come forward and 
+            donate. It could be great help for someone who is trying to cope up in this situation. It can be anything 
+            starting from food, money, daily essentials to any basic service like plumbing, etc. You just need to 
+            follow 3 easy steps:
+        </p>
 
-        <div class="panel-footer fixed-bottom">
-            <div class="input-group">
-                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here...">
-                <span class="input-group-btn">
-                    <button class="btn btn-warning btn-sm" id="btn-chat" onclick="sendMessage()">Send</button>
-                </span>
-            </div>
-        </div>
+        <ul>
+            <li>Determine the item you want to donate</li>
+            <li>Post it on the feed with you contact details</li>
+            <li>Talk to the one who needs it about delivering it</li>
+        </ul>
+        <p>
+            That's it. These steps can definetely make someone's survival a bit easier in this time of hardship. Don't 
+            worry about the items, if they are not claimed by anyone,  they go straight to the food banks and charity 
+            groups.
+        </p>
+        <h2>Come forward and help!</h2><br>
+</section>
+        <footer>
+            <br>
+            <h4>Covid Companion</h4><br>
+            <p>
+                Covid Companion is helping thousands of people 
+                <br>
+                during this time of crisis by making the essential
+                <br>
+                items available to them as soon as possible.
+            </p>
+            <img class="img-thumbnail" src="./images/socialmedia.png" alt="connect us">
+            <br><br><br>
+        </footer>
       
 <!-- Where the autofill code goes for the search bar 
 it only seems to work when but around the bottom of the 
@@ -207,37 +222,7 @@ body-->
 <script src="js/search-bar.js">
 </script>
 
-        <!----------------------------------------------->
-        <!-- JS: Boostrap, Firebase, other API's    -->
-        <!----------------------------------------------->
-        <script 
-            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
-            crossorigin="anonymous">
-        </script>
-        <script 
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
-            crossorigin="anonymous">
-        </script>
-        <script 
-            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
-            crossorigin="anonymous">
-        </script>
-    
-        <!-- Firebase Products -->
-        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
-
-        <!-- Firebase Initialize -->
-        <script src="js/firebaseConfig.js"></script>
+        <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
+        <script src="js/search.js"></script>
     </body>
-
-    <!----------------------------------------------->
-    <!-- JS files: Your own JavaScripts go here    -->
-    <!----------------------------------------------->
-    <script src="js/chat-room_script.js"></script>
 </html>

@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
-        <title>COVID Companion</title>
+        <title>Get Help</title>
 
         <!----------------------------------------------->
         <!--  Meta tag for rendering on mobile devices -->
         <!----------------------------------------------->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-
         <!----------------------------------------------->
         <!-- CSS: Bootstrap, Firebase, other API -->
         <!----------------------------------------------->
@@ -25,17 +18,88 @@
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
             crossorigin="anonymous">
-        <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
-              <script src="js/search.js"></script>
-              <script src="js/sign-out.js"></script>
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+        
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
+
+    <!----------------------------------------------->
+    <!--  Meta tag for rendering on mobile devices -->
+    <!----------------------------------------------->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!------------------------> 
+    <!-- Adding Favicon ------>
+    <!------------------------>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+    
+     <!--    Importing Fonts------------>
+     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/contact_style.css" media="screen"/>
+                <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
+          <script src="js/search.js"></script>
+    
         <!------------------------>
         <!-- Your own CSS files -->
         <!------------------------>
-        <link href="./css/edit-post_style.css" type="text/css" rel="stylesheet">
+        <!-- Couldn't screate style sheet for searchbar 
+          have to put code here with the style element.-->
+        <style>
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+#search {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+</style>
+        <link rel="stylesheet" type="text/css" href="./css/contact_style.css" media="screen"/>
+
     </head>
 
     <body>
+        <header>
+    
         <!--NavBar-->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
             <a class="navbar-brand" href="main.html">
@@ -82,7 +146,7 @@
                             </a>
                         </div>
                     </li>
-                           
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -121,86 +185,56 @@
                 </form>
             </div>
         </nav>
-    
-        <!-- https://bootsnipp.com/forms -->
-        <div class="form-container">
-            <form class="form-horizontal" onsubmit="return false">
-                <fieldset>
-                    <!-- Form Name -->
-                    <legend>Edit your post</legend>
+</header>
+         <main>
+        <!--BANNER-->
+             <br><br>
+        <h1>Contact Us</h1>     
+        <p>
+            Covid Companion is helping thousands of people who need help during this period of crisis who are not able 
+            to purchase essential items to survive or want any other kind of service/help. We provide a common 
+            platform for community to come together and help those who are struggling. Please call one of our toll 
+            free numbers below or email Covid Companion using the contact form below if you have any questions about 
+            how to donate/request or what to donate/request.
+        </p><br><br>
+            </main>
+        <section>
+            <br><br>
+        <h2>Get in touch</h2>
+        <p>
+            <b>Covid Companion</b>
+            <br>
+            555 Seymour Street
+            <br>
+            Vancouver, BC
+            <br>
+            V6B 3H6, Canada
+            <br>
+        </p>
 
-                    <!-- Post Type Multiple Radios -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="postType">Post type</label>
-                        <div class="col-md-4">
-                            <div class="radio">
-                                <label for="postType-0">
-                                    <input type="radio" name="postType" id="postType-0" value="OFFERING" checked="checked">
-                                    OFFERING
-                                </label>
-                                &ensp;
-                                <label for="postType-1">
-                                    <input type="radio" name="postType" id="postType-1" value="REQUESTING">
-                                    REQUESTING
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Donation Type Multiple Radios -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="itemName">Post Title</label>  
-                        <div class="col-md-4">
-                            <div class="radio">
-                                <label for="donationType-0">
-                                    <input type="radio" name="donationType" id="donationType-0" value="1" onchange="updateCategoryOptions()" checked="checked">
-                                    Item
-                                </label>
-                                &ensp;
-                                <label for="donationType-1">
-                                    <input type="radio" name="donationType" id="donationType-1" value="2" onchange="updateCategoryOptions()">
-                                    Service
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item Name Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="postTitle">Title</label>  
-                        <div class="col-md-4">
-                            <input id="title" name="titleName" type="text" placeholder="Title..." class="form-control input-md" required="">
-                            <span class="help-block">Type in the title of your post here</span>  
-                        </div>
-                    </div>
-
-                    <!-- Category Select Basic -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="postDesc">Description</label>
-                        <div class="col-md-4">                     
-                            <textarea class="form-control" id="postDesc" name="textarea" placeholder="Description..."></textarea>
-                            <span class="help-block">Description and any additional comments for your post</span> 
-                        </div>
-                    </div>
-
-                    <!-- Post Image File Button --> 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="postImage">Post Image<br>(For security purposes, we must ask you to reupload your post image.)</label>
-                        <div class="col-md-4">
-                            <input id="postImage" name="postImage" class="input-file" type="file" accept="image/png, image/jpeg">
-                        </div>
-                    </div>
-                    
-                    <!-- Submit Button -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="btnSubmit"></label>
-                        <div class="col-md-4">
-                            <button id="btnSubmit" name="btnSubmit" class="btn btn-outline-success my-2 my-sm-0" onclick="submitPost()">Submit</button>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>  
-        </div>
+        <p>
+            Toll Free: 1-866-303-6061
+            <br>
+            Phone: +1-604-856-4595
+            <br>
+            Fax: 604-856-3800
+            <br>
+            Email: info@CovidCompanion.com
+            <br>
+        </p><br><br>
+</section>
+        <footer>
+        <br>
+        <h4>Covid Companion</h4>
+        <p>
+            Covid Companion is helping thousands of people <br>
+            during this time of crisis by making the essential<br>
+            items available to them as soon as possible.
+        </p>
+        <img class="img-thumbnail"  src="./images/socialmedia.png" alt="connect us">
+        <br><br>
+         
+    </footer>
       
 <!-- Where the autofill code goes for the search bar 
 it only seems to work when but around the bottom of the 
@@ -212,11 +246,6 @@ body-->
         <!----------------------------------------------->
         <!-- JS: Boostrap, Firebase, other API's -->
         <!----------------------------------------------->
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-
         <script 
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
@@ -224,7 +253,7 @@ body-->
         </script>
         <script 
             src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous">
         </script>
         <script 
@@ -232,10 +261,9 @@ body-->
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
             crossorigin="anonymous">
         </script>
-
-        <!----------------------------------------------->
-        <!-- JS files: Your own JavaScripts go here    -->
-        <!----------------------------------------------->
-        <script src="js/edit-post_script.js"></script>
+        <script 
+            type="text/javascript" 
+            src="https://cdnjs.cloudflare.com/ajax/libs/egg.js/1.0/egg.min.js">
+        </script>
     </body>
 </html>
