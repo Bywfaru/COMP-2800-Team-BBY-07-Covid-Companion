@@ -1,5 +1,7 @@
     $(document).ready(function(){
       
+   
+      
       document.getElementById("butt").onclick = function () {
         window.location.replace("user-prof.html");
       }
@@ -15,14 +17,7 @@ function loadPost() {
                 $("#savePosts").append(value);
           });
         });
-             db.collection('Users').doc(user.uid).collection('Chats').get().then(function(querySnapshot){
-          querySnapshot.forEach(function(doc){
-                var value = '<li><a>' + doc.data().chatId + '</a></li>';
-                $("#saveChats").append(value);
-          });
-        });
-                  
-                  
+               
         } else {
             alert("You're not logged in!");
         }
@@ -45,5 +40,7 @@ function logout() {
     })
 }
       loadPost();
+      
+      
       
     });
