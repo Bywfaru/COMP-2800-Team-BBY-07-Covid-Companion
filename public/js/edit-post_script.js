@@ -120,15 +120,34 @@ function submitPost() {
                 snap.forEach(function (obj) {
                     var submissionNo = obj.data().postNum;
                     submissionNo++;
-
                     let post = getValues(user, submissionNo);
-                    db.collection("Posts").doc(postId).set(post)
-                    .then(function(docRef) {
-                        // update in user's posts
-                        db.collection("Users").doc(user.uid).collection("Posts").doc(postId).set(post)
-                        alert("Post successfully edited!");
-                        window.location.href = "my-posts.html";
-                    });
+                    console.log(post);
+                    db.collection("Posts").doc(postId)
+                        .get()
+                        .then(function(doc) {
+                            console.log(post.itemImgName);
+                            if (post.postTitle == "") {
+                                post.postTitle = doc.data().postTitle;
+                            }
+
+                            if (post.postDesc == "") {
+                                post.postDesc = doc.data().postDesc;
+                            }
+
+                            if (post.itemImgName == "") {
+                                post.itemImgName = doc.data().itemImgName;
+                            }
+                        })
+                        .then(function() {
+                            console.log(post);
+                            db.collection("Posts").doc(postId).set(post);
+                        })
+                        .then(function(docRef) {
+                            // update in user's posts
+                            db.collection("Users").doc(user.uid).collection("Posts").doc(postId).set(post)
+                            alert("Post successfully edited!");
+                            //window.location.href = "my-posts.html";
+                        });
                 })
             });
         } else {
