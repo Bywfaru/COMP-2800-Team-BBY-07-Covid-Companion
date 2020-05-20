@@ -39,3 +39,42 @@
         "section"   
         "footer";
         }
+
+@media screen and (max-width: 450px) {
+    .float-right{
+        display:none;
+    }
+     ul#menu li {
+         display: inline-block;
+         padding: 30px;
+    }
+    footer.foot{
+        font-size:5vw;
+    }
+    body{
+        display: grid;
+        overflow-x:hidden;
+        grid-template-rows: auto; 
+        grid-template-areas: 
+            "header"
+            "main"
+            "section"
+            "footer";
+    }
+} 
+
+@media screen and (min-width:450px) and (max-width: 800px) {
+    ul#menu li {
+         padding: 30px;
+    }
+     body{
+        display: grid;
+        overflow-x:hidden;
+        grid-template-rows: auto; 
+        grid-template-areas: 
+            "header"
+            "main"
+            "section"
+            "footer";
+    }
+}
