@@ -5,24 +5,6 @@
       document.getElementById("butt").onclick = function () {
         window.location.replace("user-prof.html");
       }
-      
-/**
- * @desc send the message to firebase
- */
-function loadPost() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user){  db.collection('Users').doc(user.uid).collection('SavedPosts').get().then(function(querySnapshot){
-          querySnapshot.forEach(function(doc){
-                var value = '<li><a>' + doc.data().postNo + '</a></li>';
-                $("#savePosts").append(value);
-          });
-        });
-               
-        } else {
-            alert("You're not logged in!");
-        }
-    })
-}
 
 /**
  * @desc adds onClick to the logout button
@@ -39,7 +21,6 @@ function logout() {
         window.location.assign("signup.html");
     })
 }
-      loadPost();
       
       
       
