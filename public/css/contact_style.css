@@ -40,3 +40,6 @@ ul#menu li {
         "section"   
         "footer";
         }
+        #search {
+            float:right;
+        }

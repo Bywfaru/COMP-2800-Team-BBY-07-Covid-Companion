@@ -32,3 +32,6 @@ main{
     text-align: center;
 }
        
+#search {
+    float:right;
+}

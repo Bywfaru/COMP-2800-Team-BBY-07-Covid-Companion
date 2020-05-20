@@ -213,3 +213,15 @@ img {
     height: 516px;
     overflow-y: auto;
 }
+
+#search {
+    float:right;
+}
+
+h1{
+    color: #4689b5;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-size: 35px;
+    
+}

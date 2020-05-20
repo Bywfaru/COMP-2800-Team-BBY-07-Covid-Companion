@@ -36,4 +36,7 @@ main{
     grid-area: main;
     text-align: center;
 }
+#search {
+    float:right;
+}
        

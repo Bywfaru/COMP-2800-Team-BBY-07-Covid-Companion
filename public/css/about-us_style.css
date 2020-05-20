@@ -45,3 +45,7 @@ footer {
     background-color: black;
     color: white;
 }
+
+#search {
+    float:right;
+}
