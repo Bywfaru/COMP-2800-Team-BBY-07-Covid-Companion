@@ -40,6 +40,7 @@
         "footer";
         }
 
+/*Mobile view*/
 @media screen and (max-width: 450px) {
     .float-right{
         display:none;
@@ -63,6 +64,7 @@
     }
 } 
 
+/*Tablet view*/
 @media screen and (min-width:450px) and (max-width: 800px) {
     ul#menu li {
          padding: 30px;
