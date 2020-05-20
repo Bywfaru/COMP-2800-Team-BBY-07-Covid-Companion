@@ -18,3 +18,7 @@ h6 {
     color: lightgray;
     font-size: 15px;
 }
+body {
+    background-color: lightgray;
+    font-family: 'Lato', sans-serif;
+}
