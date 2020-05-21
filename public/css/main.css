@@ -93,7 +93,6 @@ footer {
         overflow-x: hidden;
     }
    .container{
-       overflow-x: hidden;
   width: 100%;
   display: grid;
   grid-template-columns: none;
