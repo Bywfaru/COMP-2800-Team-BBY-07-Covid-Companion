@@ -34,6 +34,9 @@ padding-right: 30%;
 
 /*Mobile view*/
 @media screen and (max-width: 450px) {
+    h1{
+        font-size: 25px;
+    }
     .artic{
         padding-left: 5%;
     }

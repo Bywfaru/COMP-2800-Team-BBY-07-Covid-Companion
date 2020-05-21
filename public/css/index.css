@@ -42,6 +42,9 @@
 
 /*Mobile view*/
 @media screen and (max-width: 450px) {
+    h1{
+        font-size: 25px;
+    }
     .float-right{
         display:none;
     }

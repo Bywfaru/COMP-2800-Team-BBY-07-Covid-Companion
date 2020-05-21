@@ -41,6 +41,9 @@ main{
 
 /*Mobile view*/
 @media screen and (max-width: 450px) {
+    h1{
+        font-size: 25px;
+    }
     main{
         text-align: left;
     }

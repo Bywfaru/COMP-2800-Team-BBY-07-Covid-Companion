@@ -55,6 +55,9 @@ footer {
 
 /*Mobile view*/
 @media screen and (max-width: 450px) {
+    h1{
+        font-size: 25px;
+    }
     body{
         display: grid;
         overflow-x:hidden;
