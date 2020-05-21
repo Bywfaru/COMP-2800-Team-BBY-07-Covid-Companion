@@ -1,5 +1,17 @@
 //==================================//
 //                                  //
+// Constants                        //
+//                                  //
+//==================================//
+
+const MONTHS = [
+    "Jan", "Feb", "Mar", "Apr",
+    "May", "Jun", "Jul", "Aug",
+    "Sep", "Oct", "Nov", "Dec"
+];
+
+//==================================//
+//                                  //
 // Global Variables                 //
 //                                  //
 //==================================//
@@ -128,6 +140,18 @@ function loadActiveMessage(chatId) {
                             .onSnapshot(function(messageDoc) {
                                 if (messageDoc.data().from == thisUser.uid) {
                                     // If the message is outgoing.
+
+                                    // Date variables.
+                                    let dateObj = messageDoc.data().time.toDate();
+                                    let month = dateObj.getMonth();
+                                    let day = dateObj.getDate();
+                                    let hours = dateObj.getHours();
+                                    let minutes = dateObj.getMinutes();
+
+                                    if (minutes.length < 2) {
+                                        minutes = "0" + minutes;
+                                    }
+
                                     // Create the DOM elements.
                                     let outgoingMsgDiv = document.createElement("div");
                                         outgoingMsgDiv.setAttribute("class", "outgoing_msg");
@@ -140,7 +164,7 @@ function loadActiveMessage(chatId) {
                                     // Set the attributes and inner HTML.
                                     messageP.innerHTML = messageDoc.data().message;
                                     // TODO: Set the date and time to the date and time in the db.
-                                    dateSpan.innerHTML = messageDoc.data().time;
+                                    dateSpan.innerHTML = MONTHS[month] + " " + day + ", " + hours + ":" + minutes;
                                 
                                     // Append the DOM elements.
                                     sentMsgDiv.appendChild(messageP);
