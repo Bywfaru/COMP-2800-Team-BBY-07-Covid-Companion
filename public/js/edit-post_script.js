@@ -146,7 +146,7 @@ function submitPost() {
                             // update in user's posts
                             db.collection("Users").doc(user.uid).collection("Posts").doc(postId).set(post)
                             alert("Post successfully edited!");
-                            //window.location.href = "my-posts.html";
+                            window.location.href = "my-posts.html";
                         });
                 })
             });

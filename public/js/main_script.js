@@ -32,7 +32,7 @@ var storageRef = storage.ref();
 
 // get newest posts from DB
 function getPosts() {
-    document.getElementById("cards").innerHTML = '';
+    document.getElementById("feed").innerHTML = '';
     dbRef.orderBy("postNum", "desc")
         .get()
         .then(function (snap) {
@@ -42,7 +42,7 @@ function getPosts() {
 
 // get oldest posts from DB
 function getOldestPosts() {
-    document.getElementById("cards").innerHTML = '';
+    document.getElementById("feed").innerHTML = '';
     dbRef.orderBy("postNum")
         .get()
         .then(function (snap) {
@@ -52,7 +52,7 @@ function getOldestPosts() {
 
 // get offer posts from DB
 function getOffers() {
-    document.getElementById("cards").innerHTML = '';
+    document.getElementById("feed").innerHTML = '';
     dbRef.where("postType", "==", "OFFERING")
         .get()
         .then(function (snap) {
@@ -62,7 +62,7 @@ function getOffers() {
 
 // get request posts from DB
 function getRequests() {
-    document.getElementById("cards").innerHTML = '';
+    document.getElementById("feed").innerHTML = '';
     dbRef.where("postType", "==", "REQUESTING")
         .get()
         .then(function (snap) {
@@ -77,12 +77,12 @@ function getRequests() {
  */
 function displayCards(CardObjects) { //takes in collection
     CardObjects.forEach(function (doc) { //cycle thru collection
-        createOneCard(doc); //create card for one post
+        createOneCard(doc); // create card for one post
     })
 };
 
 /**
- * Creates a post.
+ * Creates a card and appends it to the grid
  * 
  * @param c the post document
  */
@@ -118,7 +118,9 @@ function createOneCard(c) {
     // Post DESCRIPTION
     var desc = document.createElement("p");
     desc.setAttribute("class", "card-text");
-    var text = document.createTextNode(c.data().postDesc);
+    let myString = c.data().postDesc;
+    myString = myString.substring(0,50) + "...";
+    var text = document.createTextNode(myString);
     desc.appendChild(text);
 
     // Posted DATE
@@ -154,30 +156,12 @@ function createOneCard(c) {
     cardbodydiv.appendChild(a);
     carddiv.appendChild(cardbodydiv);
     coldiv.appendChild(carddiv);
-    document.getElementById("cards").appendChild(coldiv); //stick it in the div
+    document.getElementById("feed").appendChild(coldiv); //stick it in the div
 }
+
 
 //======================//
 // Main()               //
 //======================//
 getPosts();
 
-// Get the elements with class="column"
-var elements = document.getElementsByClassName("column");
-
-// Declare a loop variable
-var i;
-
-// List View
-function listView() {
-  for (i = 0; i < elements.length; i++) {
-    elements[i].style.width = "100%";
-  }
-}
-
-// Grid View
-function gridView() {
-  for (i = 0; i < elements.length; i++) {
-    elements[i].style.width = "75%";
-  }
-}
