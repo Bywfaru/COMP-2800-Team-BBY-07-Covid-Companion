@@ -61,41 +61,6 @@ h1{
     color: #4689b5;
 }
 
-
-/* Create two equal columns that floats next to each other */
-/*
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-}
-*/
-
-/* Clear floats after the columns */
-/*
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-*/
-
-/*
-main {
-    overflow-x: hidden;
-    display: grid;
-    grid-template-areas:
-        "section"
-        "footer";
-}
-*/
-
-/*
-section {
-    grid-area: section;
-}
-*/
-
 footer {
     position: relative;
     background-color: black;
@@ -107,22 +72,6 @@ footer {
     border: 1px solid;
     z-index: 1;
 }
-
-
-
-/* Responsive columns */
-/*
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-*/
-
-
-
 
 /* Style the buttons */
 .button {
