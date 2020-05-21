@@ -73,25 +73,6 @@ footer {
     z-index: 1;
 }
 
-/* Style the buttons */
-.button {
-  float:right;
-  border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: #f1f1f1;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #ddd;
-}
-
-.button.active {
-  background-color: #666;
-  color: white;
-}
-
 .fb-share-button{
     float: right;
 }
