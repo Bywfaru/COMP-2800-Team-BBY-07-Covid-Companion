@@ -163,7 +163,6 @@ function loadActiveMessage(chatId) {
                                 
                                     // Set the attributes and inner HTML.
                                     messageP.innerHTML = messageDoc.data().message;
-                                    // TODO: Set the date and time to the date and time in the db.
                                     dateSpan.innerHTML = MONTHS[month] + " " + day + ", " + hours + ":" + minutes;
                                 
                                     // Append the DOM elements.
@@ -175,6 +174,18 @@ function loadActiveMessage(chatId) {
                                     msgHistoryDiv.appendChild(outgoingMsgDiv);
                                 } else {
                                     // If the message is incoming.
+
+                                    // Date variables.
+                                    let dateObj = messageDoc.data().time.toDate();
+                                    let month = dateObj.getMonth();
+                                    let day = dateObj.getDate();
+                                    let hours = dateObj.getHours();
+                                    let minutes = dateObj.getMinutes();
+
+                                    if (minutes.length < 2) {
+                                        minutes = "0" + minutes;
+                                    }
+
                                     // Create the DOM elements.
                                     let msgHistoryDiv = document.getElementById("msg_history");
                                     
@@ -193,10 +204,9 @@ function loadActiveMessage(chatId) {
                                         dateSpan.setAttribute("class", "time_date");
                                 
                                     // Set the attributes and inner HTML.
-                                    profilePicImg.src = "https://randomuser.me/api/portraits/women/59.jpg";
+                                    profilePicImg.src = "./images/userProfile.png";
                                     messageP.innerHTML = messageDoc.data().message;
-                                    // TODO: Set the date and time to the date and time in the db.
-                                    dateSpan.innerHTML = messageDoc.data().time;
+                                    dateSpan.innerHTML = MONTHS[month] + " " + day + ", " + hours + ":" + minutes;
                                 
                                     // Append the DOM elements.
                                     incomingMsgImgDiv.appendChild(profilePicImg);
