@@ -89,7 +89,11 @@ footer {
          display: inline-block;
          padding: 30px;
     }
+    body{
+        overflow-x: hidden;
+    }
    .container{
+       overflow-x: hidden;
   width: 100%;
   display: grid;
   grid-template-columns: none;
@@ -104,6 +108,9 @@ footer {
 @media screen and (min-width:450px) and (max-width: 800px) {
     ul#menu li {
          padding: 30px;
+    }
+    body{
+        overflow-x: hidden;
     }
       .container{
   width: 100%;
