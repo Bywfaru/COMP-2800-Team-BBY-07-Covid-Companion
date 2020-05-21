@@ -16,6 +16,9 @@ footer{
     grid-area: footer;
     background-color: black;
     color: white;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 header{
     grid-area: header;
@@ -39,3 +42,37 @@ main{
     float:right;
 }
        
+
+/*Mobile view*/
+@media screen and (max-width: 450px) {
+    h1{
+        font-size: 25px;
+    }
+    main{
+        text-align: left;
+    }
+    body{
+        display: grid;
+        overflow-x:hidden;
+        grid-template-rows: auto; 
+        grid-template-areas: 
+            "header"
+            "main"
+            "section"
+            "footer";
+    }
+} 
+
+/*Tablet view*/
+@media screen and (min-width:450px) and (max-width: 800px) {
+     body{
+        display: grid;
+        overflow-x:hidden;
+        grid-template-rows: auto; 
+        grid-template-areas: 
+            "header"
+            "main"
+            "section"
+            "footer";
+    }
+}

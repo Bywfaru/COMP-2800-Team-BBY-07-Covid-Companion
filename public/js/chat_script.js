@@ -1,10 +1,22 @@
 //==================================//
 //                                  //
+// Constants                        //
+//                                  //
+//==================================//
+
+const MONTHS = [
+    "Jan", "Feb", "Mar", "Apr",
+    "May", "Jun", "Jul", "Aug",
+    "Sep", "Oct", "Nov", "Dec"
+];
+
+//==================================//
+//                                  //
 // Global Variables                 //
 //                                  //
 //==================================//
 
-let thisUser;
+let thisUser; // The current user.
 
 //==================================//
 //                                  //
@@ -34,6 +46,8 @@ function loadList() {
                 // For each chat ID, generate a inbox chat preview.
                 chatIdArray
                     .forEach(function(chatId) {
+                        let userName;
+                        console.log(chatId);
                         // Create the DOM elements.
                         let chatListDiv = document.createElement("div");
                             chatListDiv.setAttribute("class", "chat_list");
@@ -49,29 +63,40 @@ function loadList() {
                         let nameAndDateH5 = document.createElement("h5");
                         let messageP = document.createElement("p");
 
-                        // Set the attributes and inner HTML.
-                        chatListDiv.onclick = function() {
-                            loadActiveMessage(chatId);
-                        };
-                        // TODO: Replace URL with the other user's profile picture.
-                        profilePicImg.src = "https://randomuser.me/api/portraits/women/59.jpg";
-                        // TODO: Replace the name and date with the name and date stored on the db.
-                        nameAndDateH5.innerHTML = "Name <span class='chat_date'>Date</span>";
-                        // TODO: Replace the message with the message stored on the db.
-                        messageP.innerHTML = "Test message";
+                        db.collection("Chats").doc(chatId)
+                            .get()
+                            .then(function(doc) {
+                                db.collection("Users").doc(doc.data().userId[1])
+                                    .get()
+                                    .then(function(userDoc) {
+                                        userName = userDoc.data().name;
+                                        console.log(userName);
 
-                        // Append the DOM elements.
-                        chatImgDiv.appendChild(profilePicImg);
-                        
-                        chatIbDiv.appendChild(nameAndDateH5);
-                        chatIbDiv.appendChild(messageP);
+                                        // Set the attributes and inner HTML.
+                                        chatListDiv.onclick = function() {
+                                            loadActiveMessage(chatId);
+                                        };
+                                        // TODO: Replace URL with the other user's profile picture.
+                                        profilePicImg.src = "./images/userProfile.png";
+                                        // TODO: Replace the name and date with the name and date stored on the db.
+                                        nameAndDateH5.innerHTML = userName;
+                                        // TODO: Replace the message with the message stored on the db.
+                                        messageP.innerHTML = "Test message";
 
-                        chatPeopleDiv.appendChild(chatImgDiv);
-                        chatPeopleDiv.appendChild(chatIbDiv);
-                        
-                        chatListDiv.appendChild(chatPeopleDiv);
+                                        // Append the DOM elements.
+                                        chatImgDiv.appendChild(profilePicImg);
+                                        
+                                        chatIbDiv.appendChild(nameAndDateH5);
+                                        //chatIbDiv.appendChild(messageP);
 
-                        inboxChatDiv.appendChild(chatListDiv);
+                                        chatPeopleDiv.appendChild(chatImgDiv);
+                                        chatPeopleDiv.appendChild(chatIbDiv);
+                                        
+                                        chatListDiv.appendChild(chatPeopleDiv);
+
+                                        inboxChatDiv.appendChild(chatListDiv);
+                                    });
+                            });
                     });
             });
     }
@@ -101,7 +126,7 @@ function loadActiveMessage(chatId) {
             let msgHistoryDiv = document.getElementById("msg_history");
                 msgHistoryDiv.innerHTML = ""; // Clears the div so there are no dupes after each snapshot.
             
-            if (doc.data()) {
+            if (doc.data().messageIdArray) {
                 // If messages exist in the chat.
                 msgIdArray = doc.data().messageIdArray; // Array containing the message IDs.
 
@@ -115,6 +140,18 @@ function loadActiveMessage(chatId) {
                             .onSnapshot(function(messageDoc) {
                                 if (messageDoc.data().from == thisUser.uid) {
                                     // If the message is outgoing.
+
+                                    // Date variables.
+                                    let dateObj = messageDoc.data().time.toDate();
+                                    let month = dateObj.getMonth();
+                                    let day = dateObj.getDate();
+                                    let hours = dateObj.getHours();
+                                    let minutes = dateObj.getMinutes();
+
+                                    if (minutes.length < 2) {
+                                        minutes = "0" + minutes;
+                                    }
+
                                     // Create the DOM elements.
                                     let outgoingMsgDiv = document.createElement("div");
                                         outgoingMsgDiv.setAttribute("class", "outgoing_msg");
@@ -126,8 +163,7 @@ function loadActiveMessage(chatId) {
                                 
                                     // Set the attributes and inner HTML.
                                     messageP.innerHTML = messageDoc.data().message;
-                                    // TODO: Set the date and time to the date and time in the db.
-                                    dateSpan.innerHTML = messageDoc.data().time;
+                                    dateSpan.innerHTML = MONTHS[month] + " " + day + ", " + hours + ":" + minutes;
                                 
                                     // Append the DOM elements.
                                     sentMsgDiv.appendChild(messageP);
@@ -138,6 +174,18 @@ function loadActiveMessage(chatId) {
                                     msgHistoryDiv.appendChild(outgoingMsgDiv);
                                 } else {
                                     // If the message is incoming.
+
+                                    // Date variables.
+                                    let dateObj = messageDoc.data().time.toDate();
+                                    let month = dateObj.getMonth();
+                                    let day = dateObj.getDate();
+                                    let hours = dateObj.getHours();
+                                    let minutes = dateObj.getMinutes();
+
+                                    if (minutes.length < 2) {
+                                        minutes = "0" + minutes;
+                                    }
+
                                     // Create the DOM elements.
                                     let msgHistoryDiv = document.getElementById("msg_history");
                                     
@@ -156,10 +204,9 @@ function loadActiveMessage(chatId) {
                                         dateSpan.setAttribute("class", "time_date");
                                 
                                     // Set the attributes and inner HTML.
-                                    profilePicImg.src = "https://randomuser.me/api/portraits/women/59.jpg";
+                                    profilePicImg.src = "./images/userProfile.png";
                                     messageP.innerHTML = messageDoc.data().message;
-                                    // TODO: Set the date and time to the date and time in the db.
-                                    dateSpan.innerHTML = messageDoc.data().time;
+                                    dateSpan.innerHTML = MONTHS[month] + " " + day + ", " + hours + ":" + minutes;
                                 
                                     // Append the DOM elements.
                                     incomingMsgImgDiv.appendChild(profilePicImg);

@@ -31,3 +31,26 @@ body {
 padding-left: 30%;
 padding-right: 30%;
 }
+
+/*Mobile view*/
+@media screen and (max-width: 450px) {
+    h1{
+        font-size: 25px;
+    }
+    .artic{
+        padding-left: 5%;
+    }
+    #butt {
+        padding-right: 0;
+    }
+} 
+
+/*Tablet view*/
+@media screen and (min-width:450px) and (max-width: 800px) {
+     .artic{
+        padding-left: 5%;
+    }
+     #butt {
+        padding-top: 5%;
+    }
+}

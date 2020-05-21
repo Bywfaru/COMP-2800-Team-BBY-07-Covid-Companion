@@ -6,7 +6,6 @@ h1 {
 }
 body{
     font-family: 'Lato', sans-serif;
-/*    background-color: #a1bfe3;*/
 }
 legend{
     text-align: center;
@@ -14,3 +13,12 @@ legend{
 #gif{
     float: right;
 }
+/*Mobile view*/
+@media screen and (max-width: 450px) {
+    #gif{
+        display: none;
+    }
+    h1{
+        font-size: 25px;
+    }
+} 

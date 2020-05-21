@@ -148,6 +148,9 @@ function createChat() {
                         // If the document exists.
                         id: firebase.firestore.FieldValue.arrayUnion(chatId)
                     })
+                    .then(db.collection("Chats").doc(chatId).set({
+                        userId: [viewerId, posterId]
+                    }))
                     .then(function() {
                         window.location.href = "chat.html";
                     })
@@ -157,6 +160,9 @@ function createChat() {
                             .set({
                                 id: [chatId]
                             })
+                            .then(db.collection("Chats").doc(chatId).set({
+                                userId: [viewerId, posterId]
+                            }))
                             .then(function() {
                                 window.location.href = "chat.html";
                             });

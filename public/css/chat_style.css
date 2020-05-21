@@ -225,3 +225,15 @@ h1{
     font-size: 35px;
     
 }
+
+/*Mobile view*/
+@media screen and (max-width: 450px) {
+    h1{
+        font-size: 25px;
+    }
+} 
+
+/*Tablet view*/
+@media screen and (min-width:450px) and (max-width: 800px) {
+    
+}
