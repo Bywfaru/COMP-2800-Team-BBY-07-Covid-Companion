@@ -22,3 +22,10 @@ NOTICE: 5) Once the repository is cloned, you should use command 'git checkout d
 NOTICE: 6) You can now get started on developing our application!
 
 NOTICE: You will need to have access to Facebook for Developers and (more importantly) Firebase, so that you can manipulate the social media and firebase functions.
+
+NOTICE: To Sign into Facebook for Developers, you will have to login with this - (username : amber.ma.1232)(password: helloWorldgoodbyemOON!!).
+
+NOTICE: To sign into our firebase database however, you will need to request for it in an e-mail sent to us containing your gmail address, which we'll use to share it with you. You can send the message to our mybcit emails, or to our gmails.
+
+NOTICE: Our gmail addresses are: (Ricky - rickysun8008@gmail.com) (Kashish - aashma.2008@gmail.com)(Amber - agmlammy@gmail.com)(William - bywfaru@gmail.com).
+
