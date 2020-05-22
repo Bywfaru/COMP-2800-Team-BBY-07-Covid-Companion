@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>COVID Companion</title>
+    <!----------------------------------------------->
+    <!--  Meta tag for rendering on mobile devices -->
+    <!----------------------------------------------->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Helping British Columbians connect!">
+    <meta name="author" content="Linked Up">
+
+    <!----------------------------------------------->
+    <!-- CSS: Bootstrap, Firebase, other API -->
+    <!----------------------------------------------->
+
+    <script src="scripts/sweetAlert/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!----------------------------------------------->
+    <!--  INTERNAL CSS AND JS -->
+    <!----------------------------------------------->
+
+    <link href="css/styles.css" rel="stylesheet">
+  
+    <!------------------------>
+    <!-- Your own CSS files -->
+    <!------------------------>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        section {
+            border: 1px solid;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!----------------------------------------------->
+    <!--  LOAD FIREBASE JS -->
+    <!----------------------------------------------->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+
+
+    <!------------------->
+    <!--  HTML Section -->
+    <!------------------->
+
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="index.html">
+            <h1>COVID COMPANION</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="GetHelp.html">Get Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="OfferHelp.html">Offer Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Guidelines.html">Guidelines</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+    <!----------------------------------------------->
+    <!--  MAIN USER CARD SECTION -->
+    <!----------------------------------------------->
+
+    <div class="container text-md-left text-center">
+        <div class="card d-block" style="width: 100%;" id="usercard">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="images/placeholderimage.jpg" class="card-img-flex" style="max-width: 100%; max-height: 100%;" alt="User image" id="userimage">
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title" id="firstName">Loading..</h5>
+                                <h6 class="card-title" id="age_campus">Loading..</h5>
+                            </div>
+                        </div>
+                        <p class="card-text" id="bio">Loading...</p>
+                        <div class="mt-auto" style="bottom: 0px; position: relative;">
+                            <button type="button" class="btn btn-success w-50 float-left" id="interestedButton">INTERESTED</button>
+                            <button type="button" class="btn btn-danger w-50 float-right" id="notInterestedButton">NOT INTERESTED</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------->
+    <!--  NO MORE USERS TO SHOW VIEW  -->
+    <!----------------------------------------------->
+
+    <div class="container d-none" id="noMoreUsers">
+        <div class="row justify-content-md-center">
+            <h1>NO MORE USERS TO SHOW</h1>
+        </div>
+    </div>
+
+    <!----------------------------------------------->
+    <!--  CONFIGURE FIREBASE  -->
+    <!----------------------------------------------->
+
+    <script>
+        // TODO: Replace the following with your app's Firebase project configuration
+        var firebaseConfig = {
+    apiKey: "AIzaSyBaZHm6ZVMik8nQSd9By8swddN_23rsAhU",
+    authDomain: "comp2800-covid-companion.firebaseapp.com",
+    databaseURL: "https://comp2800-covid-companion.firebaseio.com",
+    projectId: "comp2800-covid-companion",
+    storageBucket: "comp2800-covid-companion.appspot.com",
+    messagingSenderId: "1049614650890",
+    appId: "1:1049614650890:web:1c78ffca70f68c90ead9f3",
+    measurementId: "G-XLKW7NCXFD"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+    </script>
+
+    <!----------------------------------------------->
+    <!--  LOAD INTERNAL JS AFTER BODY LOADS  -->
+    <!----------------------------------------------->
+
+    <script src="js/main.js"></script>
+</body>
+
+
+
+</html>

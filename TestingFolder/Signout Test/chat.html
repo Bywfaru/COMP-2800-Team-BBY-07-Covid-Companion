@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>COVID Companion</title>
+    
+        <!----------------------------------------------->
+        <!--  Meta tag for rendering on mobile devices -->
+        <!----------------------------------------------->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+        <!------------------------> 
+        <!-- Adding Favicon ------>
+        <!------------------------>
+        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+        
+        <link rel="stylesheet" type="text/css" href="css/chat-Room.css" media="screen"/>
+        <!----------------------------------------------->
+        <!-- CSS: Bootstrap, Firebase, other API -->
+        <!----------------------------------------------->
+        <link 
+            rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+            crossorigin="anonymous">
+        
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+        <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
+
+        <!-- CSS -->
+        <link href="css/chat_style.css" type="text/css" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
+            <a class="navbar-brand" href="main.html">
+                <h1><img src="images/smallfavicon.PNG" alt="logo" height="42" width="45"> COVID COMPANION</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span style="color: black; font-family: 'Lato', sans-serif;">Alerts</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="message-list.html">
+                            <span style="color: black; font-family: 'Lato', sans-serif;">DMs</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span style="color: black; font-family: 'Lato', sans-serif;">Profile</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="my-posts.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">My Posts</span>
+                            </a>
+                            <a class="dropdown-item" href="user-prof.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">My Profile</span>
+                            </a>
+                            <a class="dropdown-item" href="user-pref.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Account Settings</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href = 'post-item.html';">Post</button>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" autocomplete="off" action="/action_page.php">
+                  <div class="autocomplete" style="width:300px;">
+                    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  </div>
+                    <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                    
+                </form>
+            </div>
+        </nav>
+
+        <!-- Messaging widget. -->
+        <div class="container">
+            <div class="messaging">
+                <!-- Inbox messages. -->
+                <div class="inbox_msg">
+                    <div class="inbox_people">
+                        <div class="headind_srch">
+                            <div class="recent_heading">
+                                <h4>Recent</h4>
+                            </div>
+                        </div>
+
+                        <!-- Inbox chat previews. -->
+                        <div class="inbox_chat" id="inbox_chat">
+                            <!-- Active chat. -->
+                            <!--
+                            <div class="chat_list active_chat">
+                                <div class="chat_people">
+                                    <div class="chat_img">
+                                        <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                                    </div>
+                                    <div class="chat_ib">
+                                        <h5>Sunil Rajput<span class="chat_date">Dec 25</span></h5>
+                                        <p>Test, which is a new approach to have all solutions astrology under one roof.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                            <!-- Out-of-focus chat. -->
+                            <!--
+                            <div class="chat_list">
+                                <div class="chat_people">
+                                    <div class="chat_img">
+                                        <img src="https://ptetutorials.com/images/user-profile.png" alt="sunli">
+                                    </div>
+                                    <div class="chat_ib">
+                                        <h5>Sunil Rajput<span class="chat_date">Dec 25</span></h5>
+                                        <p>Test, which is a new approach to have all solutions astrology under one roof.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+
+                    <!-- In-chat messages. -->
+                    <div class="mesgs">
+                        <div class="msg_history" id="msg_history">
+                            <!-- Incoming message. -->
+                            <!--
+                            <div class="incoming_msg">
+                                <div class="incoming_msg_img"> 
+                                    <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
+                                </div>
+                                <div class="received_msg">
+                                    <div class="received_withd_msg">
+                                        <p>Test which is a new approach to have all solutions</p>
+                                        <span class="time_date"> 11:01 AM    |    June 9</span>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+
+                            <!-- Outgoing message. -->
+                            <!--
+                            <div class="outgoing_msg">
+                                <div class="sent_msg">
+                                    <p>Test which is a new approach to have all solutions</p>
+                                    <span class="time_date"> 11:01 AM    |    June 9</span> 
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                        <!-- Send message area. -->
+                        <div class="type_msg" id="type_msg">
+                            <div class="input_msg_write">
+                                <input type="text" class="write_msg" id="write_msg" placeholder="Type a message" />
+                                <button class="msg_send_btn" type="button" onclick="sendMessage()">
+                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center top_spac"> Design by <a target="_blank" href="#">Sunil Rajput</a></p>
+            </div>
+        </div>
+
+        <!----------------------------------------------->
+        <!-- JS: Boostrap, Firebase, other API's    -->
+        <!----------------------------------------------->
+        <script 
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+            crossorigin="anonymous">
+        </script>
+    
+        <!-- Firebase Products -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+
+        <!-- Firebase Initialize -->
+        <script src="js/firebaseConfig.js"></script>
+    </body>
+
+    <script src="js/chat_script.js"></script>
+</html>

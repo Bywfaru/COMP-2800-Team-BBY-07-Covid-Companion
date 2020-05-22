@@ -29,3 +29,9 @@ NOTICE: To sign into our firebase database however, you will need to request for
 
 NOTICE: Our gmail addresses are: (Ricky - rickysun8008@gmail.com) (Kashish - aashma.2008@gmail.com)(Amber - agmlammy@gmail.com)(William - bywfaru@gmail.com).
 
+NOTICE: You will need access to visual studio or brackets in order to work with our css, js, and html files.
+
+NOTICE: There is no designated order in which things must be installed or setup.
+
+NOTICE: This is the link to our Unit Testing Spreadsheet - (https://docs.google.com/spreadsheets/d/1KWq6jS3H-WzAhbOL5hr0uz_2PVxuxfpAdkR6B2M8xdQ/edit#gid=1675795679).
+

@@ -1,0 +1,41 @@
+        ul#menu li {
+            display:inline;
+            padding: 50px;
+        }
+        footer{
+            grid-area: footer;
+            background-color: black;
+            color: white;
+        }
+        header{
+            grid-area: header;
+            background-color: #edce1d;
+        }
+        h1{
+            font-family: 'Lato', sans-serif;
+            font-style: italic;
+            font-size: 35px;
+            color: #4689b5;
+        }
+        section{
+            grid-area: section;
+            text-align: center;
+            background-color: lightgrey;
+        }
+        #button{
+            float: right;
+        }
+        main{
+            grid-area: main;
+            text-align: center;
+        }
+        body{
+        overflow-x: hidden;
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "header"
+        "main"
+        "section"   
+        "footer";
+        }

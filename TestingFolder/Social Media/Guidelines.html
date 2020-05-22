@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Get Help</title>
+
+        <!----------------------------------------------->
+        <!--  Meta tag for rendering on mobile devices -->
+        <!----------------------------------------------->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <!--      Adding Favicon ------------>
+        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+    
+       <link rel="stylesheet" type="text/css" href="./css/guidelines_style.css" media="screen"/>
+
+        <!----------------------------------------------->
+        <!-- CSS: Bootstrap, Firebase, other API -->
+        <!----------------------------------------------->
+        <link 
+            rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+            crossorigin="anonymous">
+
+        <!------------------------>
+        <!-- Your own CSS files -->
+        <!------------------------>
+        <link href="./css/guidelines_style.css" type="text/css" rel="stylesheet">
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+        <!-- Fonts -->
+        <link 
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" 
+            rel="stylesheet">
+        <link 
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" 
+            rel="stylesheet">
+        <!-- Couldn't screate style sheet for searchbar 
+          have to put code here with the style element.-->
+        <style>
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+#search {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+</style>
+    </head>
+
+    <body>
+        <header>
+            <!-- Navbar -->
+            <div class="shadow p-3 mb-5 bg-#edce1d rounded">
+                <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
+                    <a class="navbar-brand" href="index.html">
+                        <h1><img src="images/smallfavicon.PNG" alt="logo" height="42" width="45"> COVID COMPANION</h1>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="get-help.html">
+                                    <span style="color: black; font-family: 'Lato', sans-serif;">Get Help</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="offer-help.html">
+                                    <span style="color: black; font-family: 'Lato', sans-serif;">Offer Help</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="guidelines.html">
+                                    <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about-us.html">
+                                    <span style="color: black; font-family: 'Lato', sans-serif;">About Us</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">
+                                    <span style="color: black; font-family: 'Lato', sans-serif;">Contact Us</span>
+                                </a>
+                            </li>
+                        </ul>
+                <form class="form-inline my-2 my-lg-0" autocomplete="off" action="/action_page.php">
+                  <div class="autocomplete" style="width:300px;">
+                    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  </div>
+                    <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                    
+                </form>
+                    </div>
+                </nav>
+            </div>
+            <br>      
+        </header>
+<main>
+        <!--BANNER-->
+    <br>
+        <h1>Guidelines</h1>
+<br>
+        <p>
+            We undertand that the current situation is difficult for everyone. We are here to help you guys in any way 
+            possible.The following are some guidelines you need to follow:
+        </p>
+    </main>
+        <ul>
+            <li>You must be a resident of Vancouver to be able to receive/provide help</li>
+            <li>If you have any kind of excess supplies but don;t know what to do then here you go, you can donate them!</li>
+            <li>Running out of suuplies or need help? just post a request.</li>
+            <li>
+                If you are short of an essential item (like toilet paper, etc), you can flag your post to make it 
+                appear at the top of feed for other users. 
+            </li>
+        </ul>
+<br>
+        <!--Footer-->
+        <footer>
+            <br>
+            <h4>Covid Companion</h4><br>
+            <p>
+                Covid Companion is helping thousands of people <br>
+                during this time of crisis by making the essential<br>
+                items available to them as soon as possible.
+            </p>
+            <img class="img-thumbnail" src="./images/socialmedia.png" alt="connect us">
+            <br><br>
+        </footer>
+      
+<!-- Where the autofill code goes for the search bar 
+it only seems to work when but around the bottom of the 
+body-->
+      
+<script src="js/search-bar.js">
+</script>
+
+        <!----------------------------------------------->
+        <!-- JS: Boostrap, Firebase, other API's -->
+        <!----------------------------------------------->
+        <script 
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            type="text/javascript" 
+            src="https://cdnjs.cloudflare.com/ajax/libs/egg.js/1.0/egg.min.js">
+        </script>
+    </body>
+</html>

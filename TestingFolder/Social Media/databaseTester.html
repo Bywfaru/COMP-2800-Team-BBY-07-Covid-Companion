@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+  
+  <head>
+  
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+      
+    <!--      Adding Favicon ------------>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBaZHm6ZVMik8nQSd9By8swddN_23rsAhU",
+    authDomain: "comp2800-covid-companion.firebaseapp.com",
+    databaseURL: "https://comp2800-covid-companion.firebaseio.com",
+    projectId: "comp2800-covid-companion",
+    storageBucket: "comp2800-covid-companion.appspot.com",
+    messagingSenderId: "1049614650890",
+    appId: "1:1049614650890:web:1c78ffca70f68c90ead9f3",
+    measurementId: "G-XLKW7NCXFD"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+</script>
+  
+<!-- New Script -->
+    
+<script>
+  
+  /** Reading from User collection. */
+  
+    db.collection("Users").doc("aA22db07prbdFOlPnZrb")
+    .onSnapshot(function (c) {
+       console.log("Current data: ", c.data().fName);
+       document.getElementById("data").innerHTML = c.data().fName;
+  })
+  
+  /** Reading from Items collection. */
+    
+  db.collection("Items").doc("98It9UvIkXV1F9a5W6Pl")
+    .onSnapshot(function (c) {
+       console.log("Current data: ", c.data().itemID);
+       document.getElementById("data").innerHTML = c.data().itemID;
+  })
+  
+   /** Reading from Posts collection. */
+  
+  db.collection("Posts").doc("Ok2Bb5O8dW4bs9LwENUg")
+    .onSnapshot(function (c) {
+       console.log("Current data: ", c.data().postNo);
+       document.getElementById("data").innerHTML = c.data().postNo;
+  })
+  
+ /** Reading from Services collection. */
+  
+  db.collection("Services").doc("nH3kBDBJeBBWKdvcIWZE")
+    .onSnapshot(function (c) {
+       console.log("Current data: ", c.data().serviceType);
+       document.getElementById("data").innerHTML = c.data().serviceType;
+  })
+  
+   /** Reading from News collection. */
+  
+  db.collection("NewsStories").doc("UhVV3DjiEEFEfZ6vnr1p")
+    .onSnapshot(function (c) {
+       console.log("Current data: ", c.data().source);
+       document.getElementById("data").innerHTML = c.data().source;
+  })
+  
+  /** Writing Adding to User collection 
+  (can be applied to any collection)
+  will probably be used for donation posting*/
+  
+  db.collection("Users").add({
+    addr: "9284 81N Avenue",
+    email: "ajdn@hotmail.com",
+    fName: "Miles",
+    lName: "Prower",
+    postalCode: "JD9 S0A"
+    
+  }).then(function(docRef){
+    console.log(docRef.id);
+    docRef.set({
+      userID: docRef.id
+    }, {merge: true})
+          })
+  
+  /** */
+  
+  
+    </script>
+    
+  </head>
+
+  <body>
+  
+    <div id="data">  </div>
+  
+  </body>
+
+</html>

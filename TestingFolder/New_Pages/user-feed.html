@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>COVID Companion</title>
+
+    <!----------------------------------------------->
+    <!--  Meta tag for rendering on mobile devices -->
+    <!----------------------------------------------->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!----------------------------------------------->
+    <!-- CSS: Bootstrap, Firebase, other API -->
+    <!----------------------------------------------->
+    <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+        crossorigin="anonymous">
+
+    <!-- Importing Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <!------------------------>
+    <!-- Your own CSS files -->
+    <!------------------------>
+    <link href="css/user-feed_style.css" type="text/css" rel="stylesheet">   
+        
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+    
+        <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
+        <!-- Couldn't screate style sheet for searchbar 
+          have to put code here with the style element.-->
+        <style>
+
+</style>
+    <script src="js/savedPostGenerate.js"></script>
+    <script src="js/search.js"></script>
+  </head>
+
+  <body>
+    <!------------------->
+    <!--  HTML Section -->
+    <!------------------->
+
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
+        <a class="navbar-brand" href="main.html">
+            <h1><img src="images/smallfavicon.PNG" alt="logo" height="42" width="45"> COVID COMPANION</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">Alerts</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="chat.html">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">DMs</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span style="color: black; font-family: 'Lato', sans-serif;">Profile</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="my-posts.html">
+                            <span style="color: black; font-family: 'Lato', sans-serif;">My Posts</span>
+                        </a>
+                        <a class="dropdown-item" href="user-feed.html">
+                            <span style="color: black; font-family: 'Lato', sans-serif;">My Saved Posts</span>
+                        </a>
+                        <a class="dropdown-item" href="user-prof.html">
+                            <span style="color: black; font-family: 'Lato', sans-serif;">My Profile</span>
+                        </a>
+                        <a class="dropdown-item" href="user-pref.html">
+                            <span style="color: black; font-family: 'Lato', sans-serif;">Account Settings</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a id="logout" class="dropdown-item" href="index.html">
+                            <span style="color: black; font-family: 'Lato', sans-serif;">Logout</span>
+                        </a>
+                    </div>
+                </li>
+                       
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span style="color: black; font-family: 'Lato', sans-serif;">About Us</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="get-help.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Get help</span>
+                            </a>
+                            <a class="dropdown-item" href="offer-help.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Offer help</span>
+                            </a>
+                            <a class="dropdown-item" href="Guidelines.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Guidelines</span>
+                            </a>
+                            <a class="dropdown-item" href="about-us.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">About us</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a id="logout" class="dropdown-item" href="Contact.html">
+                                <span style="color: black; font-family: 'Lato', sans-serif;">Contact us</span>
+                            </a>
+                        </div>
+                    </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href = 'post-item.html';">Post</button>
+                </li>
+            </ul>
+            
+            <form class="form-inline my-2 my-lg-0" autocomplete="off" action="/action_page.php">
+              <div class="autocomplete" style="width:300px;">
+                <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              </div>
+                <button id="searchButt" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                
+            </form>
+        </div>
+    </nav>
+
+    <section>
+      <!--Blurb-->
+      <div class="artic">
+        <div class="feed">
+          <h1><u><b>My Feed</b></u></h1>
+          <div id="userSaves">
+            <p><u><b>My Saved Posts</b></u></p>
+             <!--Feed-->
+             <section>
+              <div class="jumbotron" id="cards" style="background-color: white;">
+                  <!--Cards go here-->
+              </div>
+          </section>
+          </div>
+        </div>
+      </div>
+      <section id="prefPage">
+        <button id="butt" class="btn btn-outline-success my-2 my-sm-0">User Profile</button>
+      </section>
+    </section>
+    
+<!-- Where the autofill code goes for the search bar 
+it only seems to work when but around the bottom of the 
+body-->
+      
+<script src="js/search-bar.js">
+</script>
+
+    <!----------------------------------------------->
+    <!-- JS: Boostrap, Firebase, other API's -->
+    <!----------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+    <script 
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+        crossorigin="anonymous">
+    </script>
+
+    <script src="js/firebaseConfig.js"></script>
+  </body>
+
+  <script src="js/user-feed_script.js"></script>
+</html>

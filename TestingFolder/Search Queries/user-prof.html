@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>COVID Companion</title>
+
+    <!----------------------------------------------->
+    <!--  Meta tag for rendering on mobile devices -->
+    <!----------------------------------------------->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!--      Adding Favicon ------------>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+
+    <!--    Importing Fonts------------>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <!----------------------------------------------->
+    <!-- CSS: Bootstrap, Firebase, other API -->
+    <!----------------------------------------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+      <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.min.js'></script>
+  
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <script src="js/feedLoader.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBaZHm6ZVMik8nQSd9By8swddN_23rsAhU",
+    authDomain: "comp2800-covid-companion.firebaseapp.com",
+    databaseURL: "https://comp2800-covid-companion.firebaseio.com",
+    projectId: "comp2800-covid-companion",
+    storageBucket: "comp2800-covid-companion.appspot.com",
+    messagingSenderId: "1049614650890",
+    appId: "1:1049614650890:web:1c78ffca70f68c90ead9f3",
+    measurementId: "G-XLKW7NCXFD"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+</script>
+
+    <!------------------------>
+    <!-- Your own CSS files -->
+    <!------------------------>
+  
+    <link rel="stylesheet" type="text/css" href="css/user-prof.css" media="screen"/>
+  
+</head>
+
+<body>
+    <!------------------->
+    <!--  HTML Section -->
+    <!------------------->
+
+=======
+  <head>
+      <meta charset="UTF-8">
+      <title>COVID Companion</title>
+
+      <!----------------------------------------------->
+        <!--  Meta tag for rendering on mobile devices -->
+        <!----------------------------------------------->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!----------------------------------------------->
+        <!-- CSS: Bootstrap, Firebase, other API -->
+        <!----------------------------------------------->
+        <link 
+            rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+            crossorigin="anonymous">
+
+        <!-- Importing Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+        <!------------------------>
+        <!-- Your own CSS files -->
+        <!------------------------>
+        <link href="css/user-prof_style.css" type="text/css" rel="stylesheet">
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+  </head>
+
+  <body>
+>>>>>>> ba81eea09bed70b0dcc45a8277a2a131662bfb4d
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edce1d;">
+      <a class="navbar-brand" href="main.html">
+        <h1>
+          <img src="images/smallfavicon.PNG" alt="logo" height="42" width="45">
+          COVID COMPANION
+        </h1>
+      </a>
+      <button 
+        class="navbar-toggler" 
+        type="button" data-toggle="collapse" 
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span style="color: black; font-family: 'Lato', sans-serif;">Alerts</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span style="color: black; font-family: 'Lato', sans-serif;">DMs</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span style="color: black; font-family: 'Lato', sans-serif;">Profile</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="myPosts.html">
+                  <span style="color: black; font-family: 'Lato', sans-serif;">My Posts</span>
+              </a>
+              <a class="dropdown-item" href="user-prof.html">
+                  <span style="color: black; font-family: 'Lato', sans-serif;">My Profile</span>
+              </a>
+              <a class="dropdown-item" href="user-pref.html">
+                  <span style="color: black; font-family: 'Lato', sans-serif;">Account Settings</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                  <span style="color: black; font-family: 'Lato', sans-serif;">Logout</span>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href = 'post-item.html';">Post</button>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <section>
+      <!--Blurb-->
+      <div class="artic">
+        <h3 id="userName"></h3>
+        <span id="imageSection">
+        </span>
+        <h5><u><b>Description:</b></u></h5>
+        <p id="userDesc">
+        </p>
+        <p><b>Email</b>: <span id="useremail"></span></p>
+        <p><b>Address</b>: <span id="userAd"></span> </p>
+        <p><b>PostalCode</b>: <span id="userPost"></span></p>
+      </div>
+      <div class="Messenger">
+      </div>
+      <section id="butt">
+        <button id="butt1">Change Password</button>
+        <button id="butt2">User Feed</button>
+        <button id="prefPage">User Preferences</button>
+      </section>
+    </section>
+
+    <!----------------------------------------------->
+    <!-- JS: Boostrap, Firebase, other API's -->
+    <!----------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+    <script 
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+        crossorigin="anonymous">
+    </script>
+
+    <script src="js/firebaseConfig.js"></script>
+  </body>
+</html>

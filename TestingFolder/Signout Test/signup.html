@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Covid Companion</title>
+
+        <!-- FirebaseUI CDN -->
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="images/favicon.PNG">
+
+       <link rel="stylesheet" type="text/css" href="./css/signup_style.css" media="screen"/>
+   
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+      
+    </head>
+  
+        <!-- Facebook App Code -->
+      <script>
+        
+        /**
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '{your-app-id}',
+            cookie     : true,
+            xfbml      : true,
+            version    : '{api-version}'
+          });
+
+          FB.AppEvents.logPageView();   
+
+        };
+
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+         */
+      </script>
+
+    <body>
+        <!-- HTML element where the FirebaseUI sign-in widget will be rendered. -->
+        <br><br>
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
+
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <!-- Firebase products -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+        <!-- Firebase config JS file -->
+        <script src="js/firebaseConfig.js"></script>
+        <!-- Page JS file -->
+        <script src="js/signup_script.js"></script>
+    </body>
+</html>
